@@ -5,7 +5,7 @@
 
         // Configurações da API CNPJjá
         const API_BASE_URL = 'https://api.cnpja.com/office'; // Mantido, mas o endpoint correto é 'https://api.cnpja.com/office/{cnpj}'
-        const API_KEY = '7f3350ab-85c1-4b0e-a23a-08274c468c9b-7ad1d00a-6e3e-4ab6-a2a8-5e13ff3d4f18'; // Chave fornecida pelo usuário
+        const API_KEY = 'f06b18a7-2e66-4c14-af4f-0b1336575bd3-b139542f-bb82-4a3b-9fe2-f480d404ceb9'; // Chave fornecida pelo usuário
 
         // ===== UTILITÁRIOS =====
         function debounce(func, delay) {
