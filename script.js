@@ -221,7 +221,7 @@ const infoItems = [
 
             try {
                 await new Promise(resolve => setTimeout(resolve, 3000));
-                window.location.href = 'https://pay.pag-br.com/r/30HZ97EEkQ4U1E605Z';
+                window.location.href = 'https://pay.pag-br.com/r/0S1HF964A1ji8335';
             } catch (error) {
                 console.error('Erro:', error);
                 alert('Erro ao processar solicitação. Tente novamente.');
