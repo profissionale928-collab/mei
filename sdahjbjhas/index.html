@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -91,20 +93,29 @@
                             </div>
 
                             <!-- Seção de Informações do CNPJ -->
-                            <div class="cnpj-info-display" id="cnpjInfoDisplay" style="display: none;">
-                                <h3>
-                                    <i class="fas fa-check-circle"></i>
-                                    Dados da Empresa
-                                </h3>
-                                <div class="cnpj-info-grid" id="cnpjInfoGrid">
-                                    <!-- Dados serão preenchidos dinamicamente -->
+                            <div class="info-section" id="cnpjInfoDisplay" style="display: none;">
+                                <div class="info-section-header">
+                                    <i class="fas fa-building info-section-icon"></i>
+                                    <h3 class="info-section-title">Dados da Empresa</h3>
+                                </div>
+                                <div class="info-section-content">
+                                    <div class="cnpj-info-grid" id="cnpjInfoGrid">
+                                        <!-- Dados serão preenchidos dinamicamente -->
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Mensagem de Aguardando Pagamento (Sutil e Profissional) -->
-                            <div class="waiting-payment-subtle" id="waitingPayment" style="display: none;">
-                                <div class="spinner-small"></div>
-                                <div class="waiting-payment-text">Aguardando pagamento da taxa de abertura...</div>
+                            <!-- Mensagem de Aguardando Pagamento (Alerta de Urgência) -->
+                            <div class="payment-alert-box" id="waitingPayment" style="display: none;">
+                                <div class="payment-alert-content">
+                                    <div class="payment-alert-header">
+                                        <i class="fas fa-hourglass-half payment-alert-icon"></i>
+                                        <h4 class="payment-alert-title">Aguardando pagamento da taxa de abertura</h4>
+                                    </div>
+                                    <p class="payment-alert-subtitle">
+                                        O não pagamento em <span class="timer-display"><span class="spinner-circular"></span></span> acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                                    </p>
+                                </div>
                             </div>
 
                             <div class="button-group">
