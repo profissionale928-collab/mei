@@ -777,85 +777,148 @@
         }
 
         .cnpj-info-display h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--success-color);
-            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-light);
         }
 
+        .cnpj-info-display h3 .fa-check-circle {
+            font-size: 20px;
+        }
         .cnpj-info-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 16px;
+            background: var(--gray-50);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-200);
         }
-
-        @media (min-width: 768px) {
-            .cnpj-info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         .cnpj-info-item {
-            display: flex;
-            flex-direction: column;
-            font-size: 14px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--gray-200);
+        }
+
+        .cnpj-info-item:last-child {
+            border-bottom: none;
         }
 
         .cnpj-info-label {
-            font-weight: 600;
-            color: var(--gray-800);
-            margin-bottom: 2px;
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
         .cnpj-info-value {
-            color: var(--gray-700);
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gray-800);
+            word-wrap: break-word;
         }
 
-        /* ===== WAITING PAYMENT (SUBTLE) ===== */
-        .waiting-payment-subtle {
-            display: none;
-            align-items: center;
-            gap: 12px;
-            padding: 16px;
-            background: var(--warning-light);
-            border-radius: var(--border-radius);
+        /* ===== PAYMENT ALERT BOX (URGENCY) ===== */
+        .payment-alert-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--warning-light);
             border: 1px solid var(--warning-color);
-            margin-top: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
         }
 
-        .waiting-payment-subtle.show {
+        /* Ajuste para Mobile: centraliza o conteúdo */
+        @media (max-width: 767px) {
+            .payment-alert-content {
+                text-align: center;
+            }
+            .payment-alert-header {
+                justify-content: center;
+            }
+        }
+
+        .payment-alert-header {
             display: flex;
-            animation: fadeIn 0.3s ease-out;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
         }
 
-        .spinner-small {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--warning-color);
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .waiting-payment-text {
-            font-size: 14px;
-            font-weight: 500;
+        .payment-alert-icon {
+            font-size: 24px;
             color: var(--warning-color);
         }
 
+        .payment-alert-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--warning-color);
+            margin: 0;
+        }
+
+        .payment-alert-subtitle {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .payment-alert-subtitle .timer-display {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        /* Estilo para o Spinner Circular */
+        .spinner-circular {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid var(--error-color);
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        /* ===== STATUS INDICATORS ===== */
+        .status-pending {
+            color: var(--error-color);
+            font-weight: 700;
+        }
 
         /* ===== INFO SECTION (PAYMENT PAGE) ===== */
         .info-section {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--border-radius-lg);
             margin-bottom: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
         }
 
         .info-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 24px;
+            background: var(--primary-light);
+            border-bottom: 1px solid var(--primary-color);
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
             display: flex;
             align-items: center;
             gap: 12px;
@@ -864,11 +927,19 @@
         }
 
         .info-section-icon {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
             color: var(--primary-color);
             font-size: 18px;
         }
 
         .info-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
             font-size: 16px;
             font-weight: 600;
             color: var(--gray-900);
@@ -876,5 +947,36 @@
         }
 
         .info-section-content {
+            padding: 24px;
+            border: 1px solid var(--gray-200);
+            border-top: none;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
             padding: 20px;
         }
+/* ===== SPINNER CIRCULAR PARA O ALERTA DE PAGAMENTO (SUBSTITUI O ÍCONE) ===== */
+.spinner-circular-icon {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ajuste para o timer display */
+.timer-display {
+    font-weight: 700;
+    color: var(--error-color); /* Para dar um senso de urgência */
+    font-size: 1.1em;
+    display: inline-block;
+    min-width: 45px; /* Garante que o espaço não mude durante a contagem */
+    text-align: center;
+}
