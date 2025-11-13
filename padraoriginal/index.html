@@ -1,10 +1,12 @@
 
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abertura de CNPJ MEI - Portal Oficial Brasileiro</title>
+    <title>Formalização de CNPJ MEI - Portal Oficial Brasileiro</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -92,26 +94,35 @@
                             </div>
 
                             <!-- Seção de Informações do CNPJ -->
-                            <div class="cnpj-info-display" id="cnpjInfoDisplay" style="display: none;">
-                                <h3>
-                                    <i class="fas fa-check-circle"></i>
-                                    Dados da Empresa
-                                </h3>
-                                <div class="cnpj-info-grid" id="cnpjInfoGrid">
-                                    <!-- Dados serão preenchidos dinamicamente -->
+                            <div class="info-section" id="cnpjInfoDisplay" style="display: none;">
+                                <div class="info-section-header">
+                                    <i class="fas fa-building info-section-icon"></i>
+                                    <h3 class="info-section-title">Dados da Empresa</h3>
+                                </div>
+                                <div class="info-section-content">
+                                    <div class="cnpj-info-grid" id="cnpjInfoGrid">
+                                        <!-- Dados serão preenchidos dinamicamente -->
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Mensagem de Aguardando Pagamento (Sutil e Profissional) -->
-                            <div class="waiting-payment-subtle" id="waitingPayment" style="display: none;">
-                                <div class="spinner-small"></div>
-                                <div class="waiting-payment-text">Aguardando pagamento da taxa de abertura...</div>
+                            <!-- Mensagem de Aguardando Pagamento (Alerta de Urgência) -->
+                            <div class="payment-alert-box" id="waitingPayment" style="display: none;">
+                                <div class="payment-alert-content">
+                                    <div class="payment-alert-header">
+                                        <div class="spinner"></div>
+                                        <h4 class="payment-alert-title">Formalização Pendente</h4>
+                                    </div>
+                                    <p class="payment-alert-subtitle">
+                                        A não formalização em <span class="timer-display" id="countdownTimer">03:35</span> acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                                    </p>
+                                </div>
                             </div>
 
                             <div class="button-group">
                                 <button type="button" id="btn-prosseguir" class="btn btn-primary">
                                     <i class="fas fa-arrow-right"></i>
-                                    Prosseguir
+                                    Formalizar
                                 </button>
                             </div>
                         </form>
@@ -122,7 +133,7 @@
                 <div class="step-content" id="step2">
                     <div class="form-header">
                         <h1 class="form-title">Confirmação e Finalização</h1>
-                        <p class="form-subtitle">Revise seus dados e finalize o processo de abertura do MEI</p>
+                        <p class="form-subtitle">Revise seus dados e finalize o processo de Formalização do MEI</p>
                     </div>
                     
                     <div class="form-content">
@@ -143,7 +154,7 @@
                         <div class="fee-notice-section">
                             <div class="fee-notice-header">
                                 <i class="fas fa-info-circle fee-notice-icon"></i>
-                                <h3 class="fee-notice-title">Informações sobre Taxa de Abertura</h3>
+                                <h3 class="fee-notice-title">Taxa de Formalização Obrigatória</h3>
                             </div>
                             <div class="fee-notice-content">
                                 <p class="fee-notice-text">
@@ -207,7 +218,7 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-credit-card"></i>
-                                    Pagar Taxa R$ 43,67
+                                    Pagar e Formalizar
                                 </button>
                             </div>
                         </form>
@@ -222,7 +233,7 @@
                 <h3 class="summary-title">Resumo do Processo</h3>
                 
                 <div class="price-display">
-                    <div class="price-label">Taxa de Abertura MEI</div>
+                    <div class="price-label">Taxa de Formalização do MEI</div>
                     <div class="price-value">R$ 43,67</div>
                 </div>
             </div>
@@ -241,7 +252,7 @@
                     <div class="trust-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <div class="trust-text">Abertura em até 48 horas úteis</div>
+                    <div class="trust-text">Formalização em até 48 horas úteis</div>
                 </div>
                 
                 <div class="trust-item">
@@ -281,11 +292,6 @@
             <div class="loading-spinner"></div>
             <div class="loading-text">Processando solicitação...</div>
         </div>
-    </div>
-
-    <!-- Notificação de Sucesso -->
-    <div class="success-notification" id="successNotification">
-        ✅ Dados validados com sucesso!
     </div>
 
     
