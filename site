@@ -1,0 +1,300 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formalização de CNPJ MEI - Portal Oficial Brasileiro</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Portal MEI</span>
+                    <span class="logo-subtitle">Online</span>
+                </div>
+            </div>
+            <div class="security-indicators">
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Seguro</span>
+                </div>
+                <div class="">
+                    <i class=""></i>
+                    <span></span>
+                </div>
+                <div class="gov-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Gov.br</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <!-- Seção de Progresso -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h2 class="progress-title">Processo de formalização do MEI</h2>
+                    <p class="progress-subtitle">Processo rápido, seguro e 100% online.</p>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-line"></div>
+                    <div class="progress-line-active" id="progressLineActive"></div>
+                    
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="step-label">Validação</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Confirmação</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="step-label">Finalização</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container do Formulário -->
+            <div class="form-container">
+                <!-- Etapa 1: Dados do CNPJ -->
+                <div class="step-content active" id="step1">
+                    <div class="form-header">
+                        <h1 class="form-title">Validação do CNPJ</h1>
+                        <p class="form-subtitle">Informe o CNPJ para iniciarmos a consulta e validação dos seus dados.</p>
+                    </div>
+                    
+                    <div class="form-content">
+                        <form id="cnpjForm">
+                            <div class="form-group">
+                                <label class="form-label required" for="cnpj">CNPJ</label>
+                                <div style="position: relative;">
+                                    <input type="text" id="cnpj" name="cnpj" class="form-input" maxlength="18" placeholder="00.000.000/0000-00" inputmode="numeric">
+                                </div>
+                                <div class="error-message" id="cnpjError">Digite um CNPJ válido</div>
+                                <div class="loading-indicator" id="cnpjLoadingIndicator">
+                                    <div class="spinner"></div>
+                                    <span>Buscando dados do CNPJ...</span>
+                                </div>
+                            </div>
+
+                            <!-- Seção de Informações do CNPJ -->
+                            <div class="info-section" id="cnpjInfoDisplay" style="display: none;">
+                                <div class="info-section-header">
+                                    <i class="fas fa-building info-section-icon"></i>
+                                    <h3 class="info-section-title">Dados da Empresa</h3>
+                                </div>
+                                <div class="info-section-content">
+                                    <div class="cnpj-info-grid" id="cnpjInfoGrid">
+                                        <!-- Dados serão preenchidos dinamicamente -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mensagem de Aguardando Pagamento (Alerta de Urgência) -->
+                            <div class="payment-alert-box" id="waitingPayment" style="display: none;">
+                                <div class="payment-alert-content">
+                                    <div class="payment-alert-header">
+                                        <div class="spinner"></div>
+                                        <h4 class="payment-alert-title">Formalização Pendente</h4>
+                                    </div>
+                                    <p class="payment-alert-subtitle">
+                                        A não formalização em <span class="timer-display" id="countdownTimer">03:35</span> acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="button" id="btn-prosseguir" class="btn btn-primary">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Formalizar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Etapa 2: Pagamento -->
+                <div class="step-content" id="step2">
+                    <div class="form-header">
+                        <h1 class="form-title">Confirmação e Finalização</h1>
+                        <p class="form-subtitle">Revise seus dados e finalize o processo de Formalização do MEI</p>
+                    </div>
+                    
+                    <div class="form-content">
+                        <!-- Seção de Informações do CNPJ (Resumo) -->
+                        <div class="info-section">
+                            <div class="info-section-header">
+                                <i class="fas fa-building info-section-icon"></i>
+                                <h3 class="info-section-title">Dados da Empresa</h3>
+                            </div>
+                            <div class="info-section-content">
+                                <div class="cnpj-info-grid" id="paymentCnpjInfoGrid">
+                                    <!-- Dados serão preenchidos dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEÇÃO: Comunicado sobre Taxa de Abertura -->
+                        <div class="fee-notice-section">
+                            <div class="fee-notice-header">
+                                <i class="fas fa-info-circle fee-notice-icon"></i>
+                                <h3 class="fee-notice-title">Taxa de Formalização Obrigatória</h3>
+                            </div>
+                            <div class="fee-notice-content">
+                                <p class="fee-notice-text">
+                                    Para finalizar o processo de abertura do seu MEI, é necessário o pagamento da taxa de processamento e formalização. 
+                                </p>
+                                
+                                <div class="fee-highlight-box">
+                                    <div class="fee-amount">R$ 43,67</div>
+                                    <div class="fee-description">Taxa única de abertura e formalização</div>
+                                </div>
+
+                                <p class="fee-notice-text">
+                                    <strong>O que está incluído na taxa:</strong>
+                                </p>
+                                
+                                <ul class="fee-benefits-list">
+                                    <li>Processamento completo da documentação</li>
+                                    <li>Registro oficial no Portal do Empreendedor</li>
+                                    <li>Emissão do Certificado da Condição de MEI (CCMEI)</li>
+                                    <li>Inscrição Municipal e Estadual (quando aplicável)</li>
+                                </ul>
+
+                                <p class="fee-notice-text">
+                                    <strong>Importante:</strong> Esta é uma taxa única e não há custos adicionais. 
+                                    O não pagamento da taxa acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="declaration-section">
+                            <h3 class="declaration-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Declaração e Termos
+                            </h3>
+                            <p class="declaration-text">
+                                Ao prosseguir, você declara que leu e aceita os Termos de Uso e a Política de Privacidade, 
+                                confirma que as informações fornecidas são verdadeiras e autoriza o processamento dos seus 
+                                dados conforme a Lei Geral de Proteção de Dados (LGPD).
+                            </p>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="termsAccept" name="termsAccept" class="checkbox-input" required>
+                                <label for="termsAccept" class="checkbox-label">
+                                    Declaro que li e aceito os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="dataAccuracy" name="dataAccuracy" class="checkbox-input" required>
+                                <label for="dataAccuracy" class="checkbox-label">
+                                    Confirmo que todas as informações fornecidas são <strong>verdadeiras e legítimas</strong>
+                                </label>
+                            </div>
+                        </div>
+
+                        <form id="confirmationForm">
+                            <div class="button-group">
+                                <button type="button" class="btn btn-secondary" onclick="goToStep(1)">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Voltar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-credit-card"></i>
+                                    Pagar e Formalizar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="summary-card">
+                <h3 class="summary-title">Resumo do Processo</h3>
+                
+                <div class="price-display">
+                    <div class="price-label">Taxa de Formalização do MEI</div>
+                    <div class="price-value">R$ 43,67</div>
+                </div>
+            </div>
+
+            <div class="trust-section">
+                <h3 class="trust-title">Garantias e Benefícios</h3>
+                
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Processo 100% seguro e certificado</div>
+                </div>
+                
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Formalização em até 48 horas úteis</div>
+                </div>
+                
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Suporte especializado incluído</div>
+                </div>
+                
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Documentos em formato digital</div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Conformidade com legislação vigente</div>
+                </div>
+                
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Garantia de satisfação</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Processando solicitação...</div>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
