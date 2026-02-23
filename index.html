@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Assessoria profissional em CNPJ MEI Simples. Consultoria completa para regularização e gestão fiscal de microempreendedores.">
-    <meta name="keywords" content="CNPJ MEI, assessoria fiscal, consultoria MEI, regularização CNPJ">
+    <meta name="description" content="Assessoria profissional em CNPJ MEI Simples. Consultoria completa para regularização e gestão fiscal de microempreendedores. Serviço de consultoria privada.">
+    <meta name="keywords" content="CNPJ MEI, assessoria fiscal, consultoria MEI, regularização CNPJ, consultoria contábil">
     <meta name="author" content="Assessoria MEI Profissional">
+    <meta name="robots" content="index, follow">
     <title>Assessoria MEI Profissional - CNPJ e Consultoria Fiscal</title>
     
     <style>
@@ -73,6 +74,21 @@
 
         nav button:hover {
             background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Disclaimer Banner */
+        .disclaimer-banner {
+            background-color: #fff3cd;
+            border-bottom: 2px solid #ffc107;
+            padding: 12px 20px;
+            font-size: 13px;
+            color: #856404;
+            text-align: center;
+        }
+
+        .disclaimer-banner strong {
+            display: block;
+            margin-bottom: 5px;
         }
 
         /* Hero Section */
@@ -432,18 +448,46 @@
             opacity: 0.9;
         }
 
+        .contact-item a {
+            color: #4da6ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
         /* Footer */
         footer {
             background-color: #0f1f3f;
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             margin-top: 40px;
         }
 
         footer p {
             margin-bottom: 10px;
             opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links a {
+            color: #4da6ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
@@ -489,6 +533,10 @@
                 padding: 12px 30px;
                 font-size: 16px;
             }
+
+            .disclaimer-banner {
+                font-size: 12px;
+            }
         }
 
         /* Smooth Scroll */
@@ -514,6 +562,12 @@
     </style>
 </head>
 <body>
+    <!-- Disclaimer Banner - Obrigatório para Google Ads -->
+    <div class="disclaimer-banner">
+        <strong>⚠️ Aviso Importante:</strong>
+        Este é um serviço de consultoria privada. Não somos órgão governamental. Informações fornecidas para fins educacionais.
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -739,7 +793,7 @@
                 </div>
                 <div class="contact-item">
                     <h3>📧 Email</h3>
-                    <p>Envie suas dúvidas e solicitações para nossa equipe.</p>
+                    <p><a href="mailto:contato@assessoriamei.com.br">contato@assessoriamei.com.br</a></p>
                 </div>
                 <div class="contact-item">
                     <h3>⏰ Horário</h3>
@@ -752,8 +806,130 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Assessoria MEI Profissional. Todos os direitos reservados.</p>
-        <p>Este site é apenas informativo e não constitui aconselhamento legal ou fiscal.</p>
+        <p><strong>Aviso Legal:</strong> Este site fornece informações gerais sobre consultoria MEI. Não constitui aconselhamento jurídico ou fiscal profissional. Consulte um profissional qualificado antes de tomar decisões importantes.</p>
+        <div class="footer-links">
+            <a href="#privacy-policy" onclick="showModal('privacy')">Política de Privacidade</a>
+            <a href="#terms" onclick="showModal('terms')">Termos de Uso</a>
+            <a href="#disclaimer" onclick="showModal('disclaimer')">Disclaimer</a>
+            <a href="mailto:contato@assessoriamei.com.br">Contato</a>
+        </div>
     </footer>
+
+    <!-- Modal for Privacy Policy -->
+    <div id="privacy-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;overflow-y:auto;">
+        <div style="background:white;max-width:800px;margin:50px auto;padding:40px;border-radius:10px;">
+            <button onclick="closeModal('privacy')" style="float:right;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            <h2>Política de Privacidade</h2>
+            <p><strong>Última atualização: Fevereiro de 2024</strong></p>
+            
+            <h3>1. Introdução</h3>
+            <p>A Assessoria MEI Profissional ("nós", "nosso" ou "nos") respeita a privacidade dos visitantes de nosso site. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações.</p>
+
+            <h3>2. Coleta de Informações</h3>
+            <p>Podemos coletar informações sobre você de várias formas, incluindo:</p>
+            <ul style="margin-left:20px;margin-bottom:15px;">
+                <li>Informações que você nos fornece voluntariamente através de formulários de contato</li>
+                <li>Dados de navegação coletados automaticamente (endereço IP, tipo de navegador, páginas visitadas)</li>
+                <li>Cookies e tecnologias similares para melhorar sua experiência</li>
+            </ul>
+
+            <h3>3. Uso de Informações</h3>
+            <p>Utilizamos as informações coletadas para:</p>
+            <ul style="margin-left:20px;margin-bottom:15px;">
+                <li>Responder a suas consultas e solicitações</li>
+                <li>Melhorar nosso site e serviços</li>
+                <li>Enviar comunicações de marketing (com seu consentimento)</li>
+                <li>Cumprir obrigações legais</li>
+            </ul>
+
+            <h3>4. Proteção de Dados</h3>
+            <p>Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+
+            <h3>5. Compartilhamento de Informações</h3>
+            <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto quando exigido por lei ou para prestar nossos serviços.</p>
+
+            <h3>6. Seus Direitos</h3>
+            <p>Você tem o direito de acessar, corrigir ou solicitar a exclusão de suas informações pessoais. Para exercer esses direitos, entre em contato conosco através do email: contato@assessoriamei.com.br</p>
+
+            <h3>7. Alterações a Esta Política</h3>
+            <p>Podemos atualizar esta Política de Privacidade periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre como protegemos suas informações.</p>
+
+            <h3>8. Contato</h3>
+            <p>Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco em: contato@assessoriamei.com.br</p>
+        </div>
+    </div>
+
+    <!-- Modal for Terms of Use -->
+    <div id="terms-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;overflow-y:auto;">
+        <div style="background:white;max-width:800px;margin:50px auto;padding:40px;border-radius:10px;">
+            <button onclick="closeModal('terms')" style="float:right;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            <h2>Termos de Uso</h2>
+            <p><strong>Última atualização: Fevereiro de 2024</strong></p>
+
+            <h3>1. Aceitação dos Termos</h3>
+            <p>Ao acessar e usar este site, você aceita estar vinculado por estes Termos de Uso. Se você não concorda com qualquer parte destes termos, por favor, não use este site.</p>
+
+            <h3>2. Uso Licenciado</h3>
+            <p>É concedida a você uma licença limitada, não exclusiva e revogável para acessar e usar este site para fins pessoais e não comerciais.</p>
+
+            <h3>3. Restrições</h3>
+            <p>Você concorda em não:</p>
+            <ul style="margin-left:20px;margin-bottom:15px;">
+                <li>Reproduzir, duplicar ou copiar conteúdo sem permissão</li>
+                <li>Tentar obter acesso não autorizado ao site</li>
+                <li>Transmitir conteúdo ofensivo ou prejudicial</li>
+                <li>Interferir com o funcionamento do site</li>
+            </ul>
+
+            <h3>4. Isenção de Responsabilidade</h3>
+            <p>Este site e seu conteúdo são fornecidos "como estão". A Assessoria MEI Profissional não faz representações ou garantias de qualquer tipo, expressas ou implícitas, quanto à precisão, integridade ou adequação do conteúdo.</p>
+
+            <h3>5. Limitação de Responsabilidade</h3>
+            <p>Em nenhuma circunstância a Assessoria MEI Profissional será responsável por danos diretos, indiretos, incidentais, especiais ou consequentes resultantes do uso ou incapacidade de usar este site.</p>
+
+            <h3>6. Links Externos</h3>
+            <p>Este site pode conter links para sites de terceiros. Não somos responsáveis pelo conteúdo, precisão ou práticas de privacidade desses sites externos.</p>
+
+            <h3>7. Modificações</h3>
+            <p>Reservamos o direito de modificar estes Termos de Uso a qualquer momento. Sua continuação no uso do site após tais modificações constitui aceitação dos novos termos.</p>
+
+            <h3>8. Lei Aplicável</h3>
+            <p>Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Disclaimer -->
+    <div id="disclaimer-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;overflow-y:auto;">
+        <div style="background:white;max-width:800px;margin:50px auto;padding:40px;border-radius:10px;">
+            <button onclick="closeModal('disclaimer')" style="float:right;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            <h2>Disclaimer - Aviso Legal</h2>
+            <p><strong>Última atualização: Fevereiro de 2024</strong></p>
+
+            <h3>1. Natureza do Serviço</h3>
+            <p><strong>IMPORTANTE:</strong> A Assessoria MEI Profissional é um serviço de consultoria privada e não é um órgão governamental. Não temos autoridade para emitir documentos oficiais ou fazer representações junto aos órgãos públicos.</p>
+
+            <h3>2. Informações Educacionais</h3>
+            <p>O conteúdo fornecido neste site é apenas para fins educacionais e informativos. Não constitui aconselhamento jurídico, fiscal ou profissional específico para sua situação particular.</p>
+
+            <h3>3. Consulte um Profissional</h3>
+            <p>Antes de tomar qualquer decisão importante relacionada a sua situação fiscal, contábil ou legal, consulte um profissional qualificado, como um contador, advogado ou consultor fiscal.</p>
+
+            <h3>4. Mudanças na Legislação</h3>
+            <p>As leis e regulamentações fiscais estão sujeitas a mudanças. As informações fornecidas podem não refletir as alterações mais recentes na legislação brasileira.</p>
+
+            <h3>5. Não Garantia de Resultados</h3>
+            <p>Não garantimos resultados específicos. A regularização de sua situação fiscal depende de diversos fatores, incluindo sua situação específica e conformidade com as exigências legais.</p>
+
+            <h3>6. Responsabilidade Limitada</h3>
+            <p>A Assessoria MEI Profissional não se responsabiliza por perdas, danos ou consequências resultantes do uso das informações fornecidas neste site.</p>
+
+            <h3>7. Conformidade Legal</h3>
+            <p>É sua responsabilidade garantir que o uso de nossos serviços esteja em conformidade com todas as leis e regulamentações aplicáveis.</p>
+
+            <h3>8. Contato para Dúvidas</h3>
+            <p>Se você tiver dúvidas sobre este disclaimer ou nossos serviços, entre em contato conosco em: contato@assessoriamei.com.br</p>
+        </div>
+    </div>
 
     <script>
         // Scroll to section function
@@ -777,6 +953,39 @@
             // Open clicked item if it wasn't active
             if (!isActive) {
                 faqItem.classList.add('active');
+            }
+        }
+
+        // Modal functions
+        function showModal(type) {
+            const modalId = type + '-modal';
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(type) {
+            const modalId = type + '-modal';
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const privacyModal = document.getElementById('privacy-modal');
+            const termsModal = document.getElementById('terms-modal');
+            const disclaimerModal = document.getElementById('disclaimer-modal');
+            
+            if (event.target === privacyModal) {
+                privacyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target === termsModal) {
+                termsModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target === disclaimerModal) {
+                disclaimerModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         }
 
