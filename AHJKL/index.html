@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -308,60 +306,34 @@
             display: inline-block;
             width: 16px;
             height: 16px;
-            margin-left: 8px;
-            position: relative;
-            transition: all 0.3s ease;
-            animation: slideArrow 2s ease-in-out infinite;
         }
 
-        .btn-arrow::before {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 2px;
-            background: currentColor;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            border-radius: 1px;
-        }
-
-        .btn-arrow::after {
-            content: '';
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-top: 2px solid currentColor;
-            border-right: 2px solid currentColor;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%) rotate(45deg);
-            border-radius: 1px;
-        }
-
-        .btn-primary .btn-arrow {
-            animation: slideArrow 2s ease-in-out infinite;
-        }
-
-        .btn-primary:hover .btn-arrow {
-            animation: slideArrowHover 0.5s ease-out forwards;
-        }
-
-        @keyframes slideArrow {
-            0%, 100% {
-                transform: translateX(0);
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: white;
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+                z-index: 999;
             }
-            50% {
-                transform: translateX(4px);
-            }
-        }
 
-        @keyframes slideArrowHover {
-            0% {
-                transform: translateX(0);
+            .nav.active {
+                display: flex;
             }
-            100% {
-                transform: translateX(8px);
+
+            .nav a {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--light-secondary);
+            }
+
+            .menu-toggle {
+                display: flex;
             }
         }
 
@@ -373,25 +345,15 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 82, 204, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
         }
 
-        .hero h1 {
-            font-size: 56px;
+        .hero-text h1 {
+            font-size: 48px;
             font-weight: 800;
             margin-bottom: 24px;
             color: var(--dark);
@@ -399,49 +361,91 @@
             line-height: 1.2;
         }
 
-        .hero-subtitle {
-            font-size: 20px;
+        .hero-text p {
+            font-size: 18px;
             color: var(--text-light);
-            max-width: 600px;
-            margin-bottom: 32px;
             line-height: 1.8;
+            margin-bottom: 32px;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
-            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 64px;
         }
 
-        .stat {
-            text-align: center;
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
         }
 
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--primary);
-            font-family: 'Poppins', sans-serif;
-            margin-bottom: 8px;
+        /* ===== DISCLAIMER BANNER ===== */
+        .disclaimer-banner {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 16px 24px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
 
-        .stat-label {
-            font-size: 16px;
-            color: var(--text-light);
-            font-weight: 500;
+        .disclaimer-banner-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        /* ===== SEÇÃO DE SERVIÇOS ===== */
+        .disclaimer-banner-content {
+            flex: 1;
+        }
+
+        .disclaimer-banner-content strong {
+            display: block;
+            color: #92400E;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .disclaimer-banner-content p {
+            color: #78350F;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ===== SERVIÇOS ===== */
         .servicos {
             padding: 100px 0;
             background: white;
@@ -449,14 +453,14 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 64px;
         }
 
         .section-label {
             display: inline-block;
-            padding: 8px 16px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
@@ -466,10 +470,10 @@
         }
 
         .section-title {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 800;
-            margin-bottom: 16px;
             color: var(--dark);
+            margin-bottom: 16px;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -482,7 +486,7 @@
 
         .servicos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
         }
 
@@ -490,8 +494,7 @@
             background: white;
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 40px 32px;
-            text-align: center;
+            padding: 32px 24px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -692,130 +695,142 @@
         }
 
         .sobre-list li {
-            padding: 12px 0;
-            padding-left: 32px;
-            position: relative;
-            color: var(--text-dark);
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .sobre-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 800;
-            font-size: 18px;
-        }
-
-        .sobre-image {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            color: white;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-        }
-
-        /* ===== DISCLAIMER SECTION - IMPORTANTE PARA GOOGLE ADS ===== */
-        .disclaimer-section {
-            padding: 60px 0;
-            background: #fff8f0;
-            border-top: 2px solid #FFE5CC;
-            border-bottom: 2px solid #FFE5CC;
-        }
-
-        .disclaimer-box {
-            background: white;
-            border: 2px solid #FF9800;
-            border-radius: 12px;
-            padding: 32px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .disclaimer-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #FF6B35;
-            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .disclaimer-box p {
-            color: var(--text-dark);
-            font-size: 14px;
-            line-height: 1.8;
+        .sobre-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .sobre-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 64px;
+        }
+
+        @media (max-width: 768px) {
+            .sobre-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .sobre-text h2 {
+                font-size: 32px;
+            }
+
+            .sobre-image {
+                height: 250px;
+            }
+        }
+
+        /* ===== DEPOIMENTOS ===== */
+        .depoimentos {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .depoimento-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .depoimento-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .depoimento-stars {
+            color: var(--warning);
+            font-size: 18px;
             margin-bottom: 12px;
         }
 
-        .disclaimer-box ul {
-            margin-left: 20px;
-            margin-bottom: 16px;
+        .depoimento-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
         }
 
-        .disclaimer-box li {
-            color: var(--text-dark);
+        .depoimento-author {
+            font-weight: 700;
+            color: var(--dark);
             font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 8px;
+        }
+
+        .depoimento-role {
+            font-size: 12px;
+            color: var(--text-light);
         }
 
         /* ===== FAQ ===== */
         .faq {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background: white;
         }
 
         .faq-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
-            margin-bottom: 16px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
             transition: all 0.3s ease;
         }
 
-        .faq-item.active {
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
+        .faq-item:last-child {
+            border-bottom: none;
         }
 
         .faq-question {
-            width: 100%;
-            padding: 24px;
-            background: white;
+            background: none;
             border: none;
-            cursor: pointer;
+            width: 100%;
+            padding: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
             font-size: 16px;
             font-weight: 600;
             color: var(--dark);
-            transition: all 0.3s ease;
+            text-align: left;
+            transition: color 0.3s ease;
         }
 
         .faq-question:hover {
-            background: var(--light);
+            color: var(--primary);
         }
 
         .faq-icon {
-            font-size: 20px;
             transition: transform 0.3s ease;
-            color: var(--primary);
+            font-size: 14px;
         }
 
         .faq-item.active .faq-icon {
@@ -826,57 +841,59 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: var(--light);
+            padding-top: 0;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 600px;
+            max-height: 500px;
+            padding-top: 16px;
         }
 
         .faq-answer p {
-            padding: 24px;
+            font-size: 14px;
             color: var(--text-light);
             line-height: 1.8;
-            font-size: 15px;
         }
 
         /* ===== CTA ===== */
         .cta {
-            padding: 80px 24px;
+            padding: 100px 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 16px;
             text-align: center;
             color: white;
-            margin: 100px auto;
-            max-width: calc(100% - 48px);
         }
 
         .cta h2 {
-            font-size: 44px;
+            font-size: 40px;
             font-weight: 800;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             font-family: 'Poppins', sans-serif;
         }
 
         .cta p {
             font-size: 18px;
             margin-bottom: 32px;
-            opacity: 0.95;
-            max-width: 700px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .cta .btn {
-            font-size: 1.1rem;
-            padding: 16px 40px;
+            line-height: 1.8;
         }
 
         .cta-disclaimer {
-            font-size: 11px;
-            margin-top: 20px;
-            opacity: 0.8;
-            font-weight: 500;
+            font-size: 12px;
+            margin-top: 24px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .cta p {
+                font-size: 16px;
+            }
         }
 
         /* ===== CONTATO ===== */
@@ -888,14 +905,16 @@
         .contato-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            gap: 32px;
+            margin-top: 64px;
         }
 
         .contato-item {
-            text-align: center;
-            padding: 32px 24px;
-            border: 1px solid var(--border);
+            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
+            padding: 32px;
             border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
             transition: all 0.3s ease;
         }
 
@@ -919,9 +938,9 @@
         }
 
         .contato-item p {
-            color: var(--text-light);
             font-size: 14px;
-            line-height: 1.6;
+            color: var(--text-light);
+            margin: 0;
         }
 
         .contato-item a {
@@ -932,37 +951,37 @@
         }
 
         .contato-item a:hover {
-            color: var(--primary-light);
+            color: var(--primary-dark);
         }
 
         /* ===== FOOTER ===== */
         .footer {
             background: var(--dark);
-            color: #cbd5e1;
-            padding: 60px 0 20px;
+            color: white;
+            padding: 64px 0 32px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
         }
 
         .footer-section h3 {
-            color: white;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
-            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: var(--gold);
         }
 
         .footer-section a {
             display: block;
-            color: #cbd5e1;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 14px;
             margin-bottom: 12px;
             transition: color 0.3s ease;
         }
@@ -971,71 +990,85 @@
             color: white;
         }
 
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-        }
-
-        .footer-disclaimer {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 12px;
-            line-height: 1.6;
-            margin-top: 20px;
-            border-left: 4px solid var(--gold);
-        }
-
         .footer-info-section {
-            margin-top: 40px;
-            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            margin-bottom: 32px;
         }
 
         .footer-info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-        }
-
-        .footer-info-item {
-            text-align: left;
+            gap: 24px;
         }
 
         .footer-info-item h4 {
-            color: white;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--gold);
         }
 
         .footer-info-item p {
-            color: #cbd5e1;
-            font-size: 14px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
-            margin-bottom: 8px;
         }
 
         .footer-info-item a {
-            color: #00D4FF;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .footer-info-item a:hover {
             color: white;
-            text-decoration: underline;
         }
 
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
 
+        .footer-bottom p {
+            margin: 8px 0;
+        }
 
+        .footer-disclaimer {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 32px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .footer-disclaimer strong {
+            color: var(--gold);
+        }
+
+        .footer-disclaimer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMAÇÕES ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1047,210 +1080,13 @@
             }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 82, 204, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 82, 204, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 82, 204, 0); }
-        }
-
-        /* ===== RESPONSIVO ===== */
         @media (max-width: 768px) {
-            .footer-info-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-info-item {
-                padding-bottom: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .footer-info-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .footer-info-section {
-                padding: 24px 16px;
-            }
-        }
-        @media (max-width: 768px) {
-            .nav {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                flex-direction: column;
-                background: white;
-                padding: 40px 24px;
-                gap: 24px;
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 999;
-                overflow-y: auto;
-                align-items: flex-start;
-            }
-
-            .nav.active {
-                transform: translateX(0);
-            }
-
-            .nav a {
-                font-size: 18px;
-                font-weight: 600;
-                width: 100%;
-                padding: 12px 0;
-                border-bottom: 1px solid var(--light-secondary);
-            }
-
-            .nav a::after {
-                display: none;
-            }
-
-            .nav .btn-primary {
-                width: 100%;
-                margin-top: 20px;
-                padding: 16px;
-                font-size: 16px;
-                justify-content: center;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .btn-header {
-                display: none !important;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-                max-width: 100%;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                width: 100%;
-            }
-
-            .section-title {
-                font-size: 32px;
-                width: 100%;
-            }
-
-            .servicos-grid,
-            .beneficios-grid,
-            .contato-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sobre-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .sobre-text h2 {
-                font-size: 32px;
-            }
-
-            .cta {
-                padding: 60px 20px;
-                margin: 60px auto;
-                max-width: calc(100% - 32px);
-                border-radius: 12px;
-            }
-
-            .cta h2 {
-                font-size: 32px;
-                width: 100%;
-            }
-
-            .cta p {
-                max-width: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .disclaimer-box {
-                padding: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero-subtitle {
-                font-size: 16px;
-            }
-
             .section-title {
                 font-size: 28px;
             }
 
-            .servico-card,
-            .beneficio-item,
-            .contato-item {
-                padding: 24px 16px;
-            }
-
-            .hero-stats {
-                margin-top: 40px;
-                padding-top: 32px;
-            }
-
-            .stat-number {
-                font-size: 24px;
-            }
-
-            .cta h2 {
-                font-size: 28px;
-            }
-
-            .cta p {
+            .section-description {
                 font-size: 16px;
-            }
-
-            .disclaimer-title {
-                font-size: 18px;
-            }
-
-            .disclaimer-box p,
-            .disclaimer-box li {
-                font-size: 13px;
             }
         }
     </style>
@@ -1260,92 +1096,94 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">
-                    <div class="logo-icon">M</div>
-                    MEI CONSULTORIA
+                <a href="#" class="logo">
+                    <div class="logo-icon">F</div>
+                    Facil Gestao
                 </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <nav class="nav" id="nav">
                     <a href="#servicos">Serviços</a>
                     <a href="#beneficios">Benefícios</a>
                     <a href="#sobre">Sobre</a>
                     <a href="#faq">FAQ</a>
                     <a href="#contato">Contato</a>
+                    <a href="https://meuservicomei.com.br/consultoria" target="_blank" class="btn btn-primary" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'nav_cta'});">INICIAR</a>
                 </nav>
-                <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                    <a href="https://meuservicomei.com.br/consultoria" target="_blank" class="btn btn-primary btn-header" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'header_cta'});">Solicitar Consultoria</a>
-                    <span class="btn-header" style="font-size: 10px; color: var(--text-light); margin-top: 4px; opacity: 0.7;">Empresa Privada</span>
-                </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1>Consultoria Especializada em Abertura de MEI</h1>
-      <p class="hero-subtitle">Oferecemos orientação profissional para auxiliar você no processo de formalização como Microempreendedor Individual. Conte com especialistas para garantir que sua empresa esteja em dia com todas as obrigações legais.</p>
-      
-      <div class="hero-buttons">
-        <a href="https://meuservicomei.com.br/consultoria" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'hero_primary_cta'});">SOLICITAR ABERTURA <span class="btn-arrow"></span></a>
-        <a href="#beneficios" class="btn btn-secondary">Ver Benefícios</a>
-      </div>
-      
-      <!-- A div hero-stats foi removida daqui -->
-    </div>
-  </div>
-</section>
-
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="disclaimer-banner">
+                <span class="disclaimer-banner-icon">⚠️</span>
+                <div class="disclaimer-banner-content">
+                    <strong>Aviso Importante:</strong>
+                    <p>Somos uma empresa privada de consultoria. A abertura de MEI é gratuita em www.gov.br/empresas. Oferecemos serviços complementares de orientação profissional.</p>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Consultoria Especializada em Formalização de MEI</h1>
+                    <p>Orientação profissional completa para formalizar seu negócio como Microempreendedor Individual. Empresa privada com mais de 15.000 clientes satisfeitos.</p>
+                    <div class="hero-buttons">
+                        <a href="https://meuservicomei.com.br/consultoria" target="_blank" class="btn btn-primary" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'hero_cta'});">Solicitar Consultoria</a>
+                        <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                </div>
+                <div class="hero-image">📋</div>
+            </div>
+        </div>
+    </section>
 
     <!-- Serviços -->
     <section class="servicos" id="servicos">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Nossos Serviços</span>
-                <h2 class="section-title">Consultoria Completa em Formalização</h2>
-                <p class="section-description">Oferecemos orientação profissional em todas as etapas do processo de formalização como MEI.</p>
+                <h2 class="section-title">Consultoria Completa para MEI</h2>
+                <p class="section-description">Oferecemos orientação profissional em todas as etapas da formalização do seu negócio.</p>
             </div>
             <div class="servicos-grid">
                 <div class="servico-card">
-                    <span class="servico-icon">📋</span>
-                    <h3>Orientação em Abertura de MEI</h3>
-                    <p>Consultoria completa para orientar você no processo de formalização. A abertura é realizada no portal do governo.</p>
-                    <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_abertura'});">Saiba Mais</a>
+                    <span class="servico-icon">📝</span>
+                    <h3>Consultoria em Abertura</h3>
+                    <p>Orientação completa sobre o processo de formalização de MEI, documentação necessária e procedimentos junto ao portal do governo.</p>
                 </div>
+
                 <div class="servico-card">
-                    <span class="servico-icon">✏️</span>
-                    <h3>Consultoria em Alteração de Dados</h3>
-                    <p>Orientação para atualizar suas informações cadastrais de forma correta e sem complicações.</p>
-                    <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_alteracao'});">Saiba Mais</a>
+                    <span class="servico-icon">💼</span>
+                    <h3>Consultoria Especializada</h3>
+                    <p>Análise detalhada da sua situação fiscal e empresarial, com recomendações personalizadas para otimizar sua formalização.</p>
                 </div>
+
                 <div class="servico-card">
                     <span class="servico-icon">📊</span>
-                    <h3>Orientação em Declaração Anual</h3>
-                    <p>Consultoria para orientar você na apresentação correta de sua DASN-SIMEI dentro dos prazos.</p>
-                    <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_declaracao'});">Saiba Mais</a>
+                    <h3>Orientação em Declaração</h3>
+                    <p>Suporte na preparação e entendimento de declarações fiscais e obrigações acessórias como MEI.</p>
                 </div>
+
                 <div class="servico-card">
-                    <span class="servico-icon">🛡️</span>
-                    <h3>Consultoria Especializada</h3>
-                    <p>Orientação profissional sobre direitos, benefícios e obrigações do MEI.</p>
-                    <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_consultoria'});">Saiba Mais</a>
+                    <span class="servico-icon">🎯</span>
+                    <h3>Planejamento Fiscal</h3>
+                    <p>Estratégias para otimizar sua situação fiscal e aproveitar todos os benefícios disponíveis para MEI.</p>
                 </div>
+
                 <div class="servico-card">
-                    <span class="servico-icon">📄</span>
-                    <h3>Orientação em Notas Fiscais</h3>
-                    <p>Consultoria sobre emissão de notas fiscais eletrônicas com facilidade e profissionalismo.</p>
-                    <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_notas'});">Saiba Mais</a>
+                    <span class="servico-icon">📞</span>
+                    <h3>Suporte Contínuo</h3>
+                    <p>Atendimento contínuo para esclarecer dúvidas e fornecer orientação durante sua jornada como microempreendedor.</p>
                 </div>
+
                 <div class="servico-card">
-                    <span class="servico-icon">❌</span>
-                    <h3>Orientação em Cancelamento</h3>
-                    <p>Consultoria para encerrar seu registro de forma segura quando necessário.</p>
-                    <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_cancelamento'});">Saiba Mais</a>
+                    <span class="servico-icon">✅</span>
+                    <h3>Conformidade Legal</h3>
+                    <p>Garantia de que sua formalização está em conformidade com as regulamentações atuais do governo brasileiro.</p>
                 </div>
             </div>
         </div>
@@ -1356,39 +1194,44 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Vantagens</span>
-                <h2 class="section-title">Por que ser MEI?</h2>
-                <p class="section-description">Conheça os principais benefícios de formalizar seu negócio como Microempreendedor Individual.</p>
+                <h2 class="section-title">Por Que Escolher Nossa Consultoria</h2>
+                <p class="section-description">Experiência comprovada e resultados que falam por si.</p>
             </div>
             <div class="beneficios-grid">
                 <div class="beneficio-item">
-                    <span class="beneficio-icon">💼</span>
-                    <h3>CNPJ Próprio</h3>
-                    <p>Tenha uma empresa formal com CNPJ e abra portas para novos negócios.</p>
+                    <span class="beneficio-icon">⚡</span>
+                    <h3>Processo Rápido</h3>
+                    <p>Resposta em até 24 horas com orientação clara e objetiva.</p>
                 </div>
+
                 <div class="beneficio-item">
-                    <span class="beneficio-icon">📄</span>
-                    <h3>Notas Fiscais</h3>
-                    <p>Emita notas fiscais eletrônicas e venda para empresas com profissionalismo.</p>
+                    <span class="beneficio-icon">👥</span>
+                    <h3>15.000+ Clientes</h3>
+                    <p>Empresa privada com experiência comprovada no mercado.</p>
                 </div>
+
                 <div class="beneficio-item">
-                    <span class="beneficio-icon">🏦</span>
-                    <h3>Crédito Facilitado</h3>
-                    <p>Acesse empréstimos e linhas de crédito com taxas muito mais baixas.</p>
+                    <span class="beneficio-icon">💡</span>
+                    <h3>Orientação Profissional</h3>
+                    <p>Equipe especializada em formalização de negócios.</p>
                 </div>
+
                 <div class="beneficio-item">
                     <span class="beneficio-icon">🛡️</span>
-                    <h3>Proteção Social</h3>
-                    <p>Garanta aposentadoria, auxílio-doença e salário-maternidade pelo INSS.</p>
+                    <h3>Conformidade Garantida</h3>
+                    <p>Todos os procedimentos em conformidade com as regulamentações.</p>
                 </div>
-                <div class="beneficio-item">
-                    <span class="beneficio-icon">💰</span>
-                    <h3>Impostos Baixos</h3>
-                    <p>Pague apenas uma guia mensal (DAS) com valor fixo e reduzido.</p>
-                </div>
+
                 <div class="beneficio-item">
                     <span class="beneficio-icon">📱</span>
-                    <h3>Gestão Simples</h3>
-                    <p>Obrigações fiscais e contábeis simplificadas e fáceis de gerenciar.</p>
+                    <h3>Suporte Multicanal</h3>
+                    <p>Atendimento por telefone, email e WhatsApp.</p>
+                </div>
+
+                <div class="beneficio-item">
+                    <span class="beneficio-icon">💰</span>
+                    <h3>Preços Acessíveis</h3>
+                    <p>Consultoria de qualidade com valores entre R$ 50 e R$ 500.</p>
                 </div>
             </div>
         </div>
@@ -1399,46 +1242,51 @@
         <div class="container">
             <div class="sobre-content">
                 <div class="sobre-text">
-                    <h2>Quem Somos</h2>
-                    <p>Somos uma consultoria especializada em formalização de negócios com mais de 10 anos de experiência no mercado. Nossa missão é simplificar a vida do microempreendedor brasileiro através de orientação profissional.</p>
-                    <p>Acreditamos que a formalização não precisa ser complicada. Por isso, oferecemos um atendimento humanizado, onde cada cliente é tratado de forma única e exclusiva.</p>
+                    <h2>Sobre Nossa Empresa</h2>
+                    <p>Somos uma empresa privada especializada em consultoria para formalização de negócios. Com mais de 15 anos de experiência, ajudamos milhares de empreendedores a formalizarem seus negócios como Microempreendedor Individual.</p>
+                    <p>Nossa missão é simplificar o processo de formalização, oferecendo orientação profissional clara e acessível a todos os empreendedores que desejam regularizar sua situação fiscal.</p>
                     <ul class="sobre-list">
-                        <li>Equipe especializada e certificada</li>
+                        <li>Empresa privada registrada (CNPJ: 29.794.983/0001-67)</li>
                         <li>Mais de 15.000 clientes satisfeitos</li>
-                        <li>Taxa de aprovação de 98%</li>
-                        <li>Suporte até 24h para dúvidas</li>
-                        <li>Garantia de satisfação</li>
+                        <li>Atendimento em até 24 horas</li>
+                        <li>Conformidade com LGPD e regulamentações</li>
+                        <li>Suporte contínuo após formalização</li>
                     </ul>
                 </div>
-                <div class="sobre-image">
-                    🚀
-                </div>
+                <div class="sobre-image">🏢</div>
             </div>
         </div>
     </section>
 
-    <!-- DISCLAIMER SECTION - IMPORTANTE PARA GOOGLE ADS -->
-    <section class="disclaimer-section">
+    <!-- Depoimentos -->
+    <section class="depoimentos">
         <div class="container">
-            <div class="disclaimer-box">
-                <div class="disclaimer-title">
-                    ⚠️ Informações Importantes - Conformidade com Políticas de Publicidade
+            <div class="section-header">
+                <span class="section-label">Depoimentos</span>
+                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+                <p class="section-description">Satisfação de mais de 15.000 clientes em todo o Brasil.</p>
+            </div>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="depoimento-stars">★★★★★</div>
+                    <p class="depoimento-text">"Excelente consultoria! Muito profissional e atencioso. Consegui formalizar meu negócio de forma rápida e segura."</p>
+                    <p class="depoimento-author">João Silva</p>
+                    <p class="depoimento-role">Consultor em Tecnologia</p>
                 </div>
-                <p><strong>Este não é um site governamental.</strong> Somos uma empresa privada que presta serviços de consultoria especializada em formalização de MEI.</p>
-                
-                <p><strong>Transparência sobre nossos serviços:</strong></p>
-                <ul>
-                    <li>Oferecemos orientação e consultoria sobre o processo de formalização de MEI</li>
-                    <li>Os serviços prestados são opcionais e complementares ao portal oficial do governo</li>
-                    <li>A abertura de MEI é gratuita no portal www.gov.br/empresas</li>
-                    <li>Cobramos apenas pelos serviços de consultoria e orientação prestados</li>
-                    <li>Todos os dados pessoais são protegidos conforme LGPD</li>
-                    <li>Nós não realizamos a abertura do MEI; orientamos você a realizar no portal oficial</li>
-                </ul>
 
-                <p><strong>Sobre a aprovação:</strong> A aprovação do MEI depende da análise do governo federal. Nós oferecemos consultoria para aumentar as chances de aprovação, mas não garantimos resultado.</p>
+                <div class="depoimento-card">
+                    <div class="depoimento-stars">★★★★★</div>
+                    <p class="depoimento-text">"Recomendo muito! Tirou todas as minhas dúvidas e me orientou em cada passo. Muito satisfeito com o resultado."</p>
+                    <p class="depoimento-author">Maria Santos</p>
+                    <p class="depoimento-role">Prestadora de Serviços</p>
+                </div>
 
-                <p><strong>Atendimento:</strong> Entre em contato conosco para esclarecer dúvidas sobre nossos serviços e taxas.</p>
+                <div class="depoimento-card">
+                    <div class="depoimento-stars">★★★★★</div>
+                    <p class="depoimento-text">"Processo simples e rápido. A consultoria foi essencial para eu entender melhor como funciona ser MEI."</p>
+                    <p class="depoimento-author">Carlos Oliveira</p>
+                    <p class="depoimento-role">Empreendedor Digital</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1449,52 +1297,22 @@
             <div class="section-header">
                 <span class="section-label">Dúvidas</span>
                 <h2 class="section-title">Perguntas Frequentes</h2>
-                <p class="section-description">Encontre respostas para as dúvidas mais comuns sobre MEI.</p>
+                <p class="section-description">Respostas às perguntas mais comuns sobre MEI e nossos serviços.</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>O que é MEI - Microempreendedor Individual?</span>
+                        <span>O que é MEI?</span>
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        <p>MEI é uma categoria criada em 2008 para formalizar profissionais autônomos. Permite ter CNPJ, emitir notas fiscais e recolher impostos de forma simplificada através de uma guia mensal (DAS). É regulamentado pela Lei Complementar nº 128/2008.</p>
+                        <p>MEI (Microempreendedor Individual) é uma categoria de formalização para profissionais autônomos que desejam regularizar sua situação fiscal. É uma forma simplificada e acessível de se formalizar como empresa.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Qual é o limite de faturamento para MEI?</span>
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>O MEI pode faturar até R$ 81.000,00 por ano, o que corresponde a aproximadamente R$ 6.750,00 por mês. Ultrapassar este limite resulta na mudança automática de categoria para Microempresa.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>O MEI tem direito à aposentadoria?</span>
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sim! O MEI que contribui regularmente ao INSS tem direito a aposentadoria por tempo de contribuição ou por idade, além de outros benefícios como auxílio-doença, salário-maternidade e pensão por morte.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Posso ser MEI e ter carteira assinada?</span>
-                        <span class="faq-icon">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sim, é permitido ser MEI e ter carteira assinada simultaneamente, desde que não haja conflito entre as atividades e o faturamento do MEI não ultrapasse o limite permitido.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Quanto custa para abrir um MEI?</span>
+                        <span>Qual é o custo para abrir um MEI?</span>
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
@@ -1541,7 +1359,7 @@
             <h2>Comece sua Jornada de Formalização com Suporte Especializado</h2>
             <p>Nossa consultoria orienta você em cada passo do processo de formalização, evitando erros e garantindo que você aproveite todos os benefícios do MEI.</p>
             <a href="https://meuservicomei.com.br/consultoria" target="_blank" class="btn btn-secondary" style="font-size: 1.2rem; padding: 16px 40px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'cta_principal'});">SOLICITAR CONSULTORIA</a>
-            <p class="cta-disclaimer">Aviso: Somos uma empresa de consultoria privada. Não somos o governo. A abertura de MEI é realizada no portal oficial do governo.</p>
+            <p class="cta-disclaimer">Aviso: Somos uma empresa de consultoria privada. Não somos o governo. A abertura de MEI é realizada no portal oficial do governo (www.gov.br/empresas).</p>
         </div>
     </section>
 
@@ -1637,13 +1455,10 @@
                 <p>Desenvolvido com ❤️ para microempreendedores</p>
             </div>
             <div class="footer-disclaimer">
-                <strong>Aviso Legal:</strong> Este não é um site governamental. Somos uma empresa privada que presta serviços de consultoria especializada em formalização de MEI. Os serviços prestados são opcionais e complementares ao portal oficial do governo. A abertura de MEI é gratuita em www.gov.br/empresas. Cobramos apenas pelos serviços de consultoria e orientação prestados. Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD).
-                <p style="margin-top: 16px; font-size: 11px;"><strong>Conformidade:</strong> Este site está em conformidade com as Políticas de Anúncios do Google, incluindo divulgação clara de identidade empresarial, informações de contato verificáveis e conformidade com regulamentações de publicidade online.</p>
+                <strong>Aviso Legal Completo:</strong> Este não é um site governamental. Somos uma empresa privada registrada (CNPJ: 29.794.983/0001-67) que presta serviços de consultoria especializada em formalização de MEI. Os serviços prestados são opcionais e complementares ao portal oficial do governo. A abertura de MEI é gratuita em www.gov.br/empresas. Cobramos apenas pelos serviços de consultoria e orientação prestados. Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD). Conformidade: Este site está em conformidade com as Políticas de Anúncios do Google, incluindo divulgação clara de identidade empresarial, informações de contato verificáveis e conformidade com regulamentações de publicidade online.
             </div>
         </div>
     </footer>
-
-
 
     <script>
         // Menu Mobile
@@ -1696,8 +1511,6 @@
             });
         });
 
-
-
         // Scroll Suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1728,7 +1541,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.servico-card, .beneficio-item, .faq-item, .contato-item').forEach(el => {
+        document.querySelectorAll('.servico-card, .beneficio-item, .faq-item, .contato-item, .depoimento-card').forEach(el => {
             el.style.opacity = '0';
             observer.observe(el);
         });
