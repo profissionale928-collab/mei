@@ -305,7 +305,7 @@
         .btn-outline {
             background: transparent;
             color: var(--primary);
-            border: 2px solid var(--primary);
+            border: 1.5px solid var(--primary);
         }
 
         .btn-outline:hover {
@@ -313,81 +313,153 @@
             color: white;
         }
 
-        /* ===== COMPLIANCE BANNER ===== */
-        .compliance-banner {
-            background: linear-gradient(135deg, #FFF3CD 0%, #FFE69C 100%);
-            border-bottom: 2px solid var(--warning);
-            padding: 16px 0;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            color: #856404;
+        .btn-arrow {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
         }
 
-        .compliance-banner strong {
-            color: #721c24;
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: white;
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+                z-index: 999;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--light-secondary);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* ===== DISCLAIMER BANNER ===== */
+        .disclaimer-banner {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 16px 24px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .disclaimer-banner-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .disclaimer-banner-content {
+            flex: 1;
+        }
+
+        .disclaimer-banner-content strong {
+            display: block;
+            color: #92400E;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .disclaimer-banner-content p {
+            color: #78350F;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
         }
 
         /* ===== HERO ===== */
         .hero {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(0, 61, 130, 0.05) 0%, rgba(0, 168, 232, 0.05) 100%);
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 48px;
             font-weight: 800;
+            margin-bottom: 24px;
             color: var(--dark);
             font-family: 'Poppins', sans-serif;
             line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--text-light);
-            max-width: 600px;
             line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 600px;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
-            margin-top: 16px;
             flex-wrap: wrap;
         }
 
-        .btn-arrow {
-            font-size: 18px;
-            margin-left: 4px;
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
         }
 
-        /* ===== SECTION STYLES ===== */
+        /* ===== SEÇÕES ===== */
+        .servicos,
+        .beneficios,
+        .sobre,
+        .faq,
+        .contato {
+            padding: 100px 0;
+        }
+
+        .beneficios {
+            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
+        }
+
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 64px;
         }
 
         .section-label {
             display: inline-block;
-            background: var(--light-secondary);
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 16px;
         }
 
         .section-title {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 800;
             color: var(--dark);
             margin-bottom: 16px;
@@ -399,107 +471,76 @@
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.8;
         }
 
-        /* ===== SERVIÇOS ===== */
-        .servicos {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .servicos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .servico-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .servico-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .servico-icon {
-            font-size: 40px;
-            display: block;
-        }
-
-        .servico-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .servico-card p {
-            font-size: 15px;
-            color: var(--text-light);
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        /* ===== BENEFÍCIOS ===== */
-        .beneficios {
-            padding: 100px 0;
-            background: var(--light);
-        }
-
+        /* ===== CARDS ===== */
+        .servicos-grid,
         .beneficios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
         }
 
+        .servico-card,
         .beneficio-item {
             background: white;
-            padding: 32px;
-            border-radius: 12px;
             border: 1px solid var(--border);
-            text-align: center;
+            border-radius: 12px;
+            padding: 32px 24px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
+        .servico-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .servico-card:hover,
         .beneficio-item:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
             border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
         }
 
+        .servico-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .servico-icon,
         .beneficio-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
         }
 
+        .servico-card h3,
         .beneficio-item h3 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             color: var(--dark);
+            font-family: 'Poppins', sans-serif;
         }
 
+        .servico-card p,
         .beneficio-item p {
-            font-size: 14px;
             color: var(--text-light);
+            font-size: 14px;
             line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         /* ===== SOBRE ===== */
-        .sobre {
-            padding: 100px 0;
-            background: white;
-        }
-
         .sobre-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -550,7 +591,22 @@
             opacity: 0.8;
         }
 
-        /* ===== DISCLAIMER SECTION - IMPORTANTE PARA GOOGLE ADS ===== */
+        @media (max-width: 768px) {
+            .sobre-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .sobre-text h2 {
+                font-size: 32px;
+            }
+
+            .sobre-image {
+                font-size: 120px;
+            }
+        }
+
+        /* ===== DISCLAIMER SECTION ===== */
         .disclaimer-section {
             padding: 60px 0;
             background: #f0f4f8;
@@ -619,7 +675,6 @@
 
         /* ===== FAQ ===== */
         .faq {
-            padding: 100px 0;
             background: white;
         }
 
@@ -735,7 +790,6 @@
 
         /* ===== CONTATO ===== */
         .contato {
-            padding: 100px 0;
             background: var(--light);
         }
 
@@ -964,7 +1018,6 @@
             }
         }
 
-        /* ===== RESPONSIVO ===== */
         @media (max-width: 768px) {
             .footer-info-grid {
                 grid-template-columns: 1fr 1fr;
@@ -974,125 +1027,12 @@
                 padding-bottom: 16px;
             }
 
-            .nav {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                flex-direction: column;
-                background: white;
-                padding: 40px 24px;
-                gap: 24px;
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 999;
-                overflow-y: auto;
-                align-items: flex-start;
-            }
-
-            .nav.active {
-                transform: translateX(0);
-            }
-
-            .nav a {
-                font-weight: 600;
-                width: 100%;
-                padding: 12px 0;
-                border-bottom: 1px solid var(--light-secondary);
-            }
-
-            .nav a::after {
-                display: none;
-            }
-
-            .nav .btn-primary {
-                width: 100%;
-                margin-top: 20px;
-                padding: 16px;
-                font-size: 16px;
-                justify-content: center;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .btn-header {
-                display: none !important;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-                max-width: 100%;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
             .section-title {
-                font-size: 32px;
-                width: 100%;
+                font-size: 28px;
             }
 
-            .servicos-grid,
-            .beneficios-grid,
-            .contato-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sobre-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .sobre-text h2 {
-                font-size: 32px;
-            }
-
-            .cta {
-                padding: 60px 20px;
-                margin: 60px auto;
-                max-width: calc(100% - 32px);
-                border-radius: 12px;
-            }
-
-            .cta h2 {
-                font-size: 32px;
-                width: 100%;
-            }
-
-            .cta p {
-                max-width: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .disclaimer-box {
-                padding: 24px;
+            .section-description {
+                font-size: 16px;
             }
 
             .floating-icon {
@@ -1165,22 +1105,19 @@
                     <div class="logo-icon">C</div>
                     CONSULTA MEI
                 </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <nav class="nav" id="nav">
                     <a href="#servicos">Serviços</a>
                     <a href="#beneficios">Benefícios</a>
                     <a href="#sobre">Sobre</a>
                     <a href="#faq">FAQ</a>
                     <a href="#contato">Contato</a>
+                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'nav_cta'});">SOLICITAR</a>
                 </nav>
-                <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary btn-header" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'header_cta'});">Solicitar Consultoria</a>
-                    <span class="btn-header" style="font-size: 10px; color: var(--text-light); margin-top: 4px; opacity: 0.7;">Consultoria Privada</span>
-                </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
     </header>
@@ -1188,14 +1125,19 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Consultoria Profissional de Pendências MEI</h1>
-                <p class="hero-subtitle">Análise especializada e orientação fiscal para microempreendedores. Somos uma consultoria privada que oferece serviços complementares aos portais oficiais do governo.</p>
-                
-                <div class="hero-buttons">
-                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'hero_primary_cta'});">SOLICITAR CONSULTORIA<span class="btn-arrow"></span></a>
-                    <a href="#beneficios" class="btn btn-secondary">Saiba Mais</a>
+            <div class="disclaimer-banner">
+                <span class="disclaimer-banner-icon">⚠️</span>
+                <div class="disclaimer-banner-content">
+                    <strong>Aviso Importante:</strong>
+                    <p>Somos uma empresa privada de consultoria. Consultas de pendências são gratuitas em www.gov.br. Oferecemos serviços complementares de análise e orientação profissional.</p>
                 </div>
+            </div>
+            <h1>Consultoria Profissional de Pendências MEI</h1>
+            <p class="hero-subtitle">Análise especializada e orientação fiscal para microempreendedores. Somos uma consultoria privada que oferece serviços complementares aos portais oficiais do governo.</p>
+            
+            <div class="hero-buttons">
+                <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'hero_primary_cta'});">SOLICITAR CONSULTORIA<span class="btn-arrow"></span></a>
+                <a href="#beneficios" class="btn btn-secondary">Saiba Mais</a>
             </div>
         </div>
     </section>
@@ -1461,6 +1403,7 @@
                     <span class="contato-icon">📞</span>
                     <h3>Telefone</h3>
                     <p><a href="tel:+5511927818766" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'contato_telefone'});">(11) 92781-8766</a></p>
+                    <p style="font-size: 12px; margin-top: 8px;">Seg-Sex: 9h às 18h</p>
                 </div>
                 <div class="contato-item">
                     <span class="contato-icon">📧</span>
@@ -1539,8 +1482,7 @@
                 <p>Consultoria Privada Especializada em MEI</p>
             </div>
             <div class="footer-disclaimer">
-                <strong>Aviso Legal:</strong> Este não é um site governamental. Somos uma empresa privada que presta serviços de consultoria especializada em análise de pendências de CNPJ MEI. Os serviços prestados são opcionais e complementares aos portais oficiais do governo. Consultas de pendências podem ser feitas gratuitamente nos portais governamentais. Cobramos apenas pelos serviços de consultoria, análise e orientação prestados. Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD). <strong>CNPJ: 65.128.192/0001-61</strong>
-                <p style="margin-top: 16px; font-size: 11px;"><strong>Conformidade Google Ads:</strong> Este site está em conformidade com as Políticas de Anúncios do Google, incluindo divulgação clara de identidade empresarial, informações de contato verificáveis, transparência sobre serviços prestados e conformidade com regulamentações de publicidade online.</p>
+                <strong>Aviso Legal Completo:</strong> Este não é um site governamental. Somos uma empresa privada registrada (CNPJ: 65.128.192/0001-61) que presta serviços de consultoria especializada em análise de pendências de CNPJ MEI. Os serviços prestados são opcionais e complementares aos portais oficiais do governo. Consultas de pendências podem ser feitas gratuitamente nos portais governamentais. Cobramos apenas pelos serviços de consultoria, análise e orientação prestados. Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD). Conformidade Google Ads: Este site está em conformidade com as Políticas de Anúncios do Google, incluindo divulgação clara de identidade empresarial, informações de contato verificáveis, transparência sobre serviços prestados e conformidade com regulamentações de publicidade online.
             </div>
         </div>
     </footer>
