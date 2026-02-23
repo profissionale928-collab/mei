@@ -938,6 +938,32 @@
             font-style: italic;
         }
 
+        /* ===== NOTIFICAÇÕES DE SUCESSO ===== */
+        .success-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success-color);
+            color: white;
+            padding: 16px 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 1001;
+            display: none;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 640px) {
             .header-content {
@@ -1643,7 +1669,7 @@
 
     <!-- Notificação de Sucesso -->
     <div class="success-notification" id="successNotification">
-        ✅ Dados validados com sucesso!
+        
     </div>
 
     <script>
