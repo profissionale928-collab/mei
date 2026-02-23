@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consulte pendências do seu CNPJ MEI. Serviço de consultoria privada que ajuda a identificar e regularizar pendências fiscais. Orientação profissional para microempreendedores.">
-    <meta name="keywords" content="MEI, CNPJ, pendências, consulta, regularização, consultoria, microempreendedor">
+    <meta name="description" content="Consultoria privada especializada em análise de pendências de CNPJ MEI. Serviço profissional de assessoria fiscal para microempreendedores. Não é um site governamental.">
+    <meta name="keywords" content="consultoria MEI, assessoria fiscal, pendências CNPJ, regularização fiscal, microempreendedor">
     <meta name="author" content="Facil Negocios & Assessoria LTDA">
     <meta name="copyright" content="2024 Facil Negocios & Assessoria LTDA">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Portuguese">
     <meta name="revisit-after" content="7 days">
-    <meta property="og:title" content="Consulta de Pendências MEI - Consultoria Privada">
-    <meta property="og:description" content="Identifique e regularize pendências do seu CNPJ MEI com orientação profissional de consultores especializados.">
+    <meta property="og:title" content="Consultoria Privada de Pendências MEI - Facil Negocios">
+    <meta property="og:description" content="Consultoria profissional especializada em análise e orientação sobre pendências de CNPJ MEI. Empresa privada de assessoria fiscal.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.meuservicomei.com.br">
     <meta property="og:image" content="https://www.meuservicomei.com.br/og-image.jpg">
@@ -23,8 +23,8 @@
         "@type": "LocalBusiness",
         "name": "Facil Negocios & Assessoria LTDA",
         "image": "https://www.meuservicomei.com.br/logo.png",
-        "description": "Consultoria privada especializada em consulta e regularização de pendências de CNPJ MEI.",
-        "url": "https://www.www.meuservicomei.com.br.com.br",
+        "description": "Consultoria privada especializada em análise de pendências e orientação fiscal para CNPJ MEI.",
+        "url": "https://www.meuservicomei.com.br",
         "telephone": "+5511927818766",
         "email": "contato@meiassessoria.com.br",
         "address": {
@@ -64,7 +64,7 @@
         "taxID": "65.128.192/0001-61",
         "url": "https://www.meuservicomei.com.br",
         "logo": "https://www.meuservicomei.com.br/logo.png",
-        "description": "Consultoria especializada em consulta de pendências e regularização de CNPJ MEI",
+        "description": "Consultoria privada especializada em análise de pendências e orientação fiscal para CNPJ MEI",
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Customer Service",
@@ -94,7 +94,7 @@
         gtag('config', 'AW-XXXXXXXXXX');
     </script>
 
-    <title>Consulta de Pendências MEI - Facil Negocios & Assessoria</title>
+    <title>Consultoria Privada de Pendências MEI - Facil Negocios & Assessoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== RESET E VARIÁVEIS ===== */
@@ -306,8 +306,6 @@
             background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
-            padding: 8px 20px;
-            font-size: 13px;
         }
 
         .btn-outline:hover {
@@ -315,44 +313,36 @@
             color: white;
         }
 
-        .btn-arrow {
-            display: inline-block;
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 0px solid transparent;
-            border-top: 8px solid currentColor;
-            margin-left: 8px;
+        /* ===== COMPLIANCE BANNER ===== */
+        .compliance-banner {
+            background: linear-gradient(135deg, #FFF3CD 0%, #FFE69C 100%);
+            border-bottom: 2px solid var(--warning);
+            padding: 16px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .compliance-banner strong {
+            color: #721c24;
         }
 
         /* ===== HERO ===== */
         .hero {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 82, 204, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0, 61, 130, 0.05) 0%, rgba(0, 168, 232, 0.05) 100%);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .hero h1 {
             font-size: 56px;
             font-weight: 800;
-            margin-bottom: 24px;
             color: var(--dark);
             font-family: 'Poppins', sans-serif;
             line-height: 1.2;
@@ -361,19 +351,23 @@
         .hero-subtitle {
             font-size: 20px;
             color: var(--text-light);
-            margin-bottom: 40px;
             max-width: 600px;
             line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
+            margin-top: 16px;
             flex-wrap: wrap;
-            margin-bottom: 60px;
         }
 
-        /* ===== SEÇÕES ===== */
+        .btn-arrow {
+            font-size: 18px;
+            margin-left: 4px;
+        }
+
+        /* ===== SECTION STYLES ===== */
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -381,11 +375,11 @@
 
         .section-label {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
+            background: var(--light-secondary);
+            color: var(--primary);
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -393,15 +387,15 @@
         }
 
         .section-title {
-            font-size: 44px;
+            font-size: 48px;
             font-weight: 800;
-            margin-bottom: 16px;
             color: var(--dark);
+            margin-bottom: 16px;
             font-family: 'Poppins', sans-serif;
         }
 
         .section-description {
-            font-size: 16px;
+            font-size: 18px;
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
@@ -422,83 +416,62 @@
 
         .servico-card {
             background: white;
-            padding: 40px 32px;
+            padding: 40px;
             border-radius: 12px;
             border: 1px solid var(--border);
             transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .servico-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--gold));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .servico-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
             transform: translateY(-8px);
-        }
-
-        .servico-card:hover::before {
-            transform: scaleX(1);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
 
         .servico-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 40px;
             display: block;
         }
 
         .servico-card h3 {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
             color: var(--dark);
-            font-family: 'Poppins', sans-serif;
         }
 
         .servico-card p {
+            font-size: 15px;
             color: var(--text-light);
-            font-size: 14px;
             line-height: 1.6;
-            margin-bottom: 24px;
+            flex-grow: 1;
         }
 
         /* ===== BENEFÍCIOS ===== */
         .beneficios {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e8eef5 100%);
+            background: var(--light);
         }
 
         .beneficios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
         }
 
         .beneficio-item {
             background: white;
-            padding: 32px 24px;
+            padding: 32px;
             border-radius: 12px;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
         .beneficio-item:hover {
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             transform: translateY(-4px);
             border-color: var(--primary);
         }
@@ -577,12 +550,12 @@
             opacity: 0.8;
         }
 
-        /* ===== DISCLAIMER ===== */
+        /* ===== DISCLAIMER SECTION - IMPORTANTE PARA GOOGLE ADS ===== */
         .disclaimer-section {
             padding: 60px 0;
             background: #f0f4f8;
-            border-top: 2px solid var(--warning);
-            border-bottom: 2px solid var(--warning);
+            border-top: 3px solid var(--warning);
+            border-bottom: 3px solid var(--warning);
         }
 
         .disclaimer-box {
@@ -608,6 +581,10 @@
             margin-bottom: 16px;
         }
 
+        .disclaimer-box strong {
+            color: var(--danger);
+        }
+
         .disclaimer-box ul {
             margin-left: 20px;
             margin-bottom: 16px;
@@ -618,6 +595,26 @@
             color: var(--text-dark);
             line-height: 1.8;
             margin-bottom: 8px;
+        }
+
+        .compliance-info {
+            background: #E8F4F8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .compliance-info h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .compliance-info p {
+            font-size: 14px;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
         /* ===== FAQ ===== */
@@ -723,8 +720,6 @@
 
         .cta .btn-secondary {
             background: white;
-            color: var(--primary);
-            border: none;
         }
 
         .cta .btn-secondary:hover {
@@ -892,6 +887,7 @@
             font-size: 13px;
             line-height: 1.8;
             color: #cbd5e1;
+            border-left: 4px solid var(--warning);
         }
 
         .footer-disclaimer strong {
@@ -1000,7 +996,6 @@
             }
 
             .nav a {
-                font-size: 18px;
                 font-weight: 600;
                 width: 100%;
                 padding: 12px 0;
@@ -1161,6 +1156,7 @@
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1177,8 +1173,8 @@
                     <a href="#contato">Contato</a>
                 </nav>
                 <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary btn-header" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'header_cta'});">Consultar Pendências</a>
-                    <span class="btn-header" style="font-size: 10px; color: var(--text-light); margin-top: 4px; opacity: 0.7;">Empresa Privada</span>
+                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary btn-header" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'header_cta'});">Solicitar Consultoria</a>
+                    <span class="btn-header" style="font-size: 10px; color: var(--text-light); margin-top: 4px; opacity: 0.7;">Consultoria Privada</span>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
                     <span></span>
@@ -1193,11 +1189,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Consulte Pendências do Seu CNPJ MEI</h1>
-                <p class="hero-subtitle">Identifique e regularize pendências fiscais com orientação profissional. Nossa consultoria privada oferece análise especializada para microempreendedores que desejam manter seus registros em dia.</p>
+                <h1>Consultoria Profissional de Pendências MEI</h1>
+                <p class="hero-subtitle">Análise especializada e orientação fiscal para microempreendedores. Somos uma consultoria privada que oferece serviços complementares aos portais oficiais do governo.</p>
                 
                 <div class="hero-buttons">
-                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'hero_primary_cta'});">INICIAR CONSULTA<span class="btn-arrow"></span></a>
+                    <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'hero_primary_cta'});">SOLICITAR CONSULTORIA<span class="btn-arrow"></span></a>
                     <a href="#beneficios" class="btn btn-secondary">Saiba Mais</a>
                 </div>
             </div>
@@ -1209,25 +1205,25 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Nossos Serviços</span>
-                <h2 class="section-title">Consulta e Regularização de Pendências</h2>
-                <p class="section-description">Oferecemos consultoria especializada para identificar e resolver pendências do seu CNPJ MEI.</p>
+                <h2 class="section-title">Consultoria e Orientação Fiscal</h2>
+                <p class="section-description">Oferecemos consultoria especializada para análise e orientação sobre pendências do seu CNPJ MEI.</p>
             </div>
             <div class="servicos-grid">
                 <div class="servico-card">
                     <span class="servico-icon">🔍</span>
-                    <h3>Consulta de Pendências</h3>
-                    <p>Análise completa do seu CNPJ MEI para identificar débitos, multas e pendências fiscais junto aos órgãos governamentais.</p>
+                    <h3>Análise de Pendências</h3>
+                    <p>Análise profissional do seu CNPJ MEI para identificar débitos, multas e pendências fiscais junto aos órgãos governamentais.</p>
                     <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_consulta'});">Saiba Mais</a>
                 </div>
                 <div class="servico-card">
                     <span class="servico-icon">📋</span>
                     <h3>Orientação em Regularização</h3>
-                    <p>Consultoria para regularizar pendências de forma segura, orientando sobre opções de parcelamento e negociação com órgãos fiscais.</p>
+                    <p>Consultoria para orientar sobre opções de regularização, parcelamento e negociação com órgãos fiscais.</p>
                     <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_regularizacao'});">Saiba Mais</a>
                 </div>
                 <div class="servico-card">
                     <span class="servico-icon">📊</span>
-                    <h3>Análise de Declarações</h3>
+                    <h3>Revisão de Declarações</h3>
                     <p>Revisão de DASN-SIMEI e outras declarações para identificar erros que possam gerar pendências futuras.</p>
                     <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_analise'});">Saiba Mais</a>
                 </div>
@@ -1239,14 +1235,14 @@
                 </div>
                 <div class="servico-card">
                     <span class="servico-icon">🛡️</span>
-                    <h3>Proteção Preventiva</h3>
-                    <p>Monitoramento e orientação contínua para evitar o surgimento de novas pendências no seu registro.</p>
+                    <h3>Monitoramento Preventivo</h3>
+                    <p>Monitoramento e orientação contínua para ajudar a evitar o surgimento de novas pendências no seu registro.</p>
                     <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_protecao'});">Saiba Mais</a>
                 </div>
                 <div class="servico-card">
                     <span class="servico-icon">📞</span>
                     <h3>Suporte Especializado</h3>
-                    <p>Atendimento personalizado para esclarecer dúvidas e orientar você em cada etapa do processo de regularização.</p>
+                    <p>Atendimento personalizado para esclarecer dúvidas e orientar você em cada etapa do processo.</p>
                     <a href="#contato" class="btn btn-outline" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'servico_suporte'});">Saiba Mais</a>
                 </div>
             </div>
@@ -1302,14 +1298,14 @@
             <div class="sobre-content">
                 <div class="sobre-text">
                     <h2>Quem Somos</h2>
-                    <p>Somos uma consultoria privada especializada em regularização de pendências e consultoria fiscal para microempreendedores. Com mais de 10 anos de experiência, ajudamos milhares de MEI a manter seus registros em dia.</p>
-                    <p>Nossa missão é simplificar o processo de regularização fiscal, oferecendo orientação profissional clara e acessível para todos os microempreendedores brasileiros.</p>
+                    <p>Somos uma consultoria privada especializada em análise de pendências e consultoria fiscal para microempreendedores. Com mais de 10 anos de experiência, ajudamos milhares de MEI com orientação profissional.</p>
+                    <p>Nossa missão é simplificar o processo de orientação fiscal, oferecendo consultoria clara e acessível para todos os microempreendedores brasileiros.</p>
                     <ul class="sobre-list">
                         <li>Equipe especializada em direito fiscal e tributário</li>
-                        <li>Mais de 15.000 clientes satisfeitos</li>
-                        <li>Taxa de sucesso de 98% em regularizações</li>
+                        <li>Mais de 15.000 clientes atendidos</li>
+                        <li>Histórico de excelência em orientação fiscal</li>
                         <li>Suporte especializado disponível</li>
-                        <li>Orientação transparente e sem compromissos</li>
+                        <li>Transparência total sobre serviços e taxas</li>
                     </ul>
                 </div>
                 <div class="sobre-image">
@@ -1326,21 +1322,26 @@
                 <div class="disclaimer-title">
                     ⚠️ Informações Importantes - Conformidade com Políticas de Publicidade
                 </div>
-                <p><strong>Este não é um site governamental.</strong> Somos uma empresa privada que presta serviços de consultoria especializada em consulta e regularização de pendências de CNPJ MEI.</p>
+                <p><strong>Este não é um site governamental.</strong> Somos uma empresa privada que presta serviços de consultoria especializada em análise de pendências de CNPJ MEI.</p>
                 
                 <p><strong>Transparência sobre nossos serviços:</strong></p>
                 <ul>
-                    <li>Oferecemos orientação e consultoria sobre pendências fiscais e regularização</li>
-                    <li>Os serviços prestados são opcionais e complementares aos portais oficiais do governo</li>
-                    <li>Consultas de pendências podem ser feitas gratuitamente nos portais oficiais (www.gov.br, Receita Federal, etc.)</li>
+                    <li>Oferecemos <strong>consultoria e orientação</strong> sobre pendências fiscais</li>
+                    <li>Os serviços prestados são <strong>opcionais e complementares</strong> aos portais oficiais do governo</li>
+                    <li>Consultas de pendências podem ser feitas <strong>gratuitamente</strong> nos portais oficiais (www.gov.br, Receita Federal, INSS, etc.)</li>
                     <li>Cobramos apenas pelos serviços de consultoria, análise e orientação prestados</li>
                     <li>Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD)</li>
-                    <li>Nós não realizamos procedimentos administrativos; orientamos você a realizar nos órgãos competentes</li>
+                    <li>Nós <strong>não realizamos procedimentos administrativos</strong>; orientamos você a realizar nos órgãos competentes</li>
                 </ul>
 
-                <p><strong>Sobre resultados:</strong> A regularização de pendências depende da análise e aprovação dos órgãos fiscais competentes. Nós oferecemos consultoria para aumentar as chances de sucesso, mas não garantimos resultados específicos.</p>
+                <p><strong>Sobre resultados:</strong> A regularização de pendências depende da análise e aprovação dos órgãos fiscais competentes. Nós oferecemos consultoria para aumentar as chances de sucesso, mas <strong>não garantimos resultados específicos</strong>.</p>
 
-                <p><strong>Atendimento:</strong> Entre em contato conosco para esclarecer dúvidas sobre nossos serviços, taxas e processo de consulta.</p>
+                <div class="compliance-info">
+                    <h4>🔗 Acesso Direto aos Portais Oficiais Gratuitos</h4>
+                    <p>Você pode consultar suas pendências gratuitamente diretamente nos portais oficiais do governo. Nós oferecemos consultoria para ajudar na interpretação e orientação sobre como proceder.</p>
+                </div>
+
+                <p><strong>Atendimento:</strong> Entre em contato conosco para esclarecer dúvidas sobre nossos serviços, taxas, processo de consultoria e como podemos ajudar seu negócio.</p>
             </div>
         </div>
     </section>
@@ -1351,7 +1352,7 @@
             <div class="section-header">
                 <span class="section-label">Dúvidas</span>
                 <h2 class="section-title">Perguntas Frequentes</h2>
-                <p class="section-description">Encontre respostas para as dúvidas mais comuns sobre consulta de pendências MEI.</p>
+                <p class="section-description">Encontre respostas para as dúvidas mais comuns sobre consultoria de pendências MEI.</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
@@ -1366,11 +1367,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Como posso consultar minhas pendências?</span>
+                        <span>Como posso consultar minhas pendências gratuitamente?</span>
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Você pode consultar gratuitamente nos portais oficiais como www.gov.br, Receita Federal e INSS. Nossa consultoria oferece análise profissional e orientação sobre como regularizar essas pendências.</p>
+                        <p>Você pode consultar gratuitamente nos portais oficiais como www.gov.br, Receita Federal e INSS. Nossa consultoria oferece análise profissional e orientação sobre como interpretar e regularizar essas pendências.</p>
                     </div>
                 </div>
 
@@ -1396,7 +1397,7 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Quanto custa a consultoria de pendências?</span>
+                        <span>Quanto custa a consultoria?</span>
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
@@ -1430,7 +1431,7 @@
                         <span class="faq-icon">▼</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Você pode nos contatar por telefone, email ou WhatsApp. Realizamos uma análise inicial, apresentamos um plano de ação personalizado e oferecemos suporte contínuo durante todo o processo de regularização.</p>
+                        <p>Você pode nos contatar por telefone, email ou WhatsApp. Realizamos uma análise inicial, apresentamos um plano de ação personalizado e oferecemos suporte contínuo durante todo o processo de consultoria.</p>
                     </div>
                 </div>
             </div>
@@ -1440,10 +1441,10 @@
     <!-- CTA -->
     <section class="cta">
         <div class="container">
-            <h2>Regularize Suas Pendências com Segurança</h2>
-            <p>Não deixe pendências acumularem. Procure nossa consultoria especializada para identificar e resolver problemas fiscais antes que se tornem mais graves.</p>
+            <h2>Regularize Suas Pendências com Orientação Profissional</h2>
+            <p>Não deixe pendências acumularem. Procure nossa consultoria especializada para receber orientação profissional e aumentar suas chances de sucesso.</p>
             <a href="https://meuservicomei.com.br/PEND" target="_blank" class="btn btn-secondary" style="font-size: 1.2rem; padding: 16px 40px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'cta_principal'});">SOLICITAR CONSULTORIA</a>
-            <p class="cta-disclaimer">Aviso: Somos uma empresa de consultoria privada. Não somos o governo. Consultas oficiais podem ser feitas gratuitamente nos portais governamentais.</p>
+            <p class="cta-disclaimer">Aviso: Somos uma consultoria privada. Não somos o governo. Consultas oficiais podem ser feitas gratuitamente nos portais governamentais.</p>
         </div>
     </section>
 
@@ -1453,14 +1454,13 @@
             <div class="section-header">
                 <span class="section-label">Fale Conosco</span>
                 <h2 class="section-title">Entre em Contato</h2>
-                <p class="section-description">Estamos aqui para ajudar você a regularizar suas pendências e manter seu MEI em dia.</p>
+                <p class="section-description">Estamos aqui para ajudar você com consultoria especializada em pendências MEI.</p>
             </div>
             <div class="contato-grid">
                 <div class="contato-item">
                     <span class="contato-icon">📞</span>
                     <h3>Telefone</h3>
                     <p><a href="tel:+5511927818766" onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'contato_telefone'});">(11) 92781-8766</a></p>
-                    <p style="font-size: 12px; margin-top: 8px;">Seg-Sex: 9h às 18h</p>
                 </div>
                 <div class="contato-item">
                     <span class="contato-icon">📧</span>
@@ -1491,9 +1491,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Serviços</h3>
-                    <a href="#servicos">Consulta de Pendências</a>
-                    <a href="#contato">Regularização Fiscal</a>
-                    <a href="#contato">Análise de Declarações</a>
+                    <a href="#servicos">Análise de Pendências</a>
+                    <a href="#contato">Consultoria Fiscal</a>
+                    <a href="#contato">Revisão de Declarações</a>
                     <a href="#contato">Suporte Especializado</a>
                 </div>
                 <div class="footer-section">
@@ -1504,7 +1504,7 @@
                     <a href="#disclaimer">Disclaimer</a>
                 </div>
                 <div class="footer-section">
-                    <h3>Governo</h3>
+                    <h3>Portais Oficiais Gratuitos</h3>
                     <a href="https://www.gov.br/empresas" target="_blank">Portal de Empresas</a>
                     <a href="https://www.gov.br/" target="_blank">Gov.br</a>
                     <a href="https://www.inss.gov.br/" target="_blank">INSS</a>
@@ -1525,22 +1525,22 @@
                     </div>
                     <div class="footer-info-item">
                         <h4>Razão Social</h4>
-                        <p>Facil Negocios & Assessoria LTDA</p>
+                        <p><strong>Facil Negocios & Assessoria LTDA</strong></p>
                     </div>
                     <div class="footer-info-item">
                         <h4>CNPJ</h4>
-                        <p>65.128.192/0001-61</p>
+                        <p><strong>65.128.192/0001-61</strong></p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2024 Facil Negocios & Assessoria LTDA. Todos os direitos reservados.</p>
-                <p>Desenvolvido com ❤️ para microempreendedores</p>
+                <p>Consultoria Privada Especializada em MEI</p>
             </div>
             <div class="footer-disclaimer">
-                <strong>Aviso Legal:</strong> Este não é um site governamental. Somos uma empresa privada que presta serviços de consultoria especializada em consulta e regularização de pendências de CNPJ MEI. Os serviços prestados são opcionais e complementares aos portais oficiais do governo. Consultas de pendências podem ser feitas gratuitamente nos portais governamentais. Cobramos apenas pelos serviços de consultoria, análise e orientação prestados. Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD). CNPJ: 65.128.192/0001-61
-                <p style="margin-top: 16px; font-size: 11px;"><strong>Conformidade:</strong> Este site está em conformidade com as Políticas de Anúncios do Google, incluindo divulgação clara de identidade empresarial, informações de contato verificáveis, transparência sobre serviços prestados e conformidade com regulamentações de publicidade online.</p>
+                <strong>Aviso Legal:</strong> Este não é um site governamental. Somos uma empresa privada que presta serviços de consultoria especializada em análise de pendências de CNPJ MEI. Os serviços prestados são opcionais e complementares aos portais oficiais do governo. Consultas de pendências podem ser feitas gratuitamente nos portais governamentais. Cobramos apenas pelos serviços de consultoria, análise e orientação prestados. Todos os dados pessoais são protegidos conforme Lei Geral de Proteção de Dados (LGPD). <strong>CNPJ: 65.128.192/0001-61</strong>
+                <p style="margin-top: 16px; font-size: 11px;"><strong>Conformidade Google Ads:</strong> Este site está em conformidade com as Políticas de Anúncios do Google, incluindo divulgação clara de identidade empresarial, informações de contato verificáveis, transparência sobre serviços prestados e conformidade com regulamentações de publicidade online.</p>
             </div>
         </div>
     </footer>
