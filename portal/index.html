@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facil Negocios & Assessoria LTDA - Consultoria para Pequenas Empresas</title>
+    <meta name="description" content="Consultoria empresarial especializada em pequenas empresas. Gestão financeira, planejamento estratégico e otimização de processos.">
+    <meta name="keywords" content="consultoria, pequenas empresas, gestão empresarial, assessoria, LTDA">
+    <meta name="author" content="Facil Negocios & Assessoria LTDA">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #0f766e;
+            --accent-color: #dc2626;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #16a34a;
+            --warning-color: #ea580c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #ffffff;
+        }
+
+        /* Header e Navegação */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            border-bottom-color: white;
+        }
+
+        .btn-contact {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-contact:hover {
+            background-color: #b91c1c;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Container padrão */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Seções */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section.light {
+            background-color: var(--light-bg);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            text-align: center;
+        }
+
+        section > .container > p:first-of-type {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            border-left-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .service-card p {
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        /* Diferenciais */
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .differential-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .differential-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .differential-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .differential-item p {
+            color: var(--light-text);
+        }
+
+        /* Testimoniais */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .testimonial-text {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-company {
+            color: var(--light-text);
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Contato */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .contact-item p {
+            color: var(--light-text);
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Formulário */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #1e3a8a;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+
+        .form-message.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 2rem;
+                top: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .differentials-grid,
+            .testimonials-grid,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">FN</div>
+                <span>Facil Negocios</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav id="navMenu">
+                <a href="#servicos">Serviços</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#contato">Contato</a>
+                <button class="btn-contact" onclick="scrollToContact()">Solicitar Orçamento</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Consultoria Empresarial para Pequenas Empresas</h1>
+            <p>Transforme sua empresa com estratégias comprovadas de gestão, planejamento financeiro e otimização de processos</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToContact()">Agendar Consulta</button>
+                <button class="btn-secondary" onclick="document.getElementById('servicos').scrollIntoView({behavior: 'smooth'})">Conhecer Serviços</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="light">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <p>Soluções completas e personalizadas para o crescimento do seu negócio</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3>Gestão Financeira</h3>
+                    <p>Análise detalhada de fluxo de caixa, planejamento orçamentário, controle de custos e otimização de receitas para maximizar a lucratividade.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎯</div>
+                    <h3>Planejamento Estratégico</h3>
+                    <p>Desenvolvimento de planos de ação estratégicos, definição de metas realistas e implementação de metodologias de gestão eficazes.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Otimização de Processos</h3>
+                    <p>Análise e melhoria de processos operacionais, automação de tarefas e implementação de sistemas para aumentar a eficiência.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👥</div>
+                    <h3>Gestão de Recursos Humanos</h3>
+                    <p>Estruturação de equipes, desenvolvimento de políticas internas, treinamento de colaboradores e alinhamento cultural organizacional.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📈</div>
+                    <h3>Crescimento e Escalabilidade</h3>
+                    <p>Estratégias para expansão de mercado, diversificação de produtos/serviços e preparação para crescimento sustentável.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📋</div>
+                    <h3>Conformidade Regulatória</h3>
+                    <p>Orientação sobre compliance, legislação fiscal, trabalhista e ambiental, garantindo que sua empresa esteja sempre regularizada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais">
+        <div class="container">
+            <h2>Por Que Nos Escolher</h2>
+            <p>Experiência, dedicação e resultados comprovados</p>
+            <div class="differentials-grid">
+                <div class="differential-item">
+                    <div class="differential-number">15+</div>
+                    <h3>Anos de Experiência</h3>
+                    <p>Trajetória sólida em consultoria empresarial com expertise consolidada</p>
+                </div>
+                <div class="differential-item">
+                    <div class="differential-number">500+</div>
+                    <h3>Empresas Atendidas</h3>
+                    <p>Portfólio diverso de clientes em diferentes segmentos e tamanhos</p>
+                </div>
+                <div class="differential-item">
+                    <div class="differential-number">98%</div>
+                    <h3>Taxa de Satisfação</h3>
+                    <p>Clientes satisfeitos e relacionamentos duradouros com nossas empresas</p>
+                </div>
+                <div class="differential-item">
+                    <div class="differential-number">30%</div>
+                    <h3>Aumento Médio em Lucro</h3>
+                    <p>Resultados mensuráveis e impacto direto no resultado financeiro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="light">
+        <div class="container">
+            <h2>O Que Nossos Clientes Dizem</h2>
+            <p>Histórias de sucesso e transformação empresarial</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"A Facil Negocios transformou completamente a gestão financeira da nossa empresa. Em 6 meses, conseguimos aumentar o lucro em 35% e reduzir custos operacionais significativamente."</p>
+                    <p class="testimonial-author">Carlos Silva</p>
+                    <p class="testimonial-company">Diretor - Indústria de Alimentos</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Profissionais altamente qualificados e dedicados. O planejamento estratégico desenvolvido nos ajudou a expandir para novos mercados com segurança e eficiência."</p>
+                    <p class="testimonial-author">Mariana Costa</p>
+                    <p class="testimonial-company">Gerente Geral - Comércio Varejista</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Excelente atendimento e consultoria de qualidade. Implementaram processos que tornaram nossa operação muito mais ágil e produtiva. Recomendo fortemente!"</p>
+                    <p class="testimonial-author">Roberto Mendes</p>
+                    <p class="testimonial-company">Sócio - Empresa de Serviços</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Transformar Seu Negócio?</h2>
+            <p>Entre em contato conosco e descubra como podemos ajudar sua empresa a crescer de forma sustentável</p>
+            <button class="btn-primary" onclick="scrollToContact()">Solicitar Consulta Gratuita</button>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p>Estamos aqui para ajudar sua empresa a alcançar novos patamares</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:contato@assessoriafacil.com.br">contato@assessoriafacil.com.br</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/5511927818766" target="_blank">(11) 92781-8766</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🏢</div>
+                    <h3>CNPJ</h3>
+                    <p>65.128.192/0001-61</p>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone/WhatsApp *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(11) 9XXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Empresa *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Enviar Mensagem</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Facil Negocios & Assessoria</h3>
+                <p>Consultoria empresarial especializada em pequenas e médias empresas, com foco em resultados mensuráveis e crescimento sustentável.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <a href="#servicos">Serviços</a><br>
+                <a href="#diferenciais">Diferenciais</a><br>
+                <a href="#depoimentos">Depoimentos</a><br>
+                <a href="#contato">Contato</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📧 <a href="mailto:contato@assessoriafacil.com.br">contato@assessoriafacil.com.br</a></p>
+                <p>📱 <a href="https://wa.me/5511927818766" target="_blank">(11) 92781-8766</a></p>
+                <p>🏢 CNPJ: 65.128.192/0001-61</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Facil Negocios & Assessoria LTDA. Todos os direitos reservados.</p>
+            <p>Desenvolvido com dedicação para o sucesso do seu negócio.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">↑</div>
+
+    <script>
+        // Menu Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll to Contact
+        function scrollToContact() {
+            document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Formulário de Contato
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Validação básica
+            if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.message) {
+                showFormMessage('Por favor, preencha todos os campos.', 'error');
+                return;
+            }
+
+            // Validação de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showFormMessage('Por favor, insira um email válido.', 'error');
+                return;
+            }
+
+            // Simular envio (em produção, isso seria enviado para um servidor)
+            try {
+                // Armazenar dados no localStorage para demonstração
+                let submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                submissions.push(formData);
+                localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+
+                // Preparar mensagem para WhatsApp
+                const whatsappMessage = encodeURIComponent(
+                    `Olá! Meu nome é ${formData.name}.\n\n` +
+                    `Empresa: ${formData.company}\n` +
+                    `Email: ${formData.email}\n` +
+                    `Telefone: ${formData.phone}\n\n` +
+                    `Mensagem:\n${formData.message}`
+                );
+
+                // Abrir WhatsApp em nova aba (sem bloquear o formulário)
+                window.open(`https://wa.me/5511927818766?text=${whatsappMessage}`, '_blank');
+
+                // Mostrar mensagem de sucesso
+                showFormMessage('Mensagem enviada com sucesso! Você será redirecionado para o WhatsApp.', 'success');
+
+                // Limpar formulário
+                contactForm.reset();
+
+                // Limpar mensagem após 5 segundos
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+
+            } catch (error) {
+                showFormMessage('Ocorreu um erro ao enviar a mensagem. Tente novamente.', 'error');
+                console.error('Erro:', error);
+            }
+        });
+
+        function showFormMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+        }
+
+        // Observador para animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Validação de telefone em tempo real
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) {
+                    value = value.slice(0, 11);
+                }
+                if (value.length > 7) {
+                    value = value.slice(0, 7) + '-' + value.slice(7);
+                }
+                if (value.length > 2) {
+                    value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
+                }
+                e.target.value = value;
+            });
+        }
+
+        // Adicionar animação ao carregar a página
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.service-card, .testimonial-card').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
