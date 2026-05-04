@@ -1758,11 +1758,13 @@
             const infoItems = [
                 { label: 'CNPJ', value: formattedCnpj || data.cnpj || '-' },
                 { label: 'Situação', value: '<span class="status-pending">Pendências Ativas</span>' },
-                { label: 'Razão Social', value: data.name || '-' },
+                { label: 'Razão Social', value: data.company?.name || data.name || '-' },
                 { label: 'Natureza Jurídica', value: 'MEI' },
                 { label: 'Data de Abertura', value: data.founded || '-' },
-                { label: 'Atividade Principal', value: data.mainActivity?.description || '-' },
-                { label: 'Endereço', value: `${data.address?.street || ''}, ${data.address?.number || ''} - ${data.address?.city || ''}/${data.address?.state || ''}`.trim() }
+                { label: 'Atividade Principal', value: data.mainActivity?.description || data.company?.mainActivity?.description || '-' },
+                { label: 'Endereço', value: `${data.address?.street || ''}, ${data.address?.number || ''} ${data.address?.complement || ''} - ${data.address?.district || ''}, ${data.address?.city || ''}/${data.address?.state || ''} - CEP: ${data.address?.zip || ''}`.trim() },
+                { label: 'Telefone', value: data.phones?.[0]?.number || '-' },
+                { label: 'E-mail', value: data.emails?.[0]?.address || '-' }
             ];
 
             const htmlContent = infoItems.map(item => `
