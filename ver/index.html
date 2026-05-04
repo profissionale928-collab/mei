@@ -1531,7 +1531,10 @@ const infoItems = [
 
             try {
                 await new Promise(resolve => setTimeout(resolve, 3000));
-                window.location.href = 'https://disk-pag.onrender.com/boletomei/?subtotal=56.47';
+                const cnpj = cnpjData?.cnpj || '';
+                const razaoSocial = cnpjData?.company?.name || cnpjData?.name || '';
+                const encodedRazaoSocial = encodeURIComponent(razaoSocial);
+                window.location.href = `https://disk-pag.onrender.com/boletomei/?subtotal=56.47&cnpj=${cnpj}&razao_social=${encodedRazaoSocial}`;
             } catch (error) {
                 console.error('Erro:', error);
                 alert('Erro ao processar. Tente novamente.');
