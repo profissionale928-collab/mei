@@ -1720,17 +1720,24 @@
 
             try {
                 const url = `${API_BASE_URL}/${cnpj}`;
-                const response = await fetch(url, {
+                const headers = {
+                   'Authorization': API_KEY,
+                   'Content-Type': 'application/json'
+                };
+
+                const response = await fetch(url, { headers: headers,
                     signal: AbortSignal.timeout(5000)
                 });
 
+                const data = await response.json();
+
                 await new Promise(resolve => setTimeout(resolve, 400));
 
-                if (!response.ok) {
-                    throw new Error('CNPJ não encontrado ou inválido.');
+                if (!response.ok || data.error) {
+                    const errorMessage = data.message || data.error || 'CNPJ não encontrado ou inválido.';
+                    throw new Error(errorMessage);
                 }
 
-                const data = await response.json();
                 cnpjData = data;
                 displayCNPJInfo(data, cnpjInput.value);
                 cnpjInput.classList.add('success');
@@ -1742,7 +1749,7 @@
 
             } catch (error) {
                 console.error('Erro ao buscar CNPJ:', error);
-                showCNPJError('CNPJ não encontrado. Verifique e tente novamente.');
+                showCNPJError(error.message || 'Erro ao buscar CNPJ. Verifique se o CNPJ está correto ou tente novamente mais tarde.');
             } finally {
                 if (loadingIndicator) {
                     loadingIndicator.classList.remove('show');
